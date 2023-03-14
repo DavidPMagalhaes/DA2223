@@ -1,0 +1,3 @@
+/home/bianca/Documents/DA/DA2223/cmake-build-debug/CMakeFiles/DA2223.dir
+/home/bianca/Documents/DA/DA2223/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/bianca/Documents/DA/DA2223/cmake-build-debug/CMakeFiles/rebuild_cache.dir
