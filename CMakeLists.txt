@@ -8,7 +8,7 @@ include_directories(src)
 add_executable(DA2223
         src/menu.cpp
         src/menu.h
-        src/networks.cpp
-        src/networks.h
-        src/stations.cpp
-        src/stations.h)
+        src/Network.cpp
+        src/Network.h
+        src/Stations.cpp
+        src/Stations.h)

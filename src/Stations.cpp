@@ -2,7 +2,7 @@
 
 
 
-#include "stations.h"
+#include "Stations.h"
 #include "unordered_set"
 #include "FlightControl.h"
 #include <utility>
@@ -14,7 +14,7 @@
 using namespace std;
 
 
-class Station(string code, string name, string municipality, string township, string line) {
+class Station::Station(string code, string name, string municipality, string township, string line) {
     this->code = code;
     this->name = name;
     this->municipality = municipality);

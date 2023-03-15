@@ -1,7 +1,7 @@
 #include <iostream>
 #include "menu.h"
-#include "networks.h"
-#include "stations.h"
+#include "Network.h"
+#include "Stations.h"
 #include <vector>
 #include <sstream>
 #include "istream"
