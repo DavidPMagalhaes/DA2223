@@ -14,7 +14,7 @@
 using namespace std;
 
 
-Station(string code, string name, string municipality, string township, string line) {
+class Station(string code, string name, string municipality, string township, string line) {
     this->code = code;
     this->name = name;
     this->municipality = municipality);
@@ -22,27 +22,27 @@ Station(string code, string name, string municipality, string township, string l
     this->line = line;
 };
 
-string Station::getStationCode() {
+std::string Station::getStationCode() {
     return code;
 }
-string Station::getStationName() {
+std::string Station::getStationName() {
     return name;
 }
 
-string Station::getStationMunicipality() {
+std::string Station::getStationMunicipality() {
     return municipality;
 }
-string Station::getStationTownship() {
+std::string Station::getStationTownship() {
     return township;
 }
 
-string Station::getStationLine() {
+std::string Station::getStationLine() {
     return line;
 }
 
 
 unordered_set<Station, StationHash> readStations() {
-    string filename = "dataset/Stations.csv";
+    std::string filename = "dataset/Stations.csv";
     ifstream file(filename);
     if (!file.is_open()) {
         cerr << "Failed to open file: " << filename << endl;
@@ -50,11 +50,11 @@ unordered_set<Station, StationHash> readStations() {
     }
 
     unordered_set<Station, StationHash> Stations;
-    string line;
+    std::string line;
     getline(file,line);
     while (getline(file, line)) {
         if (line.empty()) continue;
-        vector<string> data = FlightControl::split(line, ',');
+        vector<std::string> data = FlightControl::split(line, ',');
         Station x = {data[0], data[1], data[2], data[3], data[4], data[5]};
         Stations.insert(x);
 
