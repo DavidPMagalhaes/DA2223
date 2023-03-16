@@ -6,9 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(src)
 
 add_executable(DA2223
-        src/menu.cpp
-        src/menu.h
         src/Network.cpp
         src/Network.h
         src/Stations.cpp
-        src/Stations.h)
+        src/Stations.h src/readFiles.cpp src/readFiles.h)

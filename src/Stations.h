@@ -3,7 +3,7 @@
 using namespace std;
 class StationHash;
 class Station {
-
+public:
     string code;
     string name;
     string municipality;
@@ -35,15 +35,4 @@ class Station {
                township == other.township &&
                line == other.line;
     }
-
-
-    class StationHash {
-        std::size_t operator()(const Station &a) const {
-            std::size_t h1 = std::hash<std::string>()(a.code);
-            return h1;
-        }
-    };
-
-public:
-    Station();
-}
+};
