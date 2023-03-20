@@ -56,8 +56,8 @@ build CMakeFiles/DA2223.dir/src/Network.cpp.o: CXX_COMPILER__DA2223_Debug /home/
   OBJECT_DIR = CMakeFiles/DA2223.dir
   OBJECT_FILE_DIR = CMakeFiles/DA2223.dir/src
 
-build CMakeFiles/DA2223.dir/src/Stations.cpp.o: CXX_COMPILER__DA2223_Debug /home/bianca/Documents/DA/DA2223/src/Stations.cpp || cmake_object_order_depends_target_DA2223
-  DEP_FILE = CMakeFiles/DA2223.dir/src/Stations.cpp.o.d
+build CMakeFiles/DA2223.dir/src/Station.cpp.o: CXX_COMPILER__DA2223_Debug /home/bianca/Documents/DA/DA2223/src/Station.cpp || cmake_object_order_depends_target_DA2223
+  DEP_FILE = CMakeFiles/DA2223.dir/src/Station.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
   INCLUDES = -I/home/bianca/Documents/DA/DA2223/src
   OBJECT_DIR = CMakeFiles/DA2223.dir
@@ -70,8 +70,8 @@ build CMakeFiles/DA2223.dir/src/readFiles.cpp.o: CXX_COMPILER__DA2223_Debug /hom
   OBJECT_DIR = CMakeFiles/DA2223.dir
   OBJECT_FILE_DIR = CMakeFiles/DA2223.dir/src
 
-build CMakeFiles/DA2223.dir/src/creatingGraph.cpp.o: CXX_COMPILER__DA2223_Debug /home/bianca/Documents/DA/DA2223/src/creatingGraph.cpp || cmake_object_order_depends_target_DA2223
-  DEP_FILE = CMakeFiles/DA2223.dir/src/creatingGraph.cpp.o.d
+build CMakeFiles/DA2223.dir/src/main.cpp.o: CXX_COMPILER__DA2223_Debug /home/bianca/Documents/DA/DA2223/src/main.cpp || cmake_object_order_depends_target_DA2223
+  DEP_FILE = CMakeFiles/DA2223.dir/src/main.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
   INCLUDES = -I/home/bianca/Documents/DA/DA2223/src
   OBJECT_DIR = CMakeFiles/DA2223.dir
@@ -85,7 +85,7 @@ build CMakeFiles/DA2223.dir/src/creatingGraph.cpp.o: CXX_COMPILER__DA2223_Debug 
 #############################################
 # Link the executable DA2223
 
-build DA2223: CXX_EXECUTABLE_LINKER__DA2223_Debug CMakeFiles/DA2223.dir/src/Network.cpp.o CMakeFiles/DA2223.dir/src/Stations.cpp.o CMakeFiles/DA2223.dir/src/readFiles.cpp.o CMakeFiles/DA2223.dir/src/creatingGraph.cpp.o
+build DA2223: CXX_EXECUTABLE_LINKER__DA2223_Debug CMakeFiles/DA2223.dir/src/Network.cpp.o CMakeFiles/DA2223.dir/src/Station.cpp.o CMakeFiles/DA2223.dir/src/readFiles.cpp.o CMakeFiles/DA2223.dir/src/main.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/DA2223.dir
   POST_BUILD = :

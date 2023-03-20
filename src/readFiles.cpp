@@ -1,17 +1,14 @@
-
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <sstream>
-#include "Network.h"
 #include "readFiles.h"
 
 using namespace std;
 
+Graph<Station> g;
+vector<Network> networks;
+vector<Station> stations;
+
 vector<Station> readStations()
 {
-    string fname = "/home/bianca/Documents/DA/DA2223/Project1Data/stations.csv";
+    string fname = "/home/bianca/Documents/DA/DA2223/Data/stations.csv";
 
     vector<vector<string>> content;
     vector<string> row;
@@ -25,12 +22,11 @@ vector<Station> readStations()
             row.clear();
 
             stringstream str(line);
-            getline(str, word, ',');
+
             while(getline(str, word, ',')) {
                 row.push_back(word);
             }
-
-            Station stat(stoi(row[0]), row[1], row[2], row[3], row[4]);
+            Station stat(row[0], row[1], row[2], row[3], row[4]);
             g.addVertex(stat);
             stations.push_back(stat);
         }
@@ -44,13 +40,31 @@ vector<Station> readStations()
 Station findStation(string name){
     for (int i = 0; i < stations.size(); i++){
         if (stations[i].name == name)
-            return stations[i]
+            return stations[i];
     }
+    return Station();
+}
+
+vector<string> split(const string &str, const char del) { // del= delimitador
+    vector<string> splitted;
+    string tmp;
+    for(char i : str) {
+        if(i!=del) {
+            tmp += i;
+        } else {
+            splitted.push_back(tmp);
+            tmp = "";
+        }
+    }
+
+    splitted.push_back(tmp);
+
+    return splitted;
 }
 
 vector<Network> readNetworks()
 {
-    string fname = "/home/bianca/Documents/DA/DA2223/Project1Data/network.csv";
+    string fname = "/home/bianca/Documents/DA/DA2223/Data/network.csv";
 
     vector<vector<string>> content;
     vector<string> row;
@@ -64,14 +78,14 @@ vector<Network> readNetworks()
             row.clear();
 
             stringstream str(line);
-            getline(str, word, ',');
-            while(getline(str, word, ',')) {
-                row.push_back(word);
-            }
 
-            Network net(findStation(row[0]), findStation(row[1]), stoi(row[2]), row[3]);
-            g.addEdge(net.stationA, net.stationB, net.capacity);
-            networks.push_back(net);
+            while (std::getline(file, line)) {
+                if (line.empty()) continue;
+                vector<string> row = split(line, ',');
+                Network net(findStation(row[0]), findStation(row[1]), stoi(row[2]), row[3]);
+                g.addEdge(net.getStationA(), net.getStationB(), net.getCapacity());
+                networks.push_back(net);
+            }
         }
     }
     else

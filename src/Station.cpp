@@ -1,28 +1,15 @@
-#include "Stations.h"
-#include "unordered_set"
-#include <utility>
-#include <vector>
-#include "string"
-#include "fstream"
+#include "Station.h"
 
 using namespace std;
 
-Station::Station(string name){
+Station::Station(string name, string district, string municipality, string township, string line){
     this->name = name;
-};
-
-
-Station::Station(int code, string name, string municipality, string township, string line){
-    this->code = code;
-    this->name = name;
+    this->district = district;
     this->municipality = municipality;
     this->township = township;
     this->line = line;
 };
 
-std::string Station::getStationCode() {
-    return code;
-}
 std::string Station::getStationName() {
     return name;
 }
@@ -37,3 +24,5 @@ std::string Station::getStationTownship() {
 std::string Station::getStationLine() {
     return line;
 }
+
+Station::Station() {}

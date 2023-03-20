@@ -1,5 +1,5 @@
+#pragma once
 #include "Network.h"
-#include "Stations.h"
 #include "fstream"
 #include "Graph/Graph.h"
 #include <iostream>
@@ -9,10 +9,9 @@
 #include <vector>
 #include <sstream>
 
-
-Graph<Station> g;
-vector<Network> networks;
-vector<Station> stations;
+extern Graph<Station> g;
+extern vector<Network> networks;
+extern vector<Station> stations;
 
 vector<Network> readNetworks();
 

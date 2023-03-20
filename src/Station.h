@@ -1,19 +1,23 @@
 #include "string"
-#include "unordered_set"
+#include <utility>
+#include <vector>
+#include "fstream"
+
 using namespace std;
-class StationHash;
+
 class Station {
 public:
-    int code;
+    Station();
+
+    Station(string name, string district, string municipality, string township, string line);
+
     string name;
+    string district;
     string municipality;
     string township;
     string line;
 
-
-    Station(int code, string name, string municipality, string township, string line);
-
-    string getStationCode();
+    int getStationCode();
 
     string getStationName();
 
@@ -27,8 +31,8 @@ public:
     mutable bool visited;
 
     bool operator==(const Station &other) const {
-        return code == other.code &&
-               name == other.name &&
+        return name == other.name &&
+               district == other.district &&
                municipality == other.municipality &&
                township == other.township &&
                line == other.line;
