@@ -7,8 +7,12 @@
 
 using namespace std;
 
+Station::Station(string name){
+    this->name = name;
+};
 
-Station::Station(string code, string name, string municipality, string township, string line){
+
+Station::Station(int code, string name, string municipality, string township, string line){
     this->code = code;
     this->name = name;
     this->municipality = municipality;

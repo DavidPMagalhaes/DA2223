@@ -4,15 +4,14 @@ using namespace std;
 class StationHash;
 class Station {
 public:
-    string code;
+    int code;
     string name;
     string municipality;
     string township;
     string line;
 
 
-    //Station(string code);
-    Station(string code, string name, string municipality, string township, string line);
+    Station(int code, string name, string municipality, string township, string line);
 
     string getStationCode();
 
@@ -24,7 +23,6 @@ public:
 
     string getStationLine();
 
-    static std::unordered_set<Station, StationHash> readStations();
 
     mutable bool visited;
 

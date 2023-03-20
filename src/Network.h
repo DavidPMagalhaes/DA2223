@@ -9,11 +9,11 @@ using namespace std;
 
 class Network {
 public:
-    Network(string stationA, string stationB, string capacity, string service);
+    Network(Station stationA, Station stationB, int capacity, string service);
 
-    string stationA;
-    string stationB;
-    string capacity;
+    Station stationA;
+    Station stationB;
+    int capacity;
     string service;
 
     bool operator==(const Network& other) const {

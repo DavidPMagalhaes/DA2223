@@ -12,7 +12,7 @@
 using namespace std;
 
 
-Network::Network(string stationA, string stationB, string capacity, string service) {
+Network::Network(Station stationA, Station stationB, int capacity, string service) {
     this->stationA  = stationA;
     this->stationB= stationB;
     this->capacity = capacity;
