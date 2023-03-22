@@ -9,15 +9,14 @@ class Station {
 public:
     Station();
 
-    Station(string name, string district, string municipality, string township, string line);
+    Station(int code, string name, string district, string municipality, string township, string line);
 
+    int code;
     string name;
     string district;
     string municipality;
     string township;
     string line;
-
-    int getStationCode();
 
     string getStationName();
 
@@ -37,4 +36,8 @@ public:
                township == other.township &&
                line == other.line;
     }
+
+    int getCode() const;
+
+    void setCode(int code);
 };

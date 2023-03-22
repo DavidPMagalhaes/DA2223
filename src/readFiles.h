@@ -1,7 +1,7 @@
 #pragma once
 #include "Network.h"
 #include "fstream"
-#include "Graph/Graph.h"
+#include "data_structures/Graph.h"
 #include <iostream>
 #include <cstring>
 #include <utility>

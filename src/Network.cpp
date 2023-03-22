@@ -3,29 +3,29 @@
 using namespace std;
 
 
-Network::Network(Station stationA, Station stationB, int capacity, string service)
-        : stationA(stationA), stationB(stationB) {
-    this->stationA  = stationA;
-    this->stationB = stationB;
+Network::Network(int codeA, int codeB, int capacity, string service){
+    this->codeA  = codeA;
+    this->codeB = codeB;
     this->capacity = capacity;
     this->service = service;
 }
 
-const Station &Network::getStationA() const {
-    return stationA;
+int Network::getCodeA() const {
+    return codeA;
 }
 
-void Network::setStationA(const Station &stationA) {
-    Network::stationA = stationA;
+void Network::setCodeA(int codeA) {
+    Network::codeA = codeA;
 }
 
-const Station &Network::getStationB() const {
-    return stationB;
+int Network::getCodeB() const {
+    return codeB;
 }
 
-void Network::setStationB(const Station &stationB) {
-    Network::stationB = stationB;
+void Network::setCodeB(int codeB) {
+    Network::codeB = codeB;
 }
+
 
 const int Network::getCapacity() const {
     return capacity;

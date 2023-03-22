@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Graph<Station> g;
+Graph g;
 vector<Network> networks;
 vector<Station> stations;
 
@@ -17,8 +17,10 @@ vector<Station> readStations()
     fstream file (fname, ios::in);
     if(file.is_open())
     {
+        int i = 0;
         while(getline(file, line))
         {
+
             row.clear();
 
             stringstream str(line);
@@ -26,9 +28,10 @@ vector<Station> readStations()
             while(getline(str, word, ',')) {
                 row.push_back(word);
             }
-            Station stat(row[0], row[1], row[2], row[3], row[4]);
-            g.addVertex(stat);
+            Station stat(i, row[0], row[1], row[2], row[3], row[4]);
+            g.addVertex(stat.getCode());
             stations.push_back(stat);
+            i++;
         }
     }
     else
@@ -82,8 +85,8 @@ vector<Network> readNetworks()
             while (std::getline(file, line)) {
                 if (line.empty()) continue;
                 vector<string> row = split(line, ',');
-                Network net(findStation(row[0]), findStation(row[1]), stoi(row[2]), row[3]);
-                g.addEdge(net.getStationA(), net.getStationB(), net.getCapacity());
+                Network net(findStation(row[0]).getCode(), findStation(row[1]).getCode(), stoi(row[2]), row[3]);
+                g.addEdge(net.getCodeA(), net.getCodeB(), net.getCapacity());
                 networks.push_back(net);
             }
         }
