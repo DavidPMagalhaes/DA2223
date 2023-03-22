@@ -1,3 +1,4 @@
+=======
 #include <iostream>
 #include "menu.h"
 #include "networks.h"
@@ -5,6 +6,7 @@
 #include <vector>
 #include <sstream>
 #include "istream"
+#include "readFiles.h"
 using namespace std;
 /*
 Functionalities to be implemented
@@ -50,6 +52,8 @@ int main(int argc, char const *argv[])
     //Read all stations
     //Read all networks
     bool loop = true
+    readNetworks();
+    readStations();
     while (loop)
     {
         cout << "---------------------------------------------------------------" << endl;
