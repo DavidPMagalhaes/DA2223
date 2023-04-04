@@ -1,12 +1,10 @@
-=======
 #include <iostream>
 #include "menu.h"
-#include "networks.h"
-#include "stations.h"
 #include <vector>
 #include <sstream>
 #include "istream"
 #include "readFiles.h"
+
 using namespace std;
 /*
 Functionalities to be implemented
@@ -45,13 +43,24 @@ maintenance of trains. That is, your implementation should be able to report the
 and districts, regarding their transportation needs
     -I don't know how to do this
 */
+int shortestPath(Graph<Station> g, Station origem, Station destino){
+    g.dijkstraShortestPath(origem);
+    vector<Station> v = g.getPath(destino);
+    cout << "tamanho do vetor " << v.size() << endl;
+
+    for (int i = 0; i < v.size(); i++){
+         cout << v[i].getCode() << endl;
+    }
+    return 0;
+}
+
 
 int main(int argc, char const *argv[])
 {
     //Create two graphs - station and network
     //Read all stations
     //Read all networks
-    bool loop = true
+    bool loop = true;
     readNetworks();
     readStations();
     while (loop)
@@ -107,7 +116,9 @@ int main(int argc, char const *argv[])
             cout << "->";
             string end;
             cin >> end;
-            // ToDo
+            Station src = findStation(start);
+            Station dest = findStation(end);
+            shortestPath(g, src, dest);
         }
         case 3:
         {

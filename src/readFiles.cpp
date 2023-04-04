@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Graph g;
+Graph<Station> g;
 vector<Network> networks;
 vector<Station> stations;
 
@@ -29,7 +29,7 @@ vector<Station> readStations()
                 row.push_back(word);
             }
             Station stat(i, row[0], row[1], row[2], row[3], row[4]);
-            g.addVertex(stat.getCode());
+            g.addVertex(stat);
             stations.push_back(stat);
             i++;
         }
@@ -86,7 +86,7 @@ vector<Network> readNetworks()
                 if (line.empty()) continue;
                 vector<string> row = split(line, ',');
                 Network net(findStation(row[0]).getCode(), findStation(row[1]).getCode(), stoi(row[2]), row[3]);
-                g.addEdge(net.getCodeA(), net.getCodeB(), net.getCapacity());
+                g.addEdge(findStation(row[0]), findStation(row[1]), net.getCapacity());
                 networks.push_back(net);
             }
         }
