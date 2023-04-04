@@ -4,9 +4,9 @@ using namespace std;
 
 Graph<Station> g;
 vector<Network> networks;
-vector<Station> stations;
+vector<Station *> stations;
 
-vector<Station> readStations()
+vector<Station*> readStations()
 {
     string fname = "/home/bianca/Documents/DA/DA2223/Data/stations.csv";
 
@@ -30,7 +30,8 @@ vector<Station> readStations()
             }
             Station stat(i, row[0], row[1], row[2], row[3], row[4]);
             g.addVertex(stat);
-            stations.push_back(stat);
+            stations.push_back(&stat);
+            cout << stations.size() << endl;
             i++;
         }
     }
@@ -42,8 +43,8 @@ vector<Station> readStations()
 
 Station findStation(string name){
     for (int i = 0; i < stations.size(); i++){
-        if (stations[i].name == name)
-            return stations[i];
+        if (stations[i]->name == name)
+            return *stations[i];
     }
     return Station();
 }

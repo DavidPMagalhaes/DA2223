@@ -53,7 +53,48 @@ int shortestPath(Graph<Station> g, Station origem, Station destino){
     }
     return 0;
 }
+/*
+void maxNumberTrains(int u, int destination,
+                     bool visited[], int graph[][V])
+{
 
+    // check if we find the destination
+    // then further cost will be 0
+    if (u == destination)
+        return 0;
+
+    // marking the current node as visited
+    visited[u] = 1;
+
+    int ans = INF;
+
+    // traverse through all
+    // the adjacent nodes
+    for (int i = 0; i < V; i++) {
+        if (graph[u][i] != INF && !visited[i]) {
+
+            // cost of the further path
+            int curr = minimumCostSimplePath(i,
+                                             destination, visited, graph);
+
+            // check if we have reached the destination
+            if (curr < INF) {
+
+                // Taking the minimum cost path
+                ans = min(ans, graph[u][i] + curr);
+            }
+        }
+    }
+
+    // unmarking the current node
+    // to make it available for other
+    // simple paths
+    visited[u] = 0;
+
+    // returning the minimum cost
+    return ans;
+}
+*/
 
 int main(int argc, char const *argv[])
 {
@@ -102,7 +143,9 @@ int main(int argc, char const *argv[])
             cout << "->";
             string end;
             cin >> end;
-            // ToDo
+            Station src = findStation(start);
+            Station dest = findStation(end);
+            //maxNumberTrains(g, src, dest)
         }
         case 2:
         {

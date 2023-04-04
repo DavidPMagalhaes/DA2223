@@ -11,10 +11,10 @@
 
 extern Graph<Station> g;
 extern vector<Network> networks;
-extern vector<Station> stations;
+extern vector<Station *> stations;
 
 vector<Network> readNetworks();
 
-vector<Station> readStations();
+vector<Station*> readStations();
 
 Station findStation(string name);
