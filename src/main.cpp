@@ -1,8 +1,7 @@
 =======
 #include <iostream>
-#include "menu.h"
-#include "networks.h"
-#include "stations.h"
+#include "Network.h"
+#include "Station.h"
 #include <vector>
 #include <sstream>
 #include "istream"
@@ -46,6 +45,106 @@ and districts, regarding their transportation needs
     -I don't know how to do this
 */
 
+
+
+typedef pair<double, int> pdi;
+
+const double INF = numeric_limits<double>::max();
+
+vector<int> dijkstra(const Graph &graph, int src, int dst) {
+    vector<double> dist(graph.getNumVertex(), INF);
+    vector<int> parent(graph.getNumVertex(), -1);
+    priority_queue<pdi, vector<pdi>, greater<pdi>> pq;
+
+    dist[src] = 0;
+    pq.push(make_pair(0, src));
+
+    while (!pq.empty()) {
+        int u = pq.top().second;
+        pq.pop();
+
+        if (u == dst) {
+            break;
+        }
+
+        for (auto edge : graph.getVertexSet()[u]->getAdj()) {
+            int v = edge->getDest()->getId();
+            double w = edge->getWeight();
+            double capacity = edge->getWeight();
+
+            double new_dist = dist[u] + capacity;
+            if (new_dist < dist[v] && w >= capacity) {
+                dist[v] = new_dist;
+                parent[v] = u;
+                pq.push(make_pair(dist[v], v));
+            }
+        }
+    }
+
+    vector<int> path;
+    int v = dst;
+    while (v != -1) {
+        path.push_back(v);
+        v = parent[v];
+    }
+    reverse(path.begin(), path.end());
+
+    return path;
+}
+
+void dijkstraShortestPath(Graph &graph, int startId, int endId, vector<int> &path, double &distance) {
+    // set up priority queue for Dijkstra's algorithm
+    auto cmp = [](const pair<double, Vertex *> &left, const pair<double, Vertex *> &right) {
+        return left.first > right.first;
+    };
+    priority_queue<pair<double, Vertex *>, vector<pair<double, Vertex *>>, decltype(cmp)> pq(cmp);
+    // initialize distances and previous vertex maps
+    unordered_map<Vertex *, double> dist;
+    unordered_map<Vertex *, Vertex *> prev;
+    // set all distances to infinity and all previous vertices to null
+    for (auto vertex : graph.getVertexSet()) {
+        dist[vertex] = numeric_limits<double>::infinity();
+        prev[vertex] = nullptr;
+    }
+    // set distance to start vertex to 0
+    auto startVertex = graph.findVertex(startId);
+    dist[startVertex] = 0;
+    // add start vertex to priority queue
+    pq.push(make_pair(0, startVertex));
+
+    // Dijkstra's algorithm
+    while (!pq.empty()) {
+        auto u = pq.top().second;
+        pq.pop();
+        // stop if end vertex is reached
+        if (u->getId() == endId) {
+            break;
+        }
+        // relax edges of u
+        for (auto edge : u->getAdj()) {
+            auto v = edge->getDest();
+            double alt = dist[u] + edge->getWeight();
+            if (alt < dist[v]) {
+                dist[v] = alt;
+                prev[v] = u;
+                pq.push(make_pair(alt, v));
+            }
+        }
+    }
+    // construct path and distance
+    path.clear();
+    auto endVertex = graph.findVertex(endId);
+    if (prev[endVertex] != nullptr || endVertex == startVertex) {
+        for (auto v = endVertex; v != nullptr; v = prev[v]) {
+            path.push_back(v->getId());
+        }
+        reverse(path.begin(), path.end());
+        distance = dist[endVertex];
+    } else {
+        distance = -1;
+    }
+}
+
 int main(int argc, char const *argv[])
 {
     //Create two graphs - station and network
@@ -68,14 +167,12 @@ int main(int argc, char const *argv[])
         cout << "---------------------------------------------------------------" << endl;
         cout << "(1) View max number of trains that can simultaneously travel between two specific stations" << endl;
         cout << "(2) View shortest path between two stations" << endl;
-        cout << "(3) View longest path between two stations" << endl;
-        cout << "(4) View highest capacity path between any two stations" << endl;
-        cout << "(5) View maximum number of trains that can simultaneously arrive at a given station" << endl;
+        cout << "(3) View maximum number of trains that can simultaneously arrive at a given station" << endl;
         //cout << "(6) Indicate where management should..." << endl;
         cout << "(0) Exit" << endl;
         cout << "->";
 
-        vector<int> inputs_menu_principal = {0, 1, 2, 3, 4, 5};
+        vector<int> inputs_menu_principal = {0, 1, 2, 3};
         int input_menu_principal;
         std::cin >> input_menu_principal;
 
@@ -93,7 +190,29 @@ int main(int argc, char const *argv[])
             cout << "->";
             string end;
             cin >> end;
-            // ToDo
+            //TODO - NAME OF STATION TO INT
+            int src, dst;
+            vector<int> path = dijkstra(graph, src, dst);
+
+            cout << "Amount of stations passed: " << path.size() << endl;
+
+            double max_capacity = INF;
+            for (int i = 0; i < path.size() - 1; i++) {
+                int u = path[i];
+                int v = path[i+1];
+
+                for (auto edge : graph.getVertexSet()[u]->getAdj()) {
+                    if (edge->getDest()->getId() == v) {
+                        double capacity = edge->getNetwork()->getCapacity();
+                        if (capacity < max_capacity) {
+                            max_capacity = capacity;
+                        }
+                    }
+                }
+            }
+
+            cout << "Maximum capacity of path: " << max_capacity << endl;
+
         }
         case 2:
         {
@@ -107,7 +226,11 @@ int main(int argc, char const *argv[])
             cout << "->";
             string end;
             cin >> end;
-            // ToDo
+            //TODO - NAME OF STATION TO INT
+            int src, dst;
+            vector<int> path;
+            double distance;
+            dijkstraShortestPath(graph, src, dst, path, distance);
         }
         case 3:
         {
@@ -123,13 +246,7 @@ int main(int argc, char const *argv[])
             cin >> end;
             // ToDo
         }
-        case 4:
-        {
-            cout << "Selected fourth option" << endl;
-            cout << "View highest capacity path between any two stations" << endl;
-            // ToDo
-        }
-        case 5:
+        case 3:
         {
             cout << "Selected fifth option" << endl;
             cout << "View maximum number of trains that can simultaneously arrive at a given station" << endl;
