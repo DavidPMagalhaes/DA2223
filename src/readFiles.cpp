@@ -3,8 +3,8 @@
 using namespace std;
 
 Graph<Station> g;
-vector<Network> networks;
-vector<Station *> stations;
+
+
 
 vector<Station*> readStations()
 {
@@ -13,6 +13,8 @@ vector<Station*> readStations()
     vector<vector<string>> content;
     vector<string> row;
     string line, word;
+
+    vector<Station *> stations;
 
     fstream file (fname, ios::in);
     if(file.is_open())
@@ -24,14 +26,13 @@ vector<Station*> readStations()
             row.clear();
 
             stringstream str(line);
-
             while(getline(str, word, ',')) {
                 row.push_back(word);
             }
-            Station stat(i, row[0], row[1], row[2], row[3], row[4]);
-            g.addVertex(stat);
-            stations.push_back(&stat);
-            cout << stations.size() << endl;
+            Station* stat = new Station(i,row[0],row[1],row[2],row[3], row[4]);
+            // no final do codigo pra cada station fazer "delete station"
+            g.addVertex(*stat);
+            stations.push_back(stat);
             i++;
         }
     }
@@ -41,12 +42,14 @@ vector<Station*> readStations()
     return stations;
 }
 
-Station findStation(string name){
+Station* findStation(string name, vector<Station*> stations){
     for (int i = 0; i < stations.size(); i++){
-        if (stations[i]->name == name)
-            return *stations[i];
+        Station st = *stations[i];
+        string s = stations[i]->getStationName();
+        if (s == name)
+            return stations[i];
     }
-    return Station();
+    return NULL;
 }
 
 vector<string> split(const string &str, const char del) { // del= delimitador
@@ -66,13 +69,15 @@ vector<string> split(const string &str, const char del) { // del= delimitador
     return splitted;
 }
 
-vector<Network> readNetworks()
+vector<Network *> readNetworks(vector<Station*> stations)
 {
     string fname = "/home/bianca/Documents/DA/DA2223/Data/network.csv";
 
     vector<vector<string>> content;
     vector<string> row;
     string line, word;
+
+    vector<Network *> networks;
 
     fstream file (fname, ios::in);
     if(file.is_open())
@@ -86,8 +91,10 @@ vector<Network> readNetworks()
             while (std::getline(file, line)) {
                 if (line.empty()) continue;
                 vector<string> row = split(line, ',');
-                Network net(findStation(row[0]).getCode(), findStation(row[1]).getCode(), stoi(row[2]), row[3]);
-                g.addEdge(findStation(row[0]), findStation(row[1]), net.getCapacity());
+                Station *src = findStation(row[0], stations);
+                Station *dest = findStation(row[1], stations);
+                Network *net = new Network(src->getCode(), dest->getCode(), stoi(row[2]), row[3]);
+                g.addEdge(*src, *dest, net->getCapacity());
                 networks.push_back(net);
             }
         }

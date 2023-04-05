@@ -67,9 +67,11 @@ int Graph<T>::getNumVertex() const {
  */
 template <class T>
 Vertex<T> * Graph<T>::findVertex(const T &in) const {
-    for (auto v : vertexSet)
-        if (v->info == in)
+    for (auto v : vertexSet) {
+        if (v->info == in) {
             return v;
+        }
+    }
     return NULL;
 }
 

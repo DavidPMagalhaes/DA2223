@@ -10,11 +10,9 @@
 #include <sstream>
 
 extern Graph<Station> g;
-extern vector<Network> networks;
-extern vector<Station *> stations;
 
-vector<Network> readNetworks();
+vector<Network*> readNetworks(vector<Station*> stations);
 
 vector<Station*> readStations();
 
-Station findStation(string name);
+Station* findStation(string name, vector<Station*> stations);

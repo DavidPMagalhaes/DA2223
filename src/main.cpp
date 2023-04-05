@@ -43,58 +43,12 @@ maintenance of trains. That is, your implementation should be able to report the
 and districts, regarding their transportation needs
     -I don't know how to do this
 */
-int shortestPath(Graph<Station> g, Station origem, Station destino){
-    g.dijkstraShortestPath(origem);
-    vector<Station> v = g.getPath(destino);
+int shortestPath(Graph<Station> *g, Station *origem, Station *destino){
+    g->dijkstraShortestPath(*origem);
+    vector<Station> v = g->getPath(*destino);
     cout << "tamanho do vetor " << v.size() << endl;
-
-    for (int i = 0; i < v.size(); i++){
-         cout << v[i].getCode() << endl;
-    }
     return 0;
 }
-/*
-void maxNumberTrains(int u, int destination,
-                     bool visited[], int graph[][V])
-{
-
-    // check if we find the destination
-    // then further cost will be 0
-    if (u == destination)
-        return 0;
-
-    // marking the current node as visited
-    visited[u] = 1;
-
-    int ans = INF;
-
-    // traverse through all
-    // the adjacent nodes
-    for (int i = 0; i < V; i++) {
-        if (graph[u][i] != INF && !visited[i]) {
-
-            // cost of the further path
-            int curr = minimumCostSimplePath(i,
-                                             destination, visited, graph);
-
-            // check if we have reached the destination
-            if (curr < INF) {
-
-                // Taking the minimum cost path
-                ans = min(ans, graph[u][i] + curr);
-            }
-        }
-    }
-
-    // unmarking the current node
-    // to make it available for other
-    // simple paths
-    visited[u] = 0;
-
-    // returning the minimum cost
-    return ans;
-}
-*/
 
 int main(int argc, char const *argv[])
 {
@@ -102,8 +56,9 @@ int main(int argc, char const *argv[])
     //Read all stations
     //Read all networks
     bool loop = true;
-    readNetworks();
-    readStations();
+
+    vector <Station*> stations = readStations();
+    readNetworks(stations);
     while (loop)
     {
         cout << "---------------------------------------------------------------" << endl;
@@ -143,9 +98,10 @@ int main(int argc, char const *argv[])
             cout << "->";
             string end;
             cin >> end;
-            Station src = findStation(start);
-            Station dest = findStation(end);
+            Station *src = findStation(start, stations);
+            Station *dest = findStation(end, stations);
             //maxNumberTrains(g, src, dest)
+            break;
         }
         case 2:
         {
@@ -159,9 +115,10 @@ int main(int argc, char const *argv[])
             cout << "->";
             string end;
             cin >> end;
-            Station src = findStation(start);
-            Station dest = findStation(end);
-            shortestPath(g, src, dest);
+            Station *src = findStation(start, stations);
+            Station *dest = findStation(end, stations);
+            shortestPath(&g, src, dest);
+            break;
         }
         case 3:
         {
