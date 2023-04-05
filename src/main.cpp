@@ -43,11 +43,12 @@ maintenance of trains. That is, your implementation should be able to report the
 and districts, regarding their transportation needs
     -I don't know how to do this
 */
-int shortestPath(Graph<Station> *g, Station *origem, Station *destino){
-    g->dijkstraShortestPath(*origem);
-    vector<Station> v = g->getPath(*destino);
-    cout << "tamanho do vetor " << v.size() << endl;
-    return 0;
+void shortestPath(Graph<Station> *g, Station *origem, Station *destino){
+    g->dijkstraShortestPath2(*origem, *destino);
+}
+
+void maxNumberTrains(Graph<Station> *g, Station *origem, Station *destino) {
+    //cout << g->dijkstraShortestPath3(*g, *origem, *destino);
 }
 
 int main(int argc, char const *argv[])
@@ -74,13 +75,11 @@ int main(int argc, char const *argv[])
         cout << "(1) View max number of trains that can simultaneously travel between two specific stations" << endl;
         cout << "(2) View shortest path between two stations" << endl;
         cout << "(3) View longest path between two stations" << endl;
-        cout << "(4) View highest capacity path between any two stations" << endl;
-        cout << "(5) View maximum number of trains that can simultaneously arrive at a given station" << endl;
         //cout << "(6) Indicate where management should..." << endl;
         cout << "(0) Exit" << endl;
         cout << "->";
 
-        vector<int> inputs_menu_principal = {0, 1, 2, 3, 4, 5};
+        vector<int> inputs_menu_principal = {0, 1, 2, 3};
         int input_menu_principal;
         std::cin >> input_menu_principal;
 
@@ -93,14 +92,16 @@ int main(int argc, char const *argv[])
             cout << "Input starting station" << endl;
             cout << "->";
             string start;
-            cin >> start;
-            cout << "Input destination station" << endl;
-            cout << "->";
+            cin.ignore();
+            getline(std::cin, start);
+            cout << "Input destination station: " << endl;
             string end;
-            cin >> end;
+            getline(std::cin, end);
+            cout << "Starting station: " << start << std::endl;
+            cout << "Destination station: " << end << std::endl;
             Station *src = findStation(start, stations);
             Station *dest = findStation(end, stations);
-            //maxNumberTrains(g, src, dest)
+            maxNumberTrains(&g, src, dest);
             break;
         }
         case 2:
@@ -110,42 +111,41 @@ int main(int argc, char const *argv[])
             cout << "Input starting station" << endl;
             cout << "->";
             string start;
-            cin >> start;
-            cout << "Input destination station" << endl;
-            cout << "->";
+            cin.ignore();
+            getline(std::cin, start);
+            cout << "Input destination station: " << endl;
             string end;
-            cin >> end;
+            getline(std::cin, end);
+            cout << "Starting station: " << start << std::endl;
+            cout << "Destination station: " << end << std::endl;
             Station *src = findStation(start, stations);
             Station *dest = findStation(end, stations);
             shortestPath(&g, src, dest);
             break;
         }
-        case 3:
-        {
-            cout << "Selected third option" << endl;
-            cout << "View longest path between two stations" << endl;
-            cout << "Input starting station" << endl;
-            cout << "->";
-            string start;
-            cin >> start;
-            cout << "Input destination station" << endl;
-            cout << "->";
-            string end;
-            cin >> end;
-            // ToDo
+            case 3:
+            {
+                cout << "Selected third option" << endl;
+                cout << "View longest path between two stations" << endl;
+                cout << "Input starting station: ";
+                string start;
+                cin >> start;
+                cin.ignore();
+                cout << "Input destination station: ";
+                string end;
+                getline(std::cin, end);
+                cin.ignore();
+                cout << "Starting station: " << start << std::endl;
+                cout << "Destination station: " << end << std::endl;
+                // ToDo
+                break;
+            }
+        case 0: {
+            std::cout << "Exiting program..." << std::endl;
+            return 0;
         }
-        case 4:
-        {
-            cout << "Selected fourth option" << endl;
-            cout << "View highest capacity path between any two stations" << endl;
-            // ToDo
-        }
-        case 5:
-        {
-            cout << "Selected fifth option" << endl;
-            cout << "View maximum number of trains that can simultaneously arrive at a given station" << endl;
-            // ToDo
-        }
+        default:
+            std::cout << "Number not found" << std::endl;
         }
     }
 }

@@ -43,7 +43,7 @@ vector<Station*> readStations()
 }
 
 Station* findStation(string name, vector<Station*> stations){
-    for (int i = 0; i < stations.size(); i++){
+    for (int i = 0; i < stations.size(); i++) {
         Station st = *stations[i];
         string s = stations[i]->getStationName();
         if (s == name)

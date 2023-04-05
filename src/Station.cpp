@@ -23,17 +23,17 @@ void Station::setCode(int code) {
     Station::code = code;
 };
 
-std::string Station::getStationName() {
+std::string Station::getStationName() const{
     return name;
 }
 
-std::string Station::getStationMunicipality() {
+std::string Station::getStationMunicipality() const{
     return municipality;
 }
-std::string Station::getStationTownship() {
+std::string Station::getStationTownship() const{
     return township;
 }
 
-std::string Station::getStationLine() {
+std::string Station::getStationLine() const{
     return line;
 }

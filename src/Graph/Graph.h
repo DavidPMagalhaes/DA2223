@@ -31,6 +31,7 @@ template <class T> class Vertex;
 template <class T>
 class Graph {
     std::vector<Vertex<T> *> vertexSet;    // vertex set
+    vector<Edge<T>*> edgeSet;
 
     void dfsVisit(Vertex<T> *v,  std::vector<T> & res) const;
 
@@ -53,6 +54,8 @@ public:
     void unweightedShortestPath(const T &orig);
     vector<T> getPath(const T &dest) const;
     void dijkstraShortestPath(const T &origin);
+    void dijkstraShortestPath2(const T &origin,const T &dest);
+    int dijkstraShortestPath3(const T &origin,const T &dest);
     std::vector<Vertex<T> *> getVertexSet() const;
 };
 
@@ -74,6 +77,7 @@ Vertex<T> * Graph<T>::findVertex(const T &in) const {
     }
     return NULL;
 }
+
 
 template<class T>
 Vertex<T> *Graph<T>::findVertexTag(string tag) const {
@@ -384,7 +388,7 @@ void Graph<T>::dijkstraShortestPath(const T &origin) {
     q.insert(s);
     while( ! q.empty() ) {
         auto v = q.extractMin();
-        for(auto e : v->adj) {
+        for (auto e: v->adj) {
             auto oldDist = e.dest->dist;
             if (relax(v, e.dest, e.weight)) {
                 if (oldDist == INF)
@@ -394,6 +398,77 @@ void Graph<T>::dijkstraShortestPath(const T &origin) {
             }
         }
     }
+
+}
+
+template<class T>
+void Graph<T>::dijkstraShortestPath2(const T &origin,const T &dest) {
+    this->dijkstraShortestPath(origin);
+
+    Vertex<T>* temp = this->findVertex(dest);
+    std::vector<T> path;
+    bool noPath = false;
+    while(temp->info.getStationName() != origin.getStationName()) {
+        path.push_back(temp->info);
+        temp = temp->path;
+        if(temp == NULL){
+            noPath = true;
+            break;
+        }
+    }
+    if(noPath) {
+        std::cout << "No path found!" << std::endl;
+        return;
+    }
+    else {
+        for(Station s : path) {
+            std::cout << s.getStationName() << std::endl;
+        }
+        std::cout << origin.getStationName() << std::endl;
+    }
+
+}
+
+template<class T>
+int Graph<T>::dijkstraShortestPath3(const T &origin,const T &dest) {
+    this->dijkstraShortestPath(origin);
+
+    Vertex<T>* temp = this->findVertex(dest);
+    std::vector<T> path;
+    bool noPath = false;
+    while(temp->info.getStationName() != origin.getStationName()) {
+        path.push_back(temp->info);
+        temp = temp->path;
+        if(temp == NULL){
+            noPath = true;
+            break;
+        }
+    }
+    int maxCap=255;
+    if(noPath) {
+        std::cout << "No path found!" << std::endl;
+        return 0;
+    }
+    else {
+        Station temp = origin;
+        for(Station s : path) {
+            //Find edge between temp and s, then get capacity
+
+            if (maxCap>s.getInfo().capacity()) {
+                cout << "No cenas" << endl;
+                maxCap=s.getInfo().getStationName().capacity();
+                cout << s.getInfo().capacity() << s.getInfo().getStationName() << endl;
+            }
+            temp=s;
+        }
+        if (maxCap>origin.getStationName().capacity()) {
+            cout << "Na origin" << endl;
+            maxCap=origin.getStationName().capacity();
+            cout << maxCap << endl;
+        }
+        return maxCap;
+    }
+
 }
 
 

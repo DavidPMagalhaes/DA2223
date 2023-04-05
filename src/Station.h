@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Station {
+class Station : public error_code {
 public:
     Station();
 
@@ -18,13 +18,13 @@ public:
     string township;
     string line;
 
-    string getStationName();
+    string getStationName() const;
 
-    string getStationMunicipality();
+    string getStationMunicipality() const;
 
-    string getStationTownship();
+    string getStationTownship() const;
 
-    string getStationLine();
+    string getStationLine() const;
 
 
     mutable bool visited;
