@@ -1,7 +1,7 @@
 #pragma once
 #include "Network.h"
 #include "fstream"
-#include "data_structures/Graph.h"
+#include "Graph/Graph.h"
 #include <iostream>
 #include <cstring>
 #include <utility>
@@ -10,9 +10,9 @@
 #include <sstream>
 
 extern Graph<Station> g;
-extern vector<Network> networks;
-extern vector<Station> stations;
 
-vector<Network> readNetworks();
+vector<Network*> readNetworks(vector<Station*> stations);
 
-vector<Station> readStations();
+vector<Station*> readStations();
+
+Station* findStation(string name, vector<Station*> stations);

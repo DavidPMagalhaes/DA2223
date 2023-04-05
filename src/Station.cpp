@@ -11,6 +11,10 @@ Station::Station(int code, string name, string district, string municipality, st
     this->line = line;
 }
 
+Station::Station(){
+    this->code = 000;
+}
+
 int Station::getCode() const {
     return code;
 }
@@ -33,5 +37,3 @@ std::string Station::getStationTownship() {
 std::string Station::getStationLine() {
     return line;
 }
-
-Station::Station() {}

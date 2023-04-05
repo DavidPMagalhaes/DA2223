@@ -1,4 +1,3 @@
-=======
 #include <iostream>
 #include "Network.h"
 #include "Station.h"
@@ -6,6 +5,7 @@
 #include <sstream>
 #include "istream"
 #include "readFiles.h"
+
 using namespace std;
 /*
 Functionalities to be implemented
@@ -44,6 +44,12 @@ maintenance of trains. That is, your implementation should be able to report the
 and districts, regarding their transportation needs
     -I don't know how to do this
 */
+int shortestPath(Graph<Station> *g, Station *origem, Station *destino){
+    g->dijkstraShortestPath(*origem);
+    vector<Station> v = g->getPath(*destino);
+    cout << "tamanho do vetor " << v.size() << endl;
+    return 0;
+}
 
 
 
@@ -150,9 +156,10 @@ int main(int argc, char const *argv[])
     //Create two graphs - station and network
     //Read all stations
     //Read all networks
-    bool loop = true
-    readNetworks();
-    readStations();
+    bool loop = true;
+
+    vector <Station*> stations = readStations();
+    readNetworks(stations);
     while (loop)
     {
         cout << "---------------------------------------------------------------" << endl;
@@ -190,29 +197,10 @@ int main(int argc, char const *argv[])
             cout << "->";
             string end;
             cin >> end;
-            //TODO - NAME OF STATION TO INT
-            int src, dst;
-            vector<int> path = dijkstra(graph, src, dst);
-
-            cout << "Amount of stations passed: " << path.size() << endl;
-
-            double max_capacity = INF;
-            for (int i = 0; i < path.size() - 1; i++) {
-                int u = path[i];
-                int v = path[i+1];
-
-                for (auto edge : graph.getVertexSet()[u]->getAdj()) {
-                    if (edge->getDest()->getId() == v) {
-                        double capacity = edge->getNetwork()->getCapacity();
-                        if (capacity < max_capacity) {
-                            max_capacity = capacity;
-                        }
-                    }
-                }
-            }
-
-            cout << "Maximum capacity of path: " << max_capacity << endl;
-
+            Station *src = findStation(start, stations);
+            Station *dest = findStation(end, stations);
+            //maxNumberTrains(g, src, dest)
+            break;
         }
         case 2:
         {
@@ -226,11 +214,10 @@ int main(int argc, char const *argv[])
             cout << "->";
             string end;
             cin >> end;
-            //TODO - NAME OF STATION TO INT
-            int src, dst;
-            vector<int> path;
-            double distance;
-            dijkstraShortestPath(graph, src, dst, path, distance);
+            Station *src = findStation(start, stations);
+            Station *dest = findStation(end, stations);
+            shortestPath(&g, src, dest);
+            break;
         }
         case 3:
         {
