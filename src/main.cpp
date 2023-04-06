@@ -42,11 +42,53 @@ and districts, regarding their transportation needs
     -I don't know how to do this
 */
 void shortestPath(Graph<Station> *g, Station *origem, Station *destino){
-    g->dijkstraShortestPath2(*origem, *destino);
+    g->unweightedShortestPath(*origem);
+    vector<Station> s = g->getPath(*destino);
+    for (int i = 0; i < s.size(); i++){
+        cout << s[i].getStationName();
+    }
 }
 
 void maxNumberTrains(Graph<Station> *g, Station *origem, Station *destino) {
     cout << "Max Number of Trains thata can pass together: " << g->dijkstraShortestPath3(*origem, *destino) << endl;
+}
+
+void maxNumberTrainsAllStations(Graph<Station> *g, Station *destino, vector<Station*> stations) {
+    int sum = 0;
+    for (auto s: stations){
+        sum += g->dijkstraShortestPath3(*s, *destino);
+    }
+    cout << sum << endl;
+}
+
+void mostAmount(Graph<Station> *g, vector<Station*> stations) {
+    //Pega num par entre station[i] e station[i+1], vê a capacidade do caminho entre essas estações e
+    // regista as estações e a capacidade do caminho com capacidade máxima
+    Station *origem;
+    Station *destino;
+    int weight=0;
+    Station *maxO, *maxD;
+    int maxW=0;
+    for (int i = 1; i < stations.size(); ++i) {
+        cout << "Station: " << stations[i]->getStationName() << endl;
+        cout << "Loading...";
+        for (int j = i+1; j < stations.size(); ++j) {
+            origem= stations[i];
+            destino=stations[j];
+            weight = g->dijkstraShortestPath3(*origem, *destino);
+            if (j%20==0) {
+                cout << ".";
+            }
+        }
+        cout << endl;
+        if (maxW<weight) {
+            maxW=weight;
+            maxO=origem;
+            maxD=destino;
+        }
+    }
+    cout << "Most amount of trains happen in pair: " << maxO->getStationName() << " and " << maxD->getStationName() << endl;
+    cout << "Capacity of pair:" << maxW << endl;
 }
 
 int main(int argc, char const *argv[])
@@ -70,11 +112,11 @@ int main(int argc, char const *argv[])
         cout << "             | |                                __/ |          " << endl;
         cout << "             |_|                               |___/           " << endl;
         cout << "---------------------------------------------------------------" << endl;
-        cout << "(1) View max number of trains that can simultaneously travel between two specific stations" << endl;
+        cout << "(1) View max number of trains that can simultaneously travel between two specific stations (T2.1)" << endl;
         cout << "(2) View shortest path between two stations" << endl;
         cout << "(3) View longest path between two stations" << endl;
-        cout << "(4) Determine which pairs of stations require most amount of trains" << endl;
-        cout << "(5) Report the max number of trains that can simultaneously arrive at a given station" << endl;
+        cout << "(4) Determine which pairs of stations require most amount of trains (T2.2)" << endl;
+        cout << "(5) Report the max number of trains that can simultaneously arrive at a given station (T2.4)" << endl;
         //cout << "(6) Indicate where management should..." << endl;
         cout << "(0) Exit" << endl;
         cout << "->";
@@ -140,6 +182,47 @@ int main(int argc, char const *argv[])
                 // ToDo
                 break;
             }
+            case 4:
+            {
+                cout << "Selected fourth option" << endl;
+                cout << "Determine which pairs of stations require most amount of trains" << endl;
+                mostAmount(&g, stations);
+                break;
+            }
+            case 5: {
+                cout << "Selected fifth option" << endl;
+                cout << "Report the maximum number of trains that can simultaneously arrive at a given station,\n"
+                        "taking into consideration the entire railway grid." << endl;
+                cout << "Input destination station: " << endl;
+                string end;
+                cin.ignore();
+                getline(std::cin, end);
+                Station *dest = findStation(end, stations);
+                maxNumberTrainsAllStations(&g, dest, stations);
+                break;
+            }
+            case 6: {
+                cout << "Selected fifth option" << endl;
+                cout << "Calculate the maximum amount of trains that can simultaneously travel between two specific "
+                        "stations with minimum cost for the company. Note that your system should also take any valid "
+                        "source and destination stations as input;" << endl;
+                cout << "Input destination station: " << endl;
+                cout << "Input starting station" << endl;
+                cout << "->";
+                string start;
+                cin.ignore();
+                getline(std::cin, start);
+                cout << "Input destination station: " << endl;
+                string end;
+                getline(std::cin, end);
+                cout << "Starting station: " << start << std::endl;
+                cout << "Destination station: " << end << std::endl;
+                Station *src = findStation(start, stations);
+                Station *dest = findStation(end, stations);
+
+                break;
+            }
+
             case 0: {
                 std::cout << "Exiting program..." << std::endl;
                 return 0;

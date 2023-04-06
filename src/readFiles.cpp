@@ -22,12 +22,10 @@ vector<Station*> readStations()
         int i = 0;
         while(getline(file, line))
         {
-
             row.clear();
 
             stringstream str(line);
             while(getline(str, word, ',')) {
-                cout << word << endl;
                 row.push_back(word);
             }
             Station* stat = new Station(i,row[0],row[1],row[2],row[3], row[4]);

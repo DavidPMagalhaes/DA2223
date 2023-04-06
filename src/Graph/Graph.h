@@ -457,7 +457,6 @@ int Graph<T>::dijkstraShortestPath3(const T &origin,const T &dest) {
 
 }
 
-
 /*
 * Initializes single source shortest path data (path, dist).
 * Receives the content of the source vertex and returns a pointer to
