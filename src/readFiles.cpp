@@ -8,7 +8,7 @@ Graph<Station> g;
 
 vector<Station*> readStations()
 {
-    string fname = "/home/bianca/Documents/DA/DA2223/Data/stations.csv";
+    string fname = "../Data/stations.csv";
 
     vector<vector<string>> content;
     vector<string> row;
@@ -71,7 +71,7 @@ vector<string> split(const string &str, const char del) { // del= delimitador
 
 vector<Network *> readNetworks(vector<Station*> stations)
 {
-    string fname = "/home/bianca/Documents/DA/DA2223/Data/network.csv";
+    string fname = "../Data/network.csv";
 
     vector<vector<string>> content;
     vector<string> row;

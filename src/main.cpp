@@ -1,5 +1,4 @@
 #include <iostream>
-#include "menu.h"
 #include <vector>
 #include <sstream>
 #include "istream"
@@ -85,44 +84,44 @@ int main(int argc, char const *argv[])
 
         switch (input_menu_principal)
         {
-        case 1:
-        {
-            cout << "Selected first option" << endl;
-            cout << "View max number of trains that can simultaneously travel between two specific stations" << endl;
-            cout << "Input starting station" << endl;
-            cout << "->";
-            string start;
-            cin.ignore();
-            getline(std::cin, start);
-            cout << "Input destination station: " << endl;
-            string end;
-            getline(std::cin, end);
-            cout << "Starting station: " << start << std::endl;
-            cout << "Destination station: " << end << std::endl;
-            Station *src = findStation(start, stations);
-            Station *dest = findStation(end, stations);
-            maxNumberTrains(&g, src, dest);
-            break;
-        }
-        case 2:
-        {
-            cout << "Selected second option" << endl;
-            cout << "View shortest path between two stations" << endl;
-            cout << "Input starting station" << endl;
-            cout << "->";
-            string start;
-            cin.ignore();
-            getline(std::cin, start);
-            cout << "Input destination station: " << endl;
-            string end;
-            getline(std::cin, end);
-            cout << "Starting station: " << start << std::endl;
-            cout << "Destination station: " << end << std::endl;
-            Station *src = findStation(start, stations);
-            Station *dest = findStation(end, stations);
-            shortestPath(&g, src, dest);
-            break;
-        }
+            case 1:
+            {
+                cout << "Selected first option" << endl;
+                cout << "View max number of trains that can simultaneously travel between two specific stations" << endl;
+                cout << "Input starting station" << endl;
+                cout << "->";
+                string start;
+                cin.ignore();
+                getline(std::cin, start);
+                cout << "Input destination station: " << endl;
+                string end;
+                getline(std::cin, end);
+                cout << "Starting station: " << start << std::endl;
+                cout << "Destination station: " << end << std::endl;
+                Station *src = findStation(start, stations);
+                Station *dest = findStation(end, stations);
+                maxNumberTrains(&g, src, dest);
+                break;
+            }
+            case 2:
+            {
+                cout << "Selected second option" << endl;
+                cout << "View shortest path between two stations" << endl;
+                cout << "Input starting station" << endl;
+                cout << "->";
+                string start;
+                cin.ignore();
+                getline(std::cin, start);
+                cout << "Input destination station: " << endl;
+                string end;
+                getline(std::cin, end);
+                cout << "Starting station: " << start << std::endl;
+                cout << "Destination station: " << end << std::endl;
+                Station *src = findStation(start, stations);
+                Station *dest = findStation(end, stations);
+                shortestPath(&g, src, dest);
+                break;
+            }
             case 3:
             {
                 cout << "Selected third option" << endl;
@@ -140,12 +139,12 @@ int main(int argc, char const *argv[])
                 // ToDo
                 break;
             }
-        case 0: {
-            std::cout << "Exiting program..." << std::endl;
-            return 0;
-        }
-        default:
-            std::cout << "Number not found" << std::endl;
+            case 0: {
+                std::cout << "Exiting program..." << std::endl;
+                return 0;
+            }
+            default:
+                std::cout << "Number not found" << std::endl;
         }
     }
 }
