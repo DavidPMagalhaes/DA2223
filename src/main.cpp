@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <sstream>
 #include "istream"
 #include "readFiles.h"
 
@@ -74,11 +73,13 @@ int main(int argc, char const *argv[])
         cout << "(1) View max number of trains that can simultaneously travel between two specific stations" << endl;
         cout << "(2) View shortest path between two stations" << endl;
         cout << "(3) View longest path between two stations" << endl;
+        cout << "(4) Determine which pairs of stations require most amount of trains" << endl;
+        cout << "(5) Report the max number of trains that can simultaneously arrive at a given station" << endl;
         //cout << "(6) Indicate where management should..." << endl;
         cout << "(0) Exit" << endl;
         cout << "->";
 
-        vector<int> inputs_menu_principal = {0, 1, 2, 3};
+        vector<int> inputs_menu_principal = {0, 1, 2, 3, 4, 5};
         int input_menu_principal;
         std::cin >> input_menu_principal;
 

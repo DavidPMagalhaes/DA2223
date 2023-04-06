@@ -27,6 +27,7 @@ vector<Station*> readStations()
 
             stringstream str(line);
             while(getline(str, word, ',')) {
+                cout << word << endl;
                 row.push_back(word);
             }
             Station* stat = new Station(i,row[0],row[1],row[2],row[3], row[4]);
@@ -46,6 +47,8 @@ Station* findStation(string name, vector<Station*> stations){
     for (int i = 0; i < stations.size(); i++) {
         Station st = *stations[i];
         string s = stations[i]->getStationName();
+        transform(name.begin(),name.end(), name.begin(), ::tolower);
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
         if (s == name)
             return stations[i];
     }
