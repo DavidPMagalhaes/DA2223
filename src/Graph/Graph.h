@@ -432,42 +432,28 @@ void Graph<T>::dijkstraShortestPath2(const T &origin,const T &dest) {
 template<class T>
 int Graph<T>::dijkstraShortestPath3(const T &origin,const T &dest) {
     this->dijkstraShortestPath(origin);
-
-    Vertex<T>* temp = this->findVertex(dest);
-    std::vector<T> path;
-    bool noPath = false;
-    while(temp->info.getStationName() != origin.getStationName()) {
-        path.push_back(temp->info);
-        temp = temp->path;
-        if(temp == NULL){
-            noPath = true;
-            break;
-        }
-    }
-    int maxCap=255;
-    if(noPath) {
-        std::cout << "No path found!" << std::endl;
-        return 0;
-    }
-    else {
-        Station temp = origin;
-        for(Station s : path) {
-            //Find edge between temp and s, then get capacity
-
-            if (maxCap>s.getInfo().capacity()) {
-                cout << "No cenas" << endl;
-                maxCap=s.getInfo().getStationName().capacity();
-                cout << s.getInfo().capacity() << s.getInfo().getStationName() << endl;
+    auto s = initSingleSource(origin);
+    MutablePriorityQueue<Vertex<T>> q;
+    q.insert(s);
+    int w = 255;
+    while( ! q.empty() ) {
+        auto v = q.extractMin();
+        for (auto e: v->adj) {
+            auto oldDist = e.dest->dist;
+            if (e.weight < w){
+                w = e.weight;
             }
-            temp=s;
+            if (e.dest == findVertex(dest))
+                break;
+            if (relax(v, e.dest, e.weight)) {
+                if (oldDist == INF)
+                    q.insert(e.dest);
+                else
+                    q.decreaseKey(e.dest);
+            }
         }
-        if (maxCap>origin.getStationName().capacity()) {
-            cout << "Na origin" << endl;
-            maxCap=origin.getStationName().capacity();
-            cout << maxCap << endl;
-        }
-        return maxCap;
     }
+    return w;
 
 }
 

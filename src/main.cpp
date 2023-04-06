@@ -47,7 +47,7 @@ void shortestPath(Graph<Station> *g, Station *origem, Station *destino){
 }
 
 void maxNumberTrains(Graph<Station> *g, Station *origem, Station *destino) {
-    //cout << g->dijkstraShortestPath3(*g, *origem, *destino);
+    cout << "Max Number of Trains thata can pass together: " << g->dijkstraShortestPath3(*origem, *destino) << endl;
 }
 
 int main(int argc, char const *argv[])
