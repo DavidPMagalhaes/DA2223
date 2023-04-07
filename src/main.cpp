@@ -1,46 +1,20 @@
+
 #include <iostream>
 #include <vector>
 #include "istream"
 #include "readFiles.h"
 
 using namespace std;
-/*
-Functionalities to be implemented
--Calculate all possible paths between two stations
-    -Give:
-        -Name Origin
-        -Name Destination
-    -Store:
-        -Amount of stations passed
-        -Maximum capacity of path
--View max number of trains (capacity) that can simultaneously travel between two specific stations
-    -Calculate all paths while recording capacity for each
-        -Maximum capacity is smallest capacity between two stations in path
-        -Select path with maximum maximum capacity
-    -View all stations passed in selected path
-    -View capacity of path
--View shortest path between two stations, aka with least stations
-    -Give:
-        -Name Origin
-        -Name Destination
-    -View all stations passed, including start and finish
-    -View capacity of path
--View longest path between two stations
-    -Similar to shortest
--View highest capacity path between ANY TWO STATIONS
-    -Calculate all paths between two stations
-        -Select path with highest capacity
-    -Move on to next pair of stations
-    -Ensure no repeats
--View maximum number of trains that can simultaneously arrive at a given station
-    -Give:
-        -Name Station
-    -Sum capacity of all direct paths (only two stations) that contain station
--Indicate where management should assign larger budgets for the purchasing and
-maintenance of trains. That is, your implementation should be able to report the top-k municipalities
-and districts, regarding their transportation needs
-    -I don't know how to do this
-*/
+
+/**
+ * The shortestPath function calculates the shortest path between two stations in a graph and prints that path.
+ *
+ * @param g A pointer to a Graph object that contains a network of stations and their connections.
+ * @param origem The "origem" parameter is a pointer to the starting station of the shortest path that we want to find.
+ * @param destino The "destino" parameter is a pointer to the destination station in a graph of stations. It is used in the
+ * "shortestPath" function to find the shortest path from the "origem" (source) station to the "destino" station using an
+ * unweighted shortest path algorithm.
+ */
 void shortestPath(Graph<Station> *g, Station *origem, Station *destino){
     g->unweightedShortestPath(*origem);
     vector<Station> s = g->getPath(*destino);
@@ -49,10 +23,31 @@ void shortestPath(Graph<Station> *g, Station *origem, Station *destino){
     }
 }
 
+/**
+ * The maxNumberTrains function calculates the max number of trains that can pass together between two given stations using Dijkstra's
+ * shortest path algorithm.
+ *
+ * @param g A pointer to a graph object of type `Graph<Station>`. This graph represents a network of train stations, where
+ * each station is a vertex in the graph and each train route between stations is an edge in the graph.
+ * @param origem The parameter "origem" is a pointer to an object of the class "Station", which represents the starting
+ * point of a train journey.
+ * @param destino The "destino" parameter is a pointer to the destination station in a graph of train stations. It is used
+ * in the function "maxNumberTrains" to calculate the maximum number of trains that can pass together between the origin
+ * station and the destination station using Dijkstra's shortest path algorithm.
+ */
 void maxNumberTrains(Graph<Station> *g, Station *origem, Station *destino) {
-    cout << "Max Number of Trains thata can pass together: " << g->dijkstraShortestPath3(*origem, *destino) << endl;
+    cout << "Max Number of Trains that can pass together: " << g->dijkstraShortestPath3(*origem, *destino) << endl;
 }
 
+/**
+ * This function calculates the maximum number of trains that can travel from a set of stations to a destination station
+ * using Dijkstra's shortest path algorithm.
+ *
+ * @param g A pointer to a graph object of type `Graph<Station>`. This graph represents the train stations and their
+ * connections.
+ * @param destino The "destino" parameter is a pointer to a Station object that represents the destination station.
+ * @param stations The "stations" parameter is a vector of pointers to Station objects. It is a list of all stations
+ */
 void maxNumberTrainsAllStations(Graph<Station> *g, Station *destino, vector<Station*> stations) {
     int sum = 0;
     for (auto s: stations){
@@ -61,9 +56,15 @@ void maxNumberTrainsAllStations(Graph<Station> *g, Station *destino, vector<Stat
     cout << sum << endl;
 }
 
+/**
+ * This function finds the pair of stations with the highest capacity of trains between them using Dijkstra's shortest path
+ * algorithm.
+ *
+ * @param g A pointer to a graph object of type Graph<Station>, which represents a network of train stations and their
+ * connections.
+ * @param stations A vector containing pointers to all the stations in the graph.
+ */
 void mostAmount(Graph<Station> *g, vector<Station*> stations) {
-    //Pega num par entre station[i] e station[i+1], vê a capacidade do caminho entre essas estações e
-    // regista as estações e a capacidade do caminho com capacidade máxima
     Station *origem;
     Station *destino;
     int weight=0;
@@ -91,6 +92,11 @@ void mostAmount(Graph<Station> *g, vector<Station*> stations) {
     cout << "Capacity of pair:" << maxW << endl;
 }
 
+/**
+ * The main function contains a functional menu that allows the user to interact with a railway network and perform various
+ * operations such as finding the maximum number of trains that can travel between two stations, finding the shortest path
+ * between two stations, and determining which pairs of stations require the most amount of trains.
+ */
 int main(int argc, char const *argv[])
 {
     //Create two graphs - station and network
@@ -117,11 +123,11 @@ int main(int argc, char const *argv[])
         cout << "(3) View longest path between two stations" << endl;
         cout << "(4) Determine which pairs of stations require most amount of trains (T2.2)" << endl;
         cout << "(5) Report the max number of trains that can simultaneously arrive at a given station (T2.4)" << endl;
-        //cout << "(6) Indicate where management should..." << endl;
+        cout << "(6) Calculate the max number of trains that can simultaneously travel between two stations at minimum cost" << endl;
         cout << "(0) Exit" << endl;
         cout << "->";
 
-        vector<int> inputs_menu_principal = {0, 1, 2, 3, 4, 5};
+        vector<int> inputs_menu_principal = {0, 1, 2, 3, 4, 5, 6};
         int input_menu_principal;
         std::cin >> input_menu_principal;
 
@@ -202,8 +208,8 @@ int main(int argc, char const *argv[])
                 break;
             }
             case 6: {
-                cout << "Selected fifth option" << endl;
-                cout << "Calculate the maximum amount of trains that can simultaneously travel between two specific "
+                cout << "Selected sixth option" << endl;
+                cout << "Calculate the max amount of trains that can simultaneously travel between two specific "
                         "stations with minimum cost for the company. Note that your system should also take any valid "
                         "source and destination stations as input;" << endl;
                 cout << "Input destination station: " << endl;

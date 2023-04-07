@@ -1,3 +1,12 @@
+/**
+ * Implementation for a Station object with methods to get and set its properties.
+ * @param code Integer representing the code of the station.
+ * @param name Name of the station.
+ * @param district District where station is located.
+ * @param municipality Name of the municipality where the station is located.
+ * @param township Specific township where the station is located.
+ * @param line Train line that the station belongs to.
+ */
 #include "Station.h"
 
 using namespace std;
