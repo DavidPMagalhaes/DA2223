@@ -24,11 +24,18 @@
 using namespace std;
 
 class Network {
+public:
+    Station codeA;
+    Station codeB;
 
+    const Station &getCodeA() const;
 
+    const Station &getCodeB() const;
 
-    int codeA;
-    int codeB;
+    void setCodeA1(const Station &codeA);
+
+    void setCodeB1(const Station &codeB);
+
     int capacity;
     string service;
 
@@ -45,18 +52,10 @@ class Network {
     const string &getService() const;
 
     void setService(const string &service);
-public:
-    Network(int codeA, int codeB, int capacity, string service);
+
+    Network(Station* codeA, Station* codeB, int capacity, string service);
 
 
     const int getCapacity() const;
-
-    int getCodeA() const;
-
-    void setCodeA(int codeA);
-
-    int getCodeB() const;
-
-    void setCodeB(int codeB);
 };
 

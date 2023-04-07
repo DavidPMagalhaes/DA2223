@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="DA2223"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/bianca/Documents/DA/DA2223/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DA2223">
+				<Option output="/home/bianca/Documents/DA/DA2223/cmake-build-debug/DA2223" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bianca/Documents/DA/DA2223/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bianca/Documents/DA/DA2223/src"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 DA2223"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DA2223/fast">
+				<Option output="/home/bianca/Documents/DA/DA2223/cmake-build-debug/DA2223" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bianca/Documents/DA/DA2223/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bianca/Documents/DA/DA2223/src"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 DA2223/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/bianca/Documents/DA/DA2223/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/bianca/Documents/DA/DA2223/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/bianca/Documents/DA/DA2223/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/bianca/Documents/DA/DA2223/src/Network.cpp">
+			<Option target="DA2223"/>
+		</Unit>
+		<Unit filename="/home/bianca/Documents/DA/DA2223/src/Network.h">
+			<Option target="DA2223"/>
+		</Unit>
+		<Unit filename="/home/bianca/Documents/DA/DA2223/src/Station.cpp">
+			<Option target="DA2223"/>
+		</Unit>
+		<Unit filename="/home/bianca/Documents/DA/DA2223/src/Station.h">
+			<Option target="DA2223"/>
+		</Unit>
+		<Unit filename="/home/bianca/Documents/DA/DA2223/src/main.cpp">
+			<Option target="DA2223"/>
+		</Unit>
+		<Unit filename="/home/bianca/Documents/DA/DA2223/src/readFiles.cpp">
+			<Option target="DA2223"/>
+		</Unit>
+		<Unit filename="/home/bianca/Documents/DA/DA2223/src/readFiles.h">
+			<Option target="DA2223"/>
+		</Unit>
+		<Unit filename="/home/bianca/Documents/DA/DA2223/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

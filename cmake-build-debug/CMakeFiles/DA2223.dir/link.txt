@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/DA2223.dir/src/Network.cpp.o CMakeFiles/DA2223.dir/src/Station.cpp.o CMakeFiles/DA2223.dir/src/readFiles.cpp.o CMakeFiles/DA2223.dir/src/main.cpp.o -o DA2223 

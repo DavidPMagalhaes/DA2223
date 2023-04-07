@@ -101,6 +101,7 @@ public:
      * @return A vector containing the values of the vertices in the order they were visited.
      */
     std::vector<T> dfs() const;
+    vector<T> dfsPersussion(const T &orig, const T &dest) const;
 
     /**
      * @brief Performs a Breadth-First Search on the graph, starting from a given vertex.
@@ -157,6 +158,7 @@ public:
      * @param orig The origin vertex.
      */
     void unweightedShortestPath(const T &orig);
+    void notUnweightedShortestPath(const T &orig, const T &dest);
     /**
      * Returns a vector with the path from the source vertex to the destination vertex.
     * @param dest The destination vertex.
@@ -196,6 +198,8 @@ public:
      */
     std::vector<Vertex<T> *> getVertexSet() const;
 };
+
+
 
 template <class T>
 int Graph<T>::getNumVertex() const {
@@ -295,6 +299,7 @@ std::vector<T> Graph<T>::dfs() const {
     std::vector<T> res;
     for (auto v : vertexSet)
         v->visited = false;
+
     for (auto v : vertexSet)
         if (! v->visited)
             dfsVisit(v, res);
@@ -315,6 +320,7 @@ void Graph<T>::dfsVisit(Vertex<T> *v, std::vector<T> & res) const {
             dfsVisit(w, res);
     }
 }
+
 
 /*
  * Performs a breadth-first search (bfs) in a graph (this), starting
@@ -506,6 +512,25 @@ void Graph<T>::unweightedShortestPath(const T &orig) {
                 q.push(e.dest);
     }
 }
+
+template<class T>
+void Graph<T>::notUnweightedShortestPath(const T &orig, const T &dest) {
+    auto s = initSingleSource(orig);
+    queue< Vertex<T>* > q;
+    q.push(s);
+    while( ! q.empty() ) {
+        auto v = q.front();
+        q.pop();
+        for (auto e: v->adj) {
+            if (relax(v, e.dest, 1))
+                q.push(e.dest);
+        }
+    }
+}
+
+
+
+
 
 template<class T>
 vector<T> Graph<T>::getPath(const T &dest) const{

@@ -3,30 +3,6 @@
 using namespace std;
 
 
-Network::Network(int codeA, int codeB, int capacity, string service){
-    this->codeA  = codeA;
-    this->codeB = codeB;
-    this->capacity = capacity;
-    this->service = service;
-}
-
-int Network::getCodeA() const {
-    return codeA;
-}
-
-void Network::setCodeA(int codeA) {
-    Network::codeA = codeA;
-}
-
-int Network::getCodeB() const {
-    return codeB;
-}
-
-void Network::setCodeB(int codeB) {
-    Network::codeB = codeB;
-}
-
-
 const int Network::getCapacity() const {
     return capacity;
 }
@@ -41,4 +17,28 @@ const string &Network::getService() const {
 
 void Network::setService(const string &service) {
     Network::service = service;
+}
+
+Network::Network(Station* codeA, Station* codeB, int capacity, string service) {
+    this->codeA = *codeA;
+    this->codeB = *codeB;
+    this->capacity = capacity;
+    this->service = service;
+
+}
+
+void Network::setCodeA1(const Station &codeA) {
+    Network::codeA = codeA;
+}
+
+void Network::setCodeB1(const Station &codeB) {
+    Network::codeB = codeB;
+}
+
+const Station &Network::getCodeA() const {
+    return codeA;
+}
+
+const Station &Network::getCodeB() const {
+    return codeB;
 }

@@ -37,6 +37,9 @@ vector<Station*> readStations();
  */
 Station* findStation(string name, vector<Station*> stations);
 
+
+Network* findNetwork(Station name, vector<Network*> network);
+
 /**
  * Splits a string into a vector of substrings based on a given delimiter character.
  *

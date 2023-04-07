@@ -51,6 +51,16 @@ Station* findStation(string name, vector<Station*> stations){
     return NULL;
 }
 
+Network* findNetwork(Station name, vector<Network*> networks){
+    for (int i = 0; i < networks.size(); i++) {
+        Network net = *networks[i];
+        string s = networks[i]->getCodeA().getStationName();
+        if (s == name.getStationName())
+            return networks[i];
+    }
+    return NULL;
+}
+
 
 vector<string> split(const string &str, const char del) { // del= delimitador
     vector<string> splitted;
@@ -93,7 +103,7 @@ vector<Network *> readNetworks(vector<Station*> stations)
                 vector<string> row = split(line, ',');
                 Station *src = findStation(row[0], stations);
                 Station *dest = findStation(row[1], stations);
-                Network *net = new Network(src->getCode(), dest->getCode(), stoi(row[2]), row[3]);
+                Network *net = new Network(src, dest, stoi(row[2]), row[3]);
                 g.addEdge(*src, *dest, net->getCapacity());
                 networks.push_back(net);
             }

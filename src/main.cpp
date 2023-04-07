@@ -6,6 +6,38 @@
 
 using namespace std;
 
+void option1(vector<Station *> stations);
+void option2(vector<Station *> stations);
+void option3(vector<Station *> stations);
+void option4(vector<Station *> stations);
+void option5(vector<Station *> stations, vector <Network*> networks);
+
+void check();
+
+/**
+ * Displays the main menu on the console and sets up a vector with the valid input options.
+ */
+void menu() {
+    cout << "|---------------------------------------------------------------------------------------|" << endl;
+    cout << "|     _____       _ _                       __  __                                      |" << endl;
+    cout << "|    |  __ \\     (_) |                     |  \\/  |                                     |" << endl;
+    cout << "|    | |__) |__ _ _| |_      ____ _ _   _  | \\  / | __ _ _ __   __ _  __ _  ___ _ __    |" << endl;
+    cout << "|    |  _  // _` | | \\ \\ /\\ / / _` | | | | | |\\/| |/ _` | '_ \\ / _` |/ _` |/ _ \\ '__|   |" << endl;
+    cout << "|    | | \\ \\ (_| | | |\\ V  V / (_| | |_| | | |  | | (_| | | | | (_| | (_| |  __/ |      |" << endl;
+    cout << "|    |_|  \\_\\__,_|_|_| \\_/\\_/ \\__,_|\\__, | |_|  |_|\\__,_|_| |_|\\__,_|\\__, |\\___|_|      |" << endl;
+    cout << "|                                    __/ |                            __/ |             |" << endl;
+    cout << "|                                   |___/                            |___/              |" << endl;
+    cout << "|---------------------------------------------------------------------------------------|" << endl;
+    cout << "(1) View max number of trains that can simultaneously travel between two specific stations (T2.1)" << endl;
+    cout << "(2) View shortest path between two stations" << endl;
+    cout << "(3) Determine which pairs of stations require most amount of trains (T2.2)" << endl;
+    cout << "(4) Report the max number of trains that can simultaneously arrive at a given station (T2.4)" << endl;
+    cout << "(5) Calculate the max number of trains that can simultaneously travel between two stations at minimum cost" << endl;
+    cout << "(0) Exit" << endl;
+    cout << "->";
+    vector<int> inputs_menu_principal = {0, 1, 2, 3, 4, 5};
+}
+
 /**
  * The shortestPath function calculates the shortest path between two stations in a graph and prints that path.
  *
@@ -56,6 +88,41 @@ void maxNumberTrainsAllStations(Graph<Station> *g, Station *destino, vector<Stat
     cout << sum << endl;
 }
 
+void allPaths(Graph<Station> *g, Station *origem, Station *destino, vector<Network*> networks){
+    g->unweightedShortestPath(*origem);
+    vector<Station> s = g->getPath(*destino);
+    g->notUnweightedShortestPath(*origem, *destino);
+    vector<Station> s2 = g->getPath(*destino);
+
+    int sum = 0;
+    for (auto a : s){if (findNetwork(g->findVertex(a)->getInfo(), networks)->getService() == "STANDARD")
+            sum +=2;
+        else
+            sum +=4;
+    }
+    int sum2 = 0;
+    for (auto a : s2){
+        if (findNetwork(g->findVertex(a)->getInfo(), networks)->getService() == "STANDARD")
+            sum2 += 2;
+        else
+            sum2 += 4;
+    }
+    cout << "sum " << sum << endl;
+    cout << "sum2 " << sum2 << endl;
+    if (sum >= sum2){
+        cout << "entrou" << endl;
+        for (int i = 0; i < s.size(); i++){
+            cout << s[i].getStationName() << endl;
+        }
+    }
+    else{
+        cout << "entrou2" << endl;
+        for (int i = 0; i < s2.size(); i++){
+            cout << s2[i].getStationName() << endl;
+        }
+    }
+}
+
 /**
  * This function finds the pair of stations with the highest capacity of trains between them using Dijkstra's shortest path
  * algorithm.
@@ -93,9 +160,9 @@ void mostAmount(Graph<Station> *g, vector<Station*> stations) {
 }
 
 /**
- * The main function contains a functional menu that allows the user to interact with a railway network and perform various
- * operations such as finding the maximum number of trains that can travel between two stations, finding the shortest path
- * between two stations, and determining which pairs of stations require the most amount of trains.
+ * @brief Main function of the program
+ * The main function of the program. Creates two graphs - station and network, reads
+ * all stations and networks, presents a menu of options for the user to choose from.
  */
 int main(int argc, char const *argv[])
 {
@@ -105,127 +172,40 @@ int main(int argc, char const *argv[])
     bool loop = true;
 
     vector <Station*> stations = readStations();
-    readNetworks(stations);
+    vector <Network*> networks = readNetworks(stations);
     while (loop)
     {
-        cout << "---------------------------------------------------------------" << endl;
-        cout << "  _______   _         __  __                                   " << endl;
-        cout << " |__   __| (_)       |  \\/  |                                  " << endl;
-        cout << "    | |_ __ _ _ __   | \\  / | __ _ _ __   __ _  __ _  ___ _ __ " << endl;
-        cout << "    | | '__| | '_ \\  | |\\/| |/ _` | '_ \\ / _` |/ _` |/ _ \\ '__|" << endl;
-        cout << "    | | |  | | |_) | | |  | | (_| | | | | (_| | (_| |  __/ |   " << endl;
-        cout << "    |_|_|  |_| .__/  |_|  |_|\\__,_|_| |_|\\__,_|\\__, |\\___|_|   " << endl;
-        cout << "             | |                                __/ |          " << endl;
-        cout << "             |_|                               |___/           " << endl;
-        cout << "---------------------------------------------------------------" << endl;
-        cout << "(1) View max number of trains that can simultaneously travel between two specific stations (T2.1)" << endl;
-        cout << "(2) View shortest path between two stations" << endl;
-        cout << "(3) View longest path between two stations" << endl;
-        cout << "(4) Determine which pairs of stations require most amount of trains (T2.2)" << endl;
-        cout << "(5) Report the max number of trains that can simultaneously arrive at a given station (T2.4)" << endl;
-        cout << "(6) Calculate the max number of trains that can simultaneously travel between two stations at minimum cost" << endl;
-        cout << "(0) Exit" << endl;
-        cout << "->";
-
-        vector<int> inputs_menu_principal = {0, 1, 2, 3, 4, 5, 6};
+        menu();
         int input_menu_principal;
         std::cin >> input_menu_principal;
-
         switch (input_menu_principal)
         {
             case 1:
             {
-                cout << "Selected first option" << endl;
-                cout << "View max number of trains that can simultaneously travel between two specific stations" << endl;
-                cout << "Input starting station" << endl;
-                cout << "->";
-                string start;
-                cin.ignore();
-                getline(std::cin, start);
-                cout << "Input destination station: " << endl;
-                string end;
-                getline(std::cin, end);
-                cout << "Starting station: " << start << std::endl;
-                cout << "Destination station: " << end << std::endl;
-                Station *src = findStation(start, stations);
-                Station *dest = findStation(end, stations);
-                maxNumberTrains(&g, src, dest);
+                option1(stations);
+                check();
                 break;
             }
             case 2:
             {
-                cout << "Selected second option" << endl;
-                cout << "View shortest path between two stations" << endl;
-                cout << "Input starting station" << endl;
-                cout << "->";
-                string start;
-                cin.ignore();
-                getline(std::cin, start);
-                cout << "Input destination station: " << endl;
-                string end;
-                getline(std::cin, end);
-                cout << "Starting station: " << start << std::endl;
-                cout << "Destination station: " << end << std::endl;
-                Station *src = findStation(start, stations);
-                Station *dest = findStation(end, stations);
-                shortestPath(&g, src, dest);
+                option2(stations);
+                check();
                 break;
             }
             case 3:
             {
-                cout << "Selected third option" << endl;
-                cout << "View longest path between two stations" << endl;
-                cout << "Input starting station: ";
-                string start;
-                cin >> start;
-                cin.ignore();
-                cout << "Input destination station: ";
-                string end;
-                getline(std::cin, end);
-                cin.ignore();
-                cout << "Starting station: " << start << std::endl;
-                cout << "Destination station: " << end << std::endl;
-                // ToDo
+                option3(stations);
+                check();
                 break;
             }
-            case 4:
-            {
-                cout << "Selected fourth option" << endl;
-                cout << "Determine which pairs of stations require most amount of trains" << endl;
-                mostAmount(&g, stations);
+            case 4: {
+                option4(stations);
+                check();
                 break;
             }
             case 5: {
-                cout << "Selected fifth option" << endl;
-                cout << "Report the maximum number of trains that can simultaneously arrive at a given station,\n"
-                        "taking into consideration the entire railway grid." << endl;
-                cout << "Input destination station: " << endl;
-                string end;
-                cin.ignore();
-                getline(std::cin, end);
-                Station *dest = findStation(end, stations);
-                maxNumberTrainsAllStations(&g, dest, stations);
-                break;
-            }
-            case 6: {
-                cout << "Selected sixth option" << endl;
-                cout << "Calculate the max amount of trains that can simultaneously travel between two specific "
-                        "stations with minimum cost for the company. Note that your system should also take any valid "
-                        "source and destination stations as input;" << endl;
-                cout << "Input destination station: " << endl;
-                cout << "Input starting station" << endl;
-                cout << "->";
-                string start;
-                cin.ignore();
-                getline(std::cin, start);
-                cout << "Input destination station: " << endl;
-                string end;
-                getline(std::cin, end);
-                cout << "Starting station: " << start << std::endl;
-                cout << "Destination station: " << end << std::endl;
-                Station *src = findStation(start, stations);
-                Station *dest = findStation(end, stations);
-
+                option5(stations, networks);
+                check();
                 break;
             }
 
@@ -237,4 +217,139 @@ int main(int argc, char const *argv[])
                 std::cout << "Number not found" << std::endl;
         }
     }
+}
+
+
+/**
+ * @brief Ask user whether to continue or exit the program
+ *
+ * Prints a prompt to the console asking the user whether to continue
+ * running the program or exit. If user enters 0, the function will
+ * print a message indicating that the program is exiting and exit the program.
+ */
+void check() {
+    cout << "Continue?";
+    cout << "(1) Yes" << endl;
+    cout << "(0) No" << endl;
+    int input;
+    cin >> input;
+    if (input==0) {
+        std::cout << "Exiting program..." << std::endl;
+        exit(0);
+    }
+}
+
+/**
+ * @brief Select option 1
+ *
+ * Allows the user to view the maximum number of trains that can simultaneously travel between two specific stations.
+ * Asks for starting and destination stations and prints the result to the console.
+ *
+ * @param stations Vector of pointers to Station objects
+ */
+void option1(vector<Station *> stations) {
+    cout << "Selected first option" << endl;
+    cout << "View max number of trains that can simultaneously travel between two specific stations" << endl;
+    cout << "Input starting station" << endl;
+    cout << "->";
+    string start;
+    cin.ignore();
+    getline(std::cin, start);
+    cout << "Input destination station: " << endl;
+    string end;
+    getline(std::cin, end);
+    cout << "Starting station: " << start << std::endl;
+    cout << "Destination station: " << end << std::endl;
+    Station *src = findStation(start, stations);
+    Station *dest = findStation(end, stations);
+    maxNumberTrains(&g, src, dest);
+}
+
+/**
+ * @brief Select option 2
+ *
+ * Allows the user to view the shortest path between two stations.
+ * Asks for starting and destination stations and prints the result to the console.
+ *
+ * @param stations Vector of pointers to Station objects
+ */
+void option2(vector<Station *> stations) {
+    cout << "Selected second option" << endl;
+    cout << "View shortest path between two stations" << endl;
+    cout << "Input starting station" << endl;
+    cout << "->";
+    string start;
+    cin.ignore();
+    getline(std::cin, start);
+    cout << "Input destination station: " << endl;
+    string end;
+    getline(std::cin, end);
+    cout << "Starting station: " << start << std::endl;
+    cout << "Destination station: " << end << std::endl;
+    Station *src = findStation(start, stations);
+    Station *dest = findStation(end, stations);
+    shortestPath(&g, src, dest);
+}
+
+/**
+ * @brief Select option 3
+ *
+ * Allows the user to determine which pairs of stations require the most amount of trains.
+ * Prints the result to the console.
+ *
+ * @param stations Vector of pointers to Station objects
+ */
+void option3(vector<Station *> stations) {
+    cout << "Selected fourth option" << endl;
+    cout << "Determine which pairs of stations require most amount of trains" << endl;
+    mostAmount(&g, stations);
+}
+
+/**
+ * @brief Select option 4
+ *
+ * Allows the user to report the max number of trains that can simultaneously arrive at a given station
+ * Asks for destination station and prints the result to the console.
+ *
+ * @param stations Vector of pointers to Station objects
+ */
+void option4(vector<Station *> stations) {
+    cout << "Selected fourth option" << endl;
+    cout << "Report the maximum number of trains that can simultaneously arrive at a given station,\n"
+            "taking into consideration the entire railway grid." << endl;
+    cout << "Input destination station: " << endl;
+    string end;
+    cin.ignore();
+    getline(std::cin, end);
+    Station *dest = findStation(end, stations);
+    maxNumberTrainsAllStations(&g, dest, stations);
+}
+/**
+ * @brief Select option 5
+ *
+ * Allows the user to alculate the max number of trains that can simultaneously travel
+ * between two stations at minimum cost to the company.
+ *
+ * @param stations
+ * @param networks
+ */
+void option5(vector<Station *> stations, vector <Network*> networks) {
+    cout << "Selected sixth option" << endl;
+    cout << "Calculate the max amount of trains that can simultaneously travel between two specific "
+            "stations with minimum cost for the company. Note that your system should also take any valid "
+            "source and destination stations as input;" << endl;
+    cout << "Input destination station: " << endl;
+    cout << "Input starting station" << endl;
+    cout << "->";
+    string start;
+    cin.ignore();
+    getline(std::cin, start);
+    cout << "Input destination station: " << endl;
+    string end;
+    getline(std::cin, end);
+    cout << "Starting station: " << start << std::endl;
+    cout << "Destination station: " << end << std::endl;
+    Station *src = findStation(start, stations);
+    Station *dest = findStation(end, stations);
+    allPaths(&g, src, dest, networks);
 }
