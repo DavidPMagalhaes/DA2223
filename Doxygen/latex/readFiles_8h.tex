@@ -1,0 +1,100 @@
+\hypertarget{readFiles_8h}{}\doxysection{src/read\+Files.h File Reference}
+\label{readFiles_8h}\index{src/readFiles.h@{src/readFiles.h}}
+{\ttfamily \#include \char`\"{}Network.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fstream\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Graph/\+Graph.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{classNetwork}{Network}} $\ast$ $>$ \mbox{\hyperlink{readFiles_8h_a65bfa9b659d78b3257708bb8f08e6687}{read\+Networks}} (vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ stations)
+\item 
+vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \mbox{\hyperlink{readFiles_8h_a2b25f482fc71ab73abafffd7946dbb29}{read\+Stations}} ()
+\item 
+\mbox{\hyperlink{classStation}{Station}} $\ast$ \mbox{\hyperlink{readFiles_8h_a5be72627e35139dd00b71c238f03c37d}{find\+Station}} (string name, vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ stations)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{readFiles_8h_affd02467aceed1ddf5c583bf9ba0b591}{split}} (const string \&str, const char del)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Graph$<$ \mbox{\hyperlink{classStation}{Station}} $>$ \mbox{\hyperlink{readFiles_8h_ac7b28c5b510f53b689f17f37e5a330ba}{g}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{readFiles_8h_a5be72627e35139dd00b71c238f03c37d}\label{readFiles_8h_a5be72627e35139dd00b71c238f03c37d} 
+\index{readFiles.h@{readFiles.h}!findStation@{findStation}}
+\index{findStation@{findStation}!readFiles.h@{readFiles.h}}
+\doxysubsubsection{\texorpdfstring{findStation()}{findStation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStation}{Station}} $\ast$ find\+Station (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$}]{stations }\end{DoxyParamCaption})}
+
+Finds a station object with a given name in a vector of station objects. 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the station that we are searching for. \\
+\hline
+{\em stations} & A vector of pointers to \doxylink{classStation}{Station} objects.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to a \doxylink{classStation}{Station} object. If the station with the given name is found in the vector of stations, a pointer to that station is returned. If not, the function returns a null pointer. 
+\end{DoxyReturn}
+\Hypertarget{readFiles_8h_a65bfa9b659d78b3257708bb8f08e6687}\label{readFiles_8h_a65bfa9b659d78b3257708bb8f08e6687} 
+\index{readFiles.h@{readFiles.h}!readNetworks@{readNetworks}}
+\index{readNetworks@{readNetworks}!readFiles.h@{readFiles.h}}
+\doxysubsubsection{\texorpdfstring{readNetworks()}{readNetworks()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classNetwork}{Network}} $\ast$ $>$ read\+Networks (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$}]{stations }\end{DoxyParamCaption})}
+
+Reads network data from a CSV file and creates \doxylink{classNetwork}{Network} objects based on the data, while also adding edges to a graph and returning a vector of \doxylink{classNetwork}{Network} pointers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stations} & A vector of pointers to \doxylink{classStation}{Station} objects.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function {\ttfamily read\+Networks} returns a vector of pointers to {\ttfamily \doxylink{classNetwork}{Network}} objects. 
+\end{DoxyReturn}
+\Hypertarget{readFiles_8h_a2b25f482fc71ab73abafffd7946dbb29}\label{readFiles_8h_a2b25f482fc71ab73abafffd7946dbb29} 
+\index{readFiles.h@{readFiles.h}!readStations@{readStations}}
+\index{readStations@{readStations}!readFiles.h@{readFiles.h}}
+\doxysubsubsection{\texorpdfstring{readStations()}{readStations()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ read\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reads station data from CSV file and creates \doxylink{classStation}{Station} objects, which are added to a vector and returned.
+
+\begin{DoxyReturn}{Returns}
+The function {\ttfamily read\+Stations} returns a vector of pointers to {\ttfamily \doxylink{classStation}{Station}} objects. 
+\end{DoxyReturn}
+\Hypertarget{readFiles_8h_affd02467aceed1ddf5c583bf9ba0b591}\label{readFiles_8h_affd02467aceed1ddf5c583bf9ba0b591} 
+\index{readFiles.h@{readFiles.h}!split@{split}}
+\index{split@{split}!readFiles.h@{readFiles.h}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily vector$<$ string $>$ split (\begin{DoxyParamCaption}\item[{const string \&}]{str,  }\item[{const char}]{del }\end{DoxyParamCaption})}
+
+Splits a string into a vector of substrings based on a given delimiter character.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The input string that needs to be split into substrings based on the delimiter. \\
+\hline
+{\em del} & The delimiter character used to split the input string into smaller substrings.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a vector of strings that contains the substrings of the input string that were separated by the specified delimiter character. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{readFiles_8h_ac7b28c5b510f53b689f17f37e5a330ba}\label{readFiles_8h_ac7b28c5b510f53b689f17f37e5a330ba} 
+\index{readFiles.h@{readFiles.h}!g@{g}}
+\index{g@{g}!readFiles.h@{readFiles.h}}
+\doxysubsubsection{\texorpdfstring{g}{g}}
+{\footnotesize\ttfamily Graph$<$\mbox{\hyperlink{classStation}{Station}}$>$ g\hspace{0.3cm}{\ttfamily [extern]}}
+

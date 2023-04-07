@@ -16,6 +16,15 @@ template <class T> class Edge;
 template <class T> class Graph;
 template <class T> class Vertex;
 
+/**
+ * @brief A template class representing a vertex in a graph.
+ *
+ * This class represents a vertex in a graph. It stores information about the
+ * vertex's content, outgoing edges, shortest distance to the source vertex in a
+ * path-finding algorithm, and predecessor vertex in that path.
+ *
+ * @tparam T The type of the vertex's content.
+ */
 template <class T>
 class Vertex {
     T info;						// content of the vertex
@@ -28,13 +37,64 @@ class Vertex {
     bool visited = false;		// auxiliary field
     bool processing = false;	// auxiliary field
 
+    /**
+ * @brief A template class representing a vertex in a graph.
+ *
+ * This class represents a vertex in a graph. It stores information about the
+ * vertex's content, outgoing edges, shortest distance to the source vertex in a
+ * path-finding algorithm, and predecessor vertex in that path.
+ *
+ * @tparam T The type of the vertex's content.
+ */
     void addEdge(Vertex<T> *dest, double w);
 public:
+    /**
+     * @brief Constructs a new Vertex object.
+     *
+     * This constructor creates a new Vertex object with the given content.
+     *
+     * @param in The content of the vertex.
+     */
     Vertex(T in);
+
+    /**
+     * @brief Gets the content of the vertex.
+     *
+     * This function returns the content of the vertex.
+     *
+     * @return The content of the vertex.
+     */
     T getInfo() const;
+
+    /**
+     * @brief Gets the shortest distance to the source vertex.
+     *
+     * This function returns the shortest distance to the source vertex in a
+     * path-finding algorithm.
+     *
+     * @return The shortest distance to the source vertex.
+     */
     double getDist() const;
+
+    /**
+     * @brief Gets the predecessor vertex in the shortest path.
+     *
+     * This function returns the predecessor vertex in the shortest path to the
+     * source vertex in a path-finding algorithm.
+     *
+     * @return The predecessor vertex in the shortest path.
+     */
     Vertex *getPath() const;
 
+    /**
+     * @brief Compares two vertices based on their distances to the source vertex.
+     *
+     * This operator is required by the MutablePriorityQueue class, which uses
+     * it to determine the order of vertices in the priority queue.
+     *
+     * @param vertex The vertex to compare to.
+     * @return True if this vertex's distance is less than the other vertex's distance.
+     */
     bool operator<(Vertex<T> & vertex) const; // // required by MutablePriorityQueue
     friend class Graph<T>;
     friend class MutablePriorityQueue<Vertex<T>>;
@@ -46,10 +106,6 @@ public:
 template <class T>
 Vertex<T>::Vertex(T in): info(in) {}
 
-/*
- * Auxiliary function to add an outgoing edge to a vertex (this),
- * with a given destination vertex (d) and edge weight (w).
- */
 template <class T>
 void Vertex<T>::addEdge(Vertex<T> *d, double w) {
     adj.push_back(Edge<T>(d, w));

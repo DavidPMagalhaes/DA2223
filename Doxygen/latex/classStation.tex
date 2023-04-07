@@ -1,0 +1,240 @@
+\hypertarget{classStation}{}\doxysection{Station Class Reference}
+\label{classStation}\index{Station@{Station}}
+
+
+{\ttfamily \#include $<$Station.\+h$>$}
+
+Inheritance diagram for Station\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classStation}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStation_a73d335726aad1d844d81cda6d9fd74e6}{Station}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classStation}{Station} object with default values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classStation_ae18a5b482d686949e898f3206ed0ffdf}{Station}} (int \mbox{\hyperlink{classStation_a3ae32174ade62281cc4df83b0e1906df}{code}}, string \mbox{\hyperlink{classStation_a87111da4cfca52c6083ad8ddc636cd5d}{name}}, string \mbox{\hyperlink{classStation_ae8e1a0279a8879ca2f8d6fa2127930cc}{district}}, string \mbox{\hyperlink{classStation_a2a4bb78d0acf07ffce910f750c68892a}{municipality}}, string \mbox{\hyperlink{classStation_a0552badaff28cc06411b808af462d382}{township}}, string \mbox{\hyperlink{classStation_a49c6e75f4e4d46f2ad01bad229ee0d71}{line}})
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classStation}{Station} object with the given parameters. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classStation_ae79145bcbbe6b9f49e1ccabee8620f8e}{get\+Station\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the name of the station. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classStation_a4ff1d0ac1fd236744131a462e8df5786}{get\+Station\+Municipality}} () const
+\begin{DoxyCompactList}\small\item\em Get the municipality in which the station is located. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classStation_a1a1d49ed06c7fd7e9ba4bb41f5a93c21}{get\+Station\+Township}} () const
+\begin{DoxyCompactList}\small\item\em Get the township in which the station is located. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classStation_a7c0bee69374dd8c169a24ee999a67042}{get\+Station\+Line}} () const
+\begin{DoxyCompactList}\small\item\em Get the line to which the station belongs. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classStation_a8a7eae4c39f16d6f04f2c4d1ca1a1f57}{operator==}} (const \mbox{\hyperlink{classStation}{Station}} \&other) const
+\begin{DoxyCompactList}\small\item\em Check if this \doxylink{classStation}{Station} object is equal to another \doxylink{classStation}{Station} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classStation_aacf10c5fe94ee5fb9ff091b4366ed274}{get\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Get the code of the station. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStation_a11776eba707563a2a0832eea02bdf5c7}{set\+Code}} (int \mbox{\hyperlink{classStation_a3ae32174ade62281cc4df83b0e1906df}{code}})
+\begin{DoxyCompactList}\small\item\em Set the code of the station. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classStation_a3ae32174ade62281cc4df83b0e1906df}{code}}
+\item 
+string \mbox{\hyperlink{classStation_a87111da4cfca52c6083ad8ddc636cd5d}{name}}
+\item 
+string \mbox{\hyperlink{classStation_ae8e1a0279a8879ca2f8d6fa2127930cc}{district}}
+\item 
+string \mbox{\hyperlink{classStation_a2a4bb78d0acf07ffce910f750c68892a}{municipality}}
+\item 
+string \mbox{\hyperlink{classStation_a0552badaff28cc06411b808af462d382}{township}}
+\item 
+string \mbox{\hyperlink{classStation_a49c6e75f4e4d46f2ad01bad229ee0d71}{line}}
+\item 
+bool \mbox{\hyperlink{classStation_a5c1636c3bc53579499c97bf41e02a3c5}{visited}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classStation_a73d335726aad1d844d81cda6d9fd74e6}\label{classStation_a73d335726aad1d844d81cda6d9fd74e6} 
+\index{Station@{Station}!Station@{Station}}
+\index{Station@{Station}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{Station()}{Station()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Station\+::\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classStation}{Station} object with default values. 
+
+\Hypertarget{classStation_ae18a5b482d686949e898f3206ed0ffdf}\label{classStation_ae18a5b482d686949e898f3206ed0ffdf} 
+\index{Station@{Station}!Station@{Station}}
+\index{Station@{Station}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{Station()}{Station()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Station\+::\+Station (\begin{DoxyParamCaption}\item[{int}]{code,  }\item[{string}]{name,  }\item[{string}]{district,  }\item[{string}]{municipality,  }\item[{string}]{township,  }\item[{string}]{line }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classStation}{Station} object with the given parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The code of the station. \\
+\hline
+{\em name} & The name of the station. \\
+\hline
+{\em district} & The district in which the station is located. \\
+\hline
+{\em municipality} & The municipality in which the station is located. \\
+\hline
+{\em township} & The township in which the station is located. \\
+\hline
+{\em line} & The line to which the station belongs. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classStation_aacf10c5fe94ee5fb9ff091b4366ed274}\label{classStation_aacf10c5fe94ee5fb9ff091b4366ed274} 
+\index{Station@{Station}!getCode@{getCode}}
+\index{getCode@{getCode}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily int Station\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the code of the station. 
+
+\begin{DoxyReturn}{Returns}
+The code of the station. 
+\end{DoxyReturn}
+\Hypertarget{classStation_a7c0bee69374dd8c169a24ee999a67042}\label{classStation_a7c0bee69374dd8c169a24ee999a67042} 
+\index{Station@{Station}!getStationLine@{getStationLine}}
+\index{getStationLine@{getStationLine}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{getStationLine()}{getStationLine()}}
+{\footnotesize\ttfamily std\+::string Station\+::get\+Station\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the line to which the station belongs. 
+
+\begin{DoxyReturn}{Returns}
+The line to which the station belongs. 
+\end{DoxyReturn}
+\Hypertarget{classStation_a4ff1d0ac1fd236744131a462e8df5786}\label{classStation_a4ff1d0ac1fd236744131a462e8df5786} 
+\index{Station@{Station}!getStationMunicipality@{getStationMunicipality}}
+\index{getStationMunicipality@{getStationMunicipality}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{getStationMunicipality()}{getStationMunicipality()}}
+{\footnotesize\ttfamily std\+::string Station\+::get\+Station\+Municipality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the municipality in which the station is located. 
+
+\begin{DoxyReturn}{Returns}
+The municipality in which the station is located. 
+\end{DoxyReturn}
+\Hypertarget{classStation_ae79145bcbbe6b9f49e1ccabee8620f8e}\label{classStation_ae79145bcbbe6b9f49e1ccabee8620f8e} 
+\index{Station@{Station}!getStationName@{getStationName}}
+\index{getStationName@{getStationName}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{getStationName()}{getStationName()}}
+{\footnotesize\ttfamily std\+::string Station\+::get\+Station\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the name of the station. 
+
+\begin{DoxyReturn}{Returns}
+The name of the station. 
+\end{DoxyReturn}
+\Hypertarget{classStation_a1a1d49ed06c7fd7e9ba4bb41f5a93c21}\label{classStation_a1a1d49ed06c7fd7e9ba4bb41f5a93c21} 
+\index{Station@{Station}!getStationTownship@{getStationTownship}}
+\index{getStationTownship@{getStationTownship}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{getStationTownship()}{getStationTownship()}}
+{\footnotesize\ttfamily std\+::string Station\+::get\+Station\+Township (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the township in which the station is located. 
+
+\begin{DoxyReturn}{Returns}
+The township in which the station is located. 
+\end{DoxyReturn}
+\Hypertarget{classStation_a8a7eae4c39f16d6f04f2c4d1ca1a1f57}\label{classStation_a8a7eae4c39f16d6f04f2c4d1ca1a1f57} 
+\index{Station@{Station}!operator==@{operator==}}
+\index{operator==@{operator==}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Station\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStation}{Station}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if this \doxylink{classStation}{Station} object is equal to another \doxylink{classStation}{Station} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{classStation}{Station} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the objects are equal, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classStation_a11776eba707563a2a0832eea02bdf5c7}\label{classStation_a11776eba707563a2a0832eea02bdf5c7} 
+\index{Station@{Station}!setCode@{setCode}}
+\index{setCode@{setCode}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{setCode()}{setCode()}}
+{\footnotesize\ttfamily void Station\+::set\+Code (\begin{DoxyParamCaption}\item[{int}]{code }\end{DoxyParamCaption})}
+
+
+
+Set the code of the station. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The new code of the station. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classStation_a3ae32174ade62281cc4df83b0e1906df}\label{classStation_a3ae32174ade62281cc4df83b0e1906df} 
+\index{Station@{Station}!code@{code}}
+\index{code@{code}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily int Station\+::code}
+
+\Hypertarget{classStation_ae8e1a0279a8879ca2f8d6fa2127930cc}\label{classStation_ae8e1a0279a8879ca2f8d6fa2127930cc} 
+\index{Station@{Station}!district@{district}}
+\index{district@{district}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{district}{district}}
+{\footnotesize\ttfamily string Station\+::district}
+
+\Hypertarget{classStation_a49c6e75f4e4d46f2ad01bad229ee0d71}\label{classStation_a49c6e75f4e4d46f2ad01bad229ee0d71} 
+\index{Station@{Station}!line@{line}}
+\index{line@{line}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{line}{line}}
+{\footnotesize\ttfamily string Station\+::line}
+
+\Hypertarget{classStation_a2a4bb78d0acf07ffce910f750c68892a}\label{classStation_a2a4bb78d0acf07ffce910f750c68892a} 
+\index{Station@{Station}!municipality@{municipality}}
+\index{municipality@{municipality}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{municipality}{municipality}}
+{\footnotesize\ttfamily string Station\+::municipality}
+
+\Hypertarget{classStation_a87111da4cfca52c6083ad8ddc636cd5d}\label{classStation_a87111da4cfca52c6083ad8ddc636cd5d} 
+\index{Station@{Station}!name@{name}}
+\index{name@{name}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily string Station\+::name}
+
+\Hypertarget{classStation_a0552badaff28cc06411b808af462d382}\label{classStation_a0552badaff28cc06411b808af462d382} 
+\index{Station@{Station}!township@{township}}
+\index{township@{township}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{township}{township}}
+{\footnotesize\ttfamily string Station\+::township}
+
+\Hypertarget{classStation_a5c1636c3bc53579499c97bf41e02a3c5}\label{classStation_a5c1636c3bc53579499c97bf41e02a3c5} 
+\index{Station@{Station}!visited@{visited}}
+\index{visited@{visited}!Station@{Station}}
+\doxysubsubsection{\texorpdfstring{visited}{visited}}
+{\footnotesize\ttfamily bool Station\+::visited\hspace{0.3cm}{\ttfamily [mutable]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{Station_8h}{Station.\+h}}\item 
+src/\mbox{\hyperlink{Station_8cpp}{Station.\+cpp}}\end{DoxyCompactItemize}

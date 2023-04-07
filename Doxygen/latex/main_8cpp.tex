@@ -1,0 +1,94 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}istream\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}read\+Files.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a70d89ea1fbf086f9b7cfbfa5f2f21488}{shortest\+Path}} (Graph$<$ \mbox{\hyperlink{classStation}{Station}} $>$ $\ast$\mbox{\hyperlink{readFiles_8cpp_ac7b28c5b510f53b689f17f37e5a330ba}{g}}, \mbox{\hyperlink{classStation}{Station}} $\ast$origem, \mbox{\hyperlink{classStation}{Station}} $\ast$destino)
+\item 
+void \mbox{\hyperlink{main_8cpp_a1b4d19c48e3c8ebb80c701b0ba148072}{max\+Number\+Trains}} (Graph$<$ \mbox{\hyperlink{classStation}{Station}} $>$ $\ast$\mbox{\hyperlink{readFiles_8cpp_ac7b28c5b510f53b689f17f37e5a330ba}{g}}, \mbox{\hyperlink{classStation}{Station}} $\ast$origem, \mbox{\hyperlink{classStation}{Station}} $\ast$destino)
+\item 
+void \mbox{\hyperlink{main_8cpp_a65dbb4b664f2826c09ea795c8f6e1c8e}{max\+Number\+Trains\+All\+Stations}} (Graph$<$ \mbox{\hyperlink{classStation}{Station}} $>$ $\ast$\mbox{\hyperlink{readFiles_8cpp_ac7b28c5b510f53b689f17f37e5a330ba}{g}}, \mbox{\hyperlink{classStation}{Station}} $\ast$destino, vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ stations)
+\item 
+void \mbox{\hyperlink{main_8cpp_a3e13a496464e9d9604942b56327e2da9}{most\+Amount}} (Graph$<$ \mbox{\hyperlink{classStation}{Station}} $>$ $\ast$\mbox{\hyperlink{readFiles_8cpp_ac7b28c5b510f53b689f17f37e5a330ba}{g}}, vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ stations)
+\item 
+int \mbox{\hyperlink{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The main function contains a functional menu that allows the user to interact with a railway network and perform various operations such as finding the maximum number of trains that can travel between two stations, finding the shortest path between two stations, and determining which pairs of stations require the most amount of trains. \Hypertarget{main_8cpp_a1b4d19c48e3c8ebb80c701b0ba148072}\label{main_8cpp_a1b4d19c48e3c8ebb80c701b0ba148072} 
+\index{main.cpp@{main.cpp}!maxNumberTrains@{maxNumberTrains}}
+\index{maxNumberTrains@{maxNumberTrains}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{maxNumberTrains()}{maxNumberTrains()}}
+{\footnotesize\ttfamily void max\+Number\+Trains (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{classStation}{Station}} $>$ $\ast$}]{g,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{origem,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destino }\end{DoxyParamCaption})}
+
+The max\+Number\+Trains function calculates the max number of trains that can pass together between two given stations using Dijkstra\textquotesingle{}s shortest path algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & A pointer to a graph object of type {\ttfamily Graph\texorpdfstring{$<$}{<}\doxylink{classStation}{Station}\texorpdfstring{$>$}{>}}. This graph represents a network of train stations, where each station is a vertex in the graph and each train route between stations is an edge in the graph. \\
+\hline
+{\em origem} & The parameter \char`\"{}origem\char`\"{} is a pointer to an object of the class \char`\"{}\+Station\char`\"{}, which represents the starting point of a train journey. \\
+\hline
+{\em destino} & The \char`\"{}destino\char`\"{} parameter is a pointer to the destination station in a graph of train stations. It is used in the function \char`\"{}max\+Number\+Trains\char`\"{} to calculate the maximum number of trains that can pass together between the origin station and the destination station using Dijkstra\textquotesingle{}s shortest path algorithm. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a65dbb4b664f2826c09ea795c8f6e1c8e}\label{main_8cpp_a65dbb4b664f2826c09ea795c8f6e1c8e} 
+\index{main.cpp@{main.cpp}!maxNumberTrainsAllStations@{maxNumberTrainsAllStations}}
+\index{maxNumberTrainsAllStations@{maxNumberTrainsAllStations}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{maxNumberTrainsAllStations()}{maxNumberTrainsAllStations()}}
+{\footnotesize\ttfamily void max\+Number\+Trains\+All\+Stations (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{classStation}{Station}} $>$ $\ast$}]{g,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destino,  }\item[{vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$}]{stations }\end{DoxyParamCaption})}
+
+This function calculates the maximum number of trains that can travel from a set of stations to a destination station using Dijkstra\textquotesingle{}s shortest path algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & A pointer to a graph object of type {\ttfamily Graph\texorpdfstring{$<$}{<}\doxylink{classStation}{Station}\texorpdfstring{$>$}{>}}. This graph represents the train stations and their connections. \\
+\hline
+{\em destino} & The \char`\"{}destino\char`\"{} parameter is a pointer to a \doxylink{classStation}{Station} object that represents the destination station. \\
+\hline
+{\em stations} & The \char`\"{}stations\char`\"{} parameter is a vector of pointers to \doxylink{classStation}{Station} objects. It is a list of all stations \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a3e13a496464e9d9604942b56327e2da9}\label{main_8cpp_a3e13a496464e9d9604942b56327e2da9} 
+\index{main.cpp@{main.cpp}!mostAmount@{mostAmount}}
+\index{mostAmount@{mostAmount}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mostAmount()}{mostAmount()}}
+{\footnotesize\ttfamily void most\+Amount (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{classStation}{Station}} $>$ $\ast$}]{g,  }\item[{vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$}]{stations }\end{DoxyParamCaption})}
+
+This function finds the pair of stations with the highest capacity of trains between them using Dijkstra\textquotesingle{}s shortest path algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & A pointer to a graph object of type Graph$<$\+Station$>$, which represents a network of train stations and their connections. \\
+\hline
+{\em stations} & A vector containing pointers to all the stations in the graph. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a70d89ea1fbf086f9b7cfbfa5f2f21488}\label{main_8cpp_a70d89ea1fbf086f9b7cfbfa5f2f21488} 
+\index{main.cpp@{main.cpp}!shortestPath@{shortestPath}}
+\index{shortestPath@{shortestPath}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{shortestPath()}{shortestPath()}}
+{\footnotesize\ttfamily void shortest\+Path (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{classStation}{Station}} $>$ $\ast$}]{g,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{origem,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destino }\end{DoxyParamCaption})}
+
+The shortest\+Path function calculates the shortest path between two stations in a graph and prints that path.
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & A pointer to a Graph object that contains a network of stations and their connections. \\
+\hline
+{\em origem} & The \char`\"{}origem\char`\"{} parameter is a pointer to the starting station of the shortest path that we want to find. \\
+\hline
+{\em destino} & The \char`\"{}destino\char`\"{} parameter is a pointer to the destination station in a graph of stations. It is used in the \char`\"{}shortest\+Path\char`\"{} function to find the shortest path from the \char`\"{}origem\char`\"{} (source) station to the \char`\"{}destino\char`\"{} station using an unweighted shortest path algorithm. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,50 @@
+\hypertarget{Station_8h_source}{}\doxysection{Station.\+h}
+\label{Station_8h_source}\index{src/Station.h@{src/Station.h}}
+\mbox{\hyperlink{Station_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}string"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}fstream"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classStation}{Station}}\ :\ \textcolor{keyword}{public}\ error\_code\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classStation_a73d335726aad1d844d81cda6d9fd74e6}{Station}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classStation_a73d335726aad1d844d81cda6d9fd74e6}{Station}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classStation_a3ae32174ade62281cc4df83b0e1906df}{code}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a87111da4cfca52c6083ad8ddc636cd5d}{name}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_ae8e1a0279a8879ca2f8d6fa2127930cc}{district}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a2a4bb78d0acf07ffce910f750c68892a}{municipality}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a0552badaff28cc06411b808af462d382}{township}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a49c6e75f4e4d46f2ad01bad229ee0d71}{line}});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classStation_a3ae32174ade62281cc4df83b0e1906df}{code}};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a87111da4cfca52c6083ad8ddc636cd5d}{name}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_ae8e1a0279a8879ca2f8d6fa2127930cc}{district}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a2a4bb78d0acf07ffce910f750c68892a}{municipality}};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a0552badaff28cc06411b808af462d382}{township}};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a49c6e75f4e4d46f2ad01bad229ee0d71}{line}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_ae79145bcbbe6b9f49e1ccabee8620f8e}{getStationName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a4ff1d0ac1fd236744131a462e8df5786}{getStationMunicipality}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a1a1d49ed06c7fd7e9ba4bb41f5a93c21}{getStationTownship}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classStation_a7c0bee69374dd8c169a24ee999a67042}{getStationLine}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classStation_a5c1636c3bc53579499c97bf41e02a3c5}{visited}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classStation_a8a7eae4c39f16d6f04f2c4d1ca1a1f57}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStation}{Station}}\ \&other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classStation_a87111da4cfca52c6083ad8ddc636cd5d}{name}}\ ==\ other.\mbox{\hyperlink{classStation_a87111da4cfca52c6083ad8ddc636cd5d}{name}}\ \&\&}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStation_ae8e1a0279a8879ca2f8d6fa2127930cc}{district}}\ ==\ other.\mbox{\hyperlink{classStation_ae8e1a0279a8879ca2f8d6fa2127930cc}{district}}\ \&\&}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStation_a2a4bb78d0acf07ffce910f750c68892a}{municipality}}\ ==\ other.\mbox{\hyperlink{classStation_a2a4bb78d0acf07ffce910f750c68892a}{municipality}}\ \&\&}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStation_a0552badaff28cc06411b808af462d382}{township}}\ ==\ other.\mbox{\hyperlink{classStation_a0552badaff28cc06411b808af462d382}{township}}\ \&\&}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStation_a49c6e75f4e4d46f2ad01bad229ee0d71}{line}}\ ==\ other.\mbox{\hyperlink{classStation_a49c6e75f4e4d46f2ad01bad229ee0d71}{line}};}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classStation_aacf10c5fe94ee5fb9ff091b4366ed274}{getCode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classStation_a11776eba707563a2a0832eea02bdf5c7}{setCode}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classStation_a3ae32174ade62281cc4df83b0e1906df}{code}});}
+\DoxyCodeLine{00093\ \};}
+
+\end{DoxyCode}

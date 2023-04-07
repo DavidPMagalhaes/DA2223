@@ -37,25 +37,163 @@ class Graph {
 
     bool dfsIsDAG(Vertex<T> *v) const;
 public:
+    /**
+     * @brief Finds a vertex with a given info value.
+     *
+     * @param in - the value to search for.
+     * @return A pointer to the vertex containing the value, or NULL if it's not found.
+     */
     Vertex<T> *findVertex(const T &in) const;
+
+    /**
+     * @brief Finds a vertex with a given tag.
+     *
+     * @param tag - the tag to search for.
+     * @return A pointer to the vertex containing the tag, or NULL if it's not found.
+     */
     Vertex<T> *findVertexTag(string tag) const;
+
+    /**
+     * @brief Gets the number of vertices in the graph.
+     *
+     * @return The number of vertices in the graph.
+     */
     int getNumVertex() const;
+
+    /**
+     * @brief Adds a vertex with a given value to the graph.
+     *
+     * @param in - the value to add.
+     * @return True if the vertex was successfully added, false if it already existed.
+     */
     bool addVertex(const T &in);
+
+    /**
+     * @brief Removes a vertex with a given value from the graph.
+     *
+     * @param in - the value to remove.
+     * @return True if the vertex was successfully removed, false if it didn't exist.
+     */
     bool removeVertex(const T &in);
+
+    /**
+     * @brief Adds an edge between two vertices with given values.
+     *
+     * @param sourc - the value of the source vertex.
+     * @param dest - the value of the destination vertex.
+     * @param w - the weight of the edge.
+     * @return True if the edge was successfully added, false if either of the vertices didn't exist.
+     */
     bool addEdge(const T &sourc, const T &dest, double w);
+
+    /**
+     * @brief Removes the edge between two vertices with given values.
+     *
+     * @param sourc - the value of the source vertex.
+     * @param dest - the value of the destination vertex.
+     * @return True if the edge was successfully removed, false if it didn't exist.
+     */
     bool removeEdge(const T &sourc, const T &dest);
+
+    /**
+     * @brief Performs a Depth-First Search on the graph.
+     *
+     * @return A vector containing the values of the vertices in the order they were visited.
+     */
     std::vector<T> dfs() const;
+
+    /**
+     * @brief Performs a Breadth-First Search on the graph, starting from a given vertex.
+     *
+     * @param source - the value of the source vertex.
+     * @return A vector containing the values of the vertices in the order they were visited.
+     */
     std::vector<T> bfs(const T &source) const;
+
+    /**
+     * @brief Performs a Topological Sort on the graph.
+     *
+     * @return A vector containing the values of the vertices in the order they were sorted.
+     */
     std::vector<T> topsort() const;
+
+    /**
+     * @brief Finds the maximum number of children of a given vertex in a spanning tree of the graph.
+     *
+     * @param source - the value of the source vertex.
+     * @param inf - a reference to a variable to store the vertex with the maximum number of children.
+     * @return The maximum number of children.
+     */
     int maxNewChildren(const T &source, T &inf) const;
+
+    /**
+     * @brief Checks if the graph is a Directed Acyclic Graph (DAG).
+     *
+     * @return true if the graph is a DAG, false otherwise.
+     */
     bool isDAG() const;
+
+    /**
+     * @brief Initializes a single source for the graph.
+     *
+     * @param origin The origin vertex.
+     * @return A pointer to the origin vertex.
+     */
     Vertex<T> * initSingleSource(const T &origin);
+
+    /**
+     * @brief Relaxes an edge between two vertices.
+     *
+     * @param v The first vertex.
+     * @param w The second vertex.
+     * @param weight The weight of the edge.
+     * @return true if the relaxation was successful, false otherwise.
+     */
     inline bool relax(Vertex<T> *v, Vertex<T> *w, double weight);
+
+    /**
+     * @brief Computes the shortest path in an unweighted graph.
+     *
+     * @param orig The origin vertex.
+     */
     void unweightedShortestPath(const T &orig);
+    /**
+     * Returns a vector with the path from the source vertex to the destination vertex.
+    * @param dest The destination vertex.
+    * @return A vector with the path from the source vertex to the destination vertex.
+     * If no path exists, returns an empty vector.
+     */
     vector<T> getPath(const T &dest) const;
+
+    /**
+     * @brief Computes the shortest path in a weighted graph using Dijkstra's algorithm.
+     *
+     * @param origin The origin vertex.
+     */
     void dijkstraShortestPath(const T &origin);
+
+    /**
+     * @brief Computes the shortest path in a weighted graph using Dijkstra's algorithm and returns the path.
+     *
+     * @param origin The origin vertex.
+     * @param dest The destination vertex.
+     */
     void dijkstraShortestPath2(const T &origin,const T &dest);
+
+    /**
+     * @brief Computes the shortest path in a weighted graph using Dijkstra's algorithm and returns the path distance.
+     *
+     * @param origin The origin vertex.
+     * @param dest The destination vertex.
+     * @return The path distance.
+     */
     int dijkstraShortestPath3(const T &origin,const T &dest);
+
+    /**
+     * @brief Gets a vector containing all vertices in the graph.
+     *
+     * @return A vector containing all vertices in the graph.
+     */
     std::vector<Vertex<T> *> getVertexSet() const;
 };
 
