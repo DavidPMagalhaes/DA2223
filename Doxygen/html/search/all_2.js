@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['findstation_0',['findStation',['../readFiles_8cpp.html#a5be72627e35139dd00b71c238f03c37d',1,'findStation(string name, vector&lt; Station * &gt; stations):&#160;readFiles.cpp'],['../readFiles_8h.html#a5be72627e35139dd00b71c238f03c37d',1,'findStation(string name, vector&lt; Station * &gt; stations):&#160;readFiles.cpp']]]
+  ['district_0',['district',['../classStation.html#ae8e1a0279a8879ca2f8d6fa2127930cc',1,'Station']]]
 ];

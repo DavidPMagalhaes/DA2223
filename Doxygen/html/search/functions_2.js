@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main.cpp']]],
-  ['maxnumbertrains_1',['maxNumberTrains',['../main_8cpp.html#a1b4d19c48e3c8ebb80c701b0ba148072',1,'main.cpp']]],
-  ['maxnumbertrainsallstations_2',['maxNumberTrainsAllStations',['../main_8cpp.html#a65dbb4b664f2826c09ea795c8f6e1c8e',1,'main.cpp']]],
-  ['mostamount_3',['mostAmount',['../main_8cpp.html#a3e13a496464e9d9604942b56327e2da9',1,'main.cpp']]]
+  ['findnetwork_0',['findNetwork',['../readFiles_8cpp.html#ae4af88fd46d875ef98648e75b345b603',1,'findNetwork(Station name, vector&lt; Network * &gt; networks):&#160;readFiles.cpp'],['../readFiles_8h.html#a4562ff8753900d82707cee7f9803b000',1,'findNetwork(Station name, vector&lt; Network * &gt; network):&#160;readFiles.cpp']]],
+  ['findstation_1',['findStation',['../readFiles_8cpp.html#a5be72627e35139dd00b71c238f03c37d',1,'findStation(string name, vector&lt; Station * &gt; stations):&#160;readFiles.cpp'],['../readFiles_8h.html#a5be72627e35139dd00b71c238f03c37d',1,'findStation(string name, vector&lt; Station * &gt; stations):&#160;readFiles.cpp']]]
 ];

@@ -18,41 +18,40 @@
 \DoxyCodeLine{00024\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{00025\ }
 \DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNetwork}{Network}}\ \{}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ codeA;}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ codeB;}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ capacity;}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{string}\ service;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classStation}{Station}}\ \mbox{\hyperlink{classNetwork_a1bd56339b2b3a6c39b2bd87bae300d49}{codeA}};}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classStation}{Station}}\ \mbox{\hyperlink{classNetwork_a929998e51bb5ebdf92778a20caf2209a}{codeB}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classStation}{Station}}\ \&\mbox{\hyperlink{classNetwork_a0e51471eea25b50a7c784b291632a8cb}{getCodeA}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classStation}{Station}}\ \&\mbox{\hyperlink{classNetwork_aecadd8df1a225cb48c0c71f336ffea75}{getCodeB}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classNetwork}{Network}}\&\ other)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ codeA\ ==\ other.codeA\ \&\&}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ codeB\ ==\ other.codeB\ \&\&}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ capacity\ ==\ other.capacity\ \&\&}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ service\ ==\ other.service;}
-\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetwork_a36aae931296ea553fb47b8e52a7dce0e}{setCodeA1}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStation}{Station}}\ \&\mbox{\hyperlink{classNetwork_a1bd56339b2b3a6c39b2bd87bae300d49}{codeA}});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetwork_a5de14673519da0a9c645cd838a338289}{setCodeB1}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStation}{Station}}\ \&\mbox{\hyperlink{classNetwork_a929998e51bb5ebdf92778a20caf2209a}{codeB}});}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classNetwork_a3b8f75c31bd97fac40fd9360cda8a829}{capacity}};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classNetwork_a91cccf74f567504721f82b71baf50ae3}{service}};}
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ setCapacity(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&capacity);}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&getService()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ setService(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&service);}
-\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classNetwork}{Network}}(\textcolor{keywordtype}{int}\ codeA,\ \textcolor{keywordtype}{int}\ codeB,\ \textcolor{keywordtype}{int}\ capacity,\ \textcolor{keywordtype}{string}\ service);}
-\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classNetwork_a297113ee08ee10a4f327aef7d45afdb7}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classNetwork}{Network}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classNetwork_a1bd56339b2b3a6c39b2bd87bae300d49}{codeA}}\ ==\ other.\mbox{\hyperlink{classNetwork_a1bd56339b2b3a6c39b2bd87bae300d49}{codeA}}\ \&\&}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNetwork_a929998e51bb5ebdf92778a20caf2209a}{codeB}}\ ==\ other.\mbox{\hyperlink{classNetwork_a929998e51bb5ebdf92778a20caf2209a}{codeB}}\ \&\&}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNetwork_a3b8f75c31bd97fac40fd9360cda8a829}{capacity}}\ ==\ other.\mbox{\hyperlink{classNetwork_a3b8f75c31bd97fac40fd9360cda8a829}{capacity}}\ \&\&}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNetwork_a91cccf74f567504721f82b71baf50ae3}{service}}\ ==\ other.\mbox{\hyperlink{classNetwork_a91cccf74f567504721f82b71baf50ae3}{service}};}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetwork_a1f3b3e414824ec8d151b576e4dc73c3b}{setCapacity}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\mbox{\hyperlink{classNetwork_a3b8f75c31bd97fac40fd9360cda8a829}{capacity}});}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classNetwork_a9013d96dfd030ce9070536cda19a7b69}{getCapacity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\mbox{\hyperlink{classNetwork_a2d73a5a89f13b5f242f0b204631ad517}{getService}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classNetwork_a8bd8251f5d791d026190ecca11ab2068}{getCodeA}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetwork_a6b115c29b8a4e9044e70cb2130664000}{setService}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\mbox{\hyperlink{classNetwork_a91cccf74f567504721f82b71baf50ae3}{service}});}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetwork_a7335ad20deec0b661a0c6628f290d2dc}{setCodeA}}(\textcolor{keywordtype}{int}\ codeA);}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classNetwork}{Network}}(\mbox{\hyperlink{classStation}{Station}}*\ \mbox{\hyperlink{classNetwork_a1bd56339b2b3a6c39b2bd87bae300d49}{codeA}},\ \mbox{\hyperlink{classStation}{Station}}*\ \mbox{\hyperlink{classNetwork_a929998e51bb5ebdf92778a20caf2209a}{codeB}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classNetwork_a3b8f75c31bd97fac40fd9360cda8a829}{capacity}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classNetwork_a91cccf74f567504721f82b71baf50ae3}{service}});}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classNetwork_a7cefd8a6b0cc659af2ed99f6171f9d16}{getCodeB}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetwork_ab5b3b876938a71c30dbe4ceb3a6d2dda}{setCodeB}}(\textcolor{keywordtype}{int}\ codeB);}
-\DoxyCodeLine{00061\ \};}
-\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classNetwork_a9013d96dfd030ce9070536cda19a7b69}{getCapacity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
 
 \end{DoxyCode}
