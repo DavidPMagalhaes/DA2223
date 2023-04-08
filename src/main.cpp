@@ -187,7 +187,18 @@ struct GenericHash {
     }
 };
 
-
+/**
+ * @brief All paths between two stations
+ *
+ * Finds all possible paths between two vertices in a given graph.
+ *
+ * @tparam T Type of the vertices in the graph
+ * @param source Starting vertex
+ * @param destination Ending vertex
+ * @param graph Graph where to search for paths
+ *
+ * @return A vector of all possible paths, each path represented as a vector of vertices in order
+ */
 template<typename T>
 vector<vector<T>> getAllPaths(T source, T destination, Graph<T> graph) {
 
@@ -195,7 +206,16 @@ vector<vector<T>> getAllPaths(T source, T destination, Graph<T> graph) {
     recursive(source, destination, paths, std::unordered_set<T,GenericHash<T>>(), &graph);
     return paths;
 }
-
+/**
+ * @brief Subgraph of a graph.
+ *
+ * Generates a subgraph of a given graph based on a set of stations, an origin station and a destination station.
+ *
+ * @param stations Vector containing pointers to the stations that should be included in the subgraph.
+ * @param origem Pointer to the origin station.
+ * @param destino Pointer to the destination station.
+ * @return The subgraph generated from the given graph.
+ */
 Graph<Station*> subgraph(vector<Station*> stations, Station* origem, Station* destino) {
     Graph<Station*> subgraph;
     set<Vertex<Station*>*> visited;
@@ -232,7 +252,16 @@ Graph<Station*> subgraph(vector<Station*> stations, Station* origem, Station* de
 }
 
 
-
+/**
+* @brief Recursive function that finds all paths from a source vertex to a destination vertex in a graph
+*
+* @tparam T Type of vertex in the graph
+* @param current Current vertex being visited
+* @param destination Destination vertex being searched for
+* @param paths Vector of vectors that will hold all the paths found
+* @param path Unordered set containing the vertices visited so far
+* @param graph Pointer to the graph being searched
+*/
 template<typename T>
 void recursive(T current, T destination, vector<vector<T>>& paths, std::unordered_set<T,GenericHash<T>>  path, Graph<T> *graph) {
     path.insert(current);
@@ -249,7 +278,13 @@ void recursive(T current, T destination, vector<vector<T>>& paths, std::unordere
     path.erase(current);
 }
 
-
+/**
+ * @brief Finds all the paths between two stations in a graph and prints them to the console.
+ *
+ * @param source The starting station.
+ * @param destination The destination station.
+ * @param graph The graph that contains the stations.
+ */
 void allPath(Station* source, Station* destination, Graph<Station*> *graph){
     vector<vector<Station*>> v = getAllPaths(source, destination, *graph);
     int i = 0;
