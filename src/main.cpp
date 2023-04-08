@@ -3,6 +3,7 @@
 #include <vector>
 #include "istream"
 #include "readFiles.h"
+#include <unordered_set>
 
 using namespace std;
 
@@ -47,11 +48,11 @@ void menu() {
  * "shortestPath" function to find the shortest path from the "origem" (source) station to the "destino" station using an
  * unweighted shortest path algorithm.
  */
-void shortestPath(Graph<Station> *g, Station *origem, Station *destino){
-    g->unweightedShortestPath(*origem);
-    vector<Station> s = g->getPath(*destino);
+void shortestPath(Graph<Station*> *g, Station *origem, Station *destino){
+    g->unweightedShortestPath(origem);
+    vector<Station*> s = g->getPath(destino);
     for (int i = 0; i < s.size(); i++){
-        cout << s[i].getStationName();
+        cout << s[i]->getStationName() << endl;
     }
 }
 
@@ -67,8 +68,16 @@ void shortestPath(Graph<Station> *g, Station *origem, Station *destino){
  * in the function "maxNumberTrains" to calculate the maximum number of trains that can pass together between the origin
  * station and the destination station using Dijkstra's shortest path algorithm.
  */
-void maxNumberTrains(Graph<Station> *g, Station *origem, Station *destino) {
-    cout << "Max Number of Trains that can pass together: " << g->dijkstraShortestPath3(*origem, *destino) << endl;
+void maxNumberTrains(Graph<Station*> *g, Station *origem, Station *destino) {
+    g->unweightedShortestPath(origem);
+    vector<Station*> v = g->getPath(destino);
+    for (auto s : v){
+        cout << s->getStationName() << endl;
+    }
+    if (v.size() == 0){
+        cout << "There is no path between both stations" << endl;
+    } else
+        cout << "Max Number of Trains that can pass together: " << g->maxNumberTrain(origem, destino) << endl;
 }
 
 /**
@@ -80,14 +89,20 @@ void maxNumberTrains(Graph<Station> *g, Station *origem, Station *destino) {
  * @param destino The "destino" parameter is a pointer to a Station object that represents the destination station.
  * @param stations The "stations" parameter is a vector of pointers to Station objects. It is a list of all stations
  */
-void maxNumberTrainsAllStations(Graph<Station> *g, Station *destino, vector<Station*> stations) {
+void maxNumberTrainsAllStations(Graph<Station*> *g, Station *destino, vector<Station*> stations)  {
     int sum = 0;
-    for (auto s: stations){
-        sum += g->dijkstraShortestPath3(*s, *destino);
+    for (auto s: stations) {
+        g->unweightedShortestPath(s);
+        vector<Station*> v = g->getPath(destino);
+        int w = g->maxNumberTrain(s, destino);
+        if (w > sum) {
+            sum = g->maxNumberTrain(s, destino);
+        }
     }
     cout << sum << endl;
 }
 
+/*
 void allPaths(Graph<Station> *g, Station *origem, Station *destino, vector<Network*> networks){
     g->unweightedShortestPath(*origem);
     vector<Station> s = g->getPath(*destino);
@@ -121,7 +136,7 @@ void allPaths(Graph<Station> *g, Station *origem, Station *destino, vector<Netwo
             cout << s2[i].getStationName() << endl;
         }
     }
-}
+}*/
 
 /**
  * This function finds the pair of stations with the highest capacity of trains between them using Dijkstra's shortest path
@@ -131,7 +146,7 @@ void allPaths(Graph<Station> *g, Station *origem, Station *destino, vector<Netwo
  * connections.
  * @param stations A vector containing pointers to all the stations in the graph.
  */
-void mostAmount(Graph<Station> *g, vector<Station*> stations) {
+void mostAmount(Graph<Station*> *g, vector<Station*> stations) {
     Station *origem;
     Station *destino;
     int weight=0;
@@ -143,7 +158,7 @@ void mostAmount(Graph<Station> *g, vector<Station*> stations) {
         for (int j = i+1; j < stations.size(); ++j) {
             origem= stations[i];
             destino=stations[j];
-            weight = g->dijkstraShortestPath3(*origem, *destino);
+            weight = g->dijkstraShortestPath3(origem, destino);
             if (j%20==0) {
                 cout << ".";
             }
@@ -158,6 +173,58 @@ void mostAmount(Graph<Station> *g, vector<Station*> stations) {
     cout << "Most amount of trains happen in pair: " << maxO->getStationName() << " and " << maxD->getStationName() << endl;
     cout << "Capacity of pair:" << maxW << endl;
 }
+
+template<typename T>
+struct GenericHash {
+    size_t operator()(const T& station) const {
+        // use the hash function for std::string as the basis for the hash
+        return std::hash<std::string>()(station->getStationName());
+    }
+};
+
+
+template<typename T>
+vector<vector<T>> getAllPaths(T source, T destination, Graph<T> graph) {
+
+    vector<vector<T>> paths;
+    recursive(source, destination, paths, std::unordered_set<T,GenericHash<T>>(), &graph);
+    return paths;
+}
+
+template<typename T>
+void recursive(T current, T destination, vector<vector<T>>& paths, std::unordered_set<T,GenericHash<T>>  path, Graph<T> *graph) {
+    path.insert(current);
+    if (current == destination) {
+        paths.push_back(vector<T>(path.begin(), path.end()));
+        path.erase(current);
+        return;
+    }
+    for (Edge<T> e : g.findVertex(current)->adj) {
+        if (path.count(e.dest->getInfo()) == 0) {
+            recursive(e.dest->getInfo(), destination, paths, path, graph);
+        }
+    }
+    path.erase(current);
+}
+
+
+void allPath(Station* source, Station* destination, Graph<Station*> *graph){
+    vector<vector<Station*>> v = getAllPaths(source, destination, *graph);
+    int i = 0;
+    cout << "size" << v.size() << endl << endl;
+    cout << " " << endl;
+    for (auto s : v){
+        i++;
+        cout << endl;
+        cout << "Caminho: " << i << endl;
+        for (auto x : s){
+            cout << x->getStationName() << endl;
+        }
+    }
+}
+
+
+
 
 /**
  * @brief Main function of the program
@@ -351,5 +418,5 @@ void option5(vector<Station *> stations, vector <Network*> networks) {
     cout << "Destination station: " << end << std::endl;
     Station *src = findStation(start, stations);
     Station *dest = findStation(end, stations);
-    allPaths(&g, src, dest, networks);
+    allPath(src, dest, &g);
 }
