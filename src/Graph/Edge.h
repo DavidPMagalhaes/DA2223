@@ -47,4 +47,5 @@ public:
 template <class T>
 Edge<T>::Edge(Vertex<T> *d, double w): dest(d), weight(w) {}
 
+
 #endif //CAL_PROJ_EDGE_H

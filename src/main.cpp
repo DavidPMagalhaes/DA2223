@@ -4,6 +4,7 @@
 #include "istream"
 #include "readFiles.h"
 #include <unordered_set>
+#include <set>
 
 using namespace std;
 
@@ -12,11 +13,15 @@ void option2(vector<Station *> stations);
 void option3(vector<Station *> stations);
 void option4(vector<Station *> stations);
 void option5(vector<Station *> stations, vector <Network*> networks);
+void option6(vector<Station *> stations);
 
 void check();
 
+
+Graph<Station*> subgraph(vector<Station *> vector1, Station *origem, Station *destino);
+
 /**
- * Displays the main menu on the console and sets up a vector with the valid input options.
+ * Displays the main menu on the console
  */
 void menu() {
     cout << "|---------------------------------------------------------------------------------------|" << endl;
@@ -34,9 +39,9 @@ void menu() {
     cout << "(3) Determine which pairs of stations require most amount of trains (T2.2)" << endl;
     cout << "(4) Report the max number of trains that can simultaneously arrive at a given station (T2.4)" << endl;
     cout << "(5) Calculate the max number of trains that can simultaneously travel between two stations at minimum cost" << endl;
+    cout << "(6) Calculate the max number of trains that can simultaneously travel between two stations at reduced connectivity" << endl;
     cout << "(0) Exit" << endl;
     cout << "->";
-    vector<int> inputs_menu_principal = {0, 1, 2, 3, 4, 5};
 }
 
 /**
@@ -191,6 +196,43 @@ vector<vector<T>> getAllPaths(T source, T destination, Graph<T> graph) {
     return paths;
 }
 
+Graph<Station*> subgraph(vector<Station*> stations, Station* origem, Station* destino) {
+    Graph<Station*> subgraph;
+    set<Vertex<Station*>*> visited;
+    subgraph.addVertex(origem);
+    subgraph.addVertex(destino);
+    for (auto station : stations) {
+        Vertex<Station*>* vertex = g.findVertex(station);
+        if (vertex != nullptr && visited.find(vertex) == visited.end()) {
+            subgraph.addVertex(vertex->getInfo());
+            visited.insert(vertex);
+            for (auto adjacent : vertex->getAdj()) {
+                if (find(stations.begin(), stations.end(), adjacent->getInfo()) != stations.end()) {
+                    subgraph.addVertex(adjacent->getInfo());
+                    subgraph.addEdge(vertex->getInfo(), adjacent->getInfo(), vertex->getWeight(adjacent));
+                }
+            }
+        }
+    }
+    // Add origin and destination stations edges
+    for (auto station : stations) {
+        if (station != origem && station != destino) {
+            continue;
+        }
+        Vertex<Station*>* vertex = g.findVertex(station);
+        if (vertex != nullptr) {
+            for (auto adjacent : vertex->getAdj()) {
+                if (adjacent->getInfo() == origem || adjacent->getInfo() == destino) {
+                    subgraph.addEdge(vertex->getInfo(), adjacent->getInfo(), vertex->getWeight(adjacent));
+                }
+            }
+        }
+    }
+    return subgraph;
+}
+
+
+
 template<typename T>
 void recursive(T current, T destination, vector<vector<T>>& paths, std::unordered_set<T,GenericHash<T>>  path, Graph<T> *graph) {
     path.insert(current);
@@ -275,7 +317,11 @@ int main(int argc, char const *argv[])
                 check();
                 break;
             }
-
+            case 6: {
+                option6(stations);
+                check();
+                break;
+            }
             case 0: {
                 std::cout << "Exiting program..." << std::endl;
                 return 0;
@@ -285,6 +331,7 @@ int main(int argc, char const *argv[])
         }
     }
 }
+
 
 
 /**
@@ -419,4 +466,26 @@ void option5(vector<Station *> stations, vector <Network*> networks) {
     Station *src = findStation(start, stations);
     Station *dest = findStation(end, stations);
     allPath(src, dest, &g);
+}
+
+void option6(vector<Station *> stations) {
+    cout << "Selected sixth option" << endl;
+    cout << "Calculate the max number of trains that can simultaneously travel between two stations at reduced connectivity" << endl;
+    cout << "Input starting station" << endl;
+    cout << "->";
+    string start;
+    cin.ignore();
+    getline(std::cin, start);
+    cout << "Input destination station: " << endl;
+    string end;
+    getline(std::cin, end);
+    cout << "Starting station: " << start << std::endl;
+    cout << "Destination station: " << end << std::endl;
+    Station *src = findStation(start, stations);
+    Station *dest = findStation(end, stations);
+
+    Graph<Station*> soup = subgraph(stations, src, dest);
+    cout << "Subgraph created successfully" << endl;
+    maxNumberTrains(&soup, src, dest);
+
 }

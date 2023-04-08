@@ -100,6 +100,10 @@ public:
     friend class MutablePriorityQueue<Vertex<T>>;
 
     std::vector<Edge<T> > adj;
+
+    vector<Vertex<T> *> getAdj() const;
+
+    double getWeight(Vertex<T> *dest);
 };
 
 
@@ -130,5 +134,24 @@ template <class T>
 Vertex<T> *Vertex<T>::getPath() const {
     return this->path;
 }
+
+template <class T>
+vector<Vertex<T>*> Vertex<T>::getAdj() const {
+    vector<Vertex<T>*> adjVertices;
+    for (auto e : adj)
+        adjVertices.push_back(e.dest);
+    return adjVertices;
+}
+
+template <class T>
+double Vertex<T>::getWeight(Vertex<T>* dest) {
+    for (auto &e: adj) {
+        if (e.dest == dest) {
+            return e.weight;
+        }
+    }
+    return -1; // or any other value that indicates that the edge was not found
+}
+
 
 #endif //CAL_PROJ_VERTEX_H
