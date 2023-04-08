@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Graph<Station> g;
+Graph<Station*> g;
 
 vector<Station*> readStations()
 {
@@ -28,7 +28,7 @@ vector<Station*> readStations()
             }
             Station* stat = new Station(i,row[0],row[1],row[2],row[3], row[4]);
             // no final do codigo pra cada station fazer "delete station"
-            g.addVertex(*stat);
+            g.addVertex(stat);
             stations.push_back(stat);
             i++;
         }
@@ -104,7 +104,7 @@ vector<Network *> readNetworks(vector<Station*> stations)
                 Station *src = findStation(row[0], stations);
                 Station *dest = findStation(row[1], stations);
                 Network *net = new Network(src, dest, stoi(row[2]), row[3]);
-                g.addEdge(*src, *dest, net->getCapacity());
+                g.addEdge(src, dest, net->getCapacity());
                 networks.push_back(net);
             }
         }

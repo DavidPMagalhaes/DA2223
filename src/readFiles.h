@@ -9,7 +9,7 @@
 #include <vector>
 #include <sstream>
 
-extern Graph<Station> g;
+extern Graph<Station*> g;
 /**
  * Reads network data from a CSV file and creates Network objects based on the data, while also adding edges
  * to a graph and returning a vector of Network pointers.

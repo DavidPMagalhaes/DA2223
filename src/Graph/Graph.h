@@ -16,6 +16,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 #include "Edge.h"
 #include "Vertex.h"
 #include "MutablePriorityQueue.h"
@@ -32,6 +34,12 @@ template <class T>
 class Graph {
     std::vector<Vertex<T> *> vertexSet;    // vertex set
     vector<Edge<T>*> edgeSet;
+public:
+    const vector<Edge<T> *> &getEdgeSet() const {
+        return edgeSet;
+    }
+
+private:
 
     void dfsVisit(Vertex<T> *v,  std::vector<T> & res) const;
 
@@ -44,7 +52,6 @@ public:
      * @return A pointer to the vertex containing the value, or NULL if it's not found.
      */
     Vertex<T> *findVertex(const T &in) const;
-
     /**
      * @brief Finds a vertex with a given tag.
      *
@@ -52,14 +59,12 @@ public:
      * @return A pointer to the vertex containing the tag, or NULL if it's not found.
      */
     Vertex<T> *findVertexTag(string tag) const;
-
     /**
      * @brief Gets the number of vertices in the graph.
      *
      * @return The number of vertices in the graph.
      */
     int getNumVertex() const;
-
     /**
      * @brief Adds a vertex with a given value to the graph.
      *
@@ -67,7 +72,6 @@ public:
      * @return True if the vertex was successfully added, false if it already existed.
      */
     bool addVertex(const T &in);
-
     /**
      * @brief Removes a vertex with a given value from the graph.
      *
@@ -75,7 +79,6 @@ public:
      * @return True if the vertex was successfully removed, false if it didn't exist.
      */
     bool removeVertex(const T &in);
-
     /**
      * @brief Adds an edge between two vertices with given values.
      *
@@ -85,7 +88,6 @@ public:
      * @return True if the edge was successfully added, false if either of the vertices didn't exist.
      */
     bool addEdge(const T &sourc, const T &dest, double w);
-
     /**
      * @brief Removes the edge between two vertices with given values.
      *
@@ -94,7 +96,6 @@ public:
      * @return True if the edge was successfully removed, false if it didn't exist.
      */
     bool removeEdge(const T &sourc, const T &dest);
-
     /**
      * @brief Performs a Depth-First Search on the graph.
      *
@@ -102,7 +103,6 @@ public:
      */
     std::vector<T> dfs() const;
     vector<T> dfsPersussion(const T &orig, const T &dest) const;
-
     /**
      * @brief Performs a Breadth-First Search on the graph, starting from a given vertex.
      *
@@ -110,14 +110,12 @@ public:
      * @return A vector containing the values of the vertices in the order they were visited.
      */
     std::vector<T> bfs(const T &source) const;
-
     /**
      * @brief Performs a Topological Sort on the graph.
      *
      * @return A vector containing the values of the vertices in the order they were sorted.
      */
     std::vector<T> topsort() const;
-
     /**
      * @brief Finds the maximum number of children of a given vertex in a spanning tree of the graph.
      *
@@ -126,14 +124,12 @@ public:
      * @return The maximum number of children.
      */
     int maxNewChildren(const T &source, T &inf) const;
-
     /**
      * @brief Checks if the graph is a Directed Acyclic Graph (DAG).
      *
      * @return true if the graph is a DAG, false otherwise.
      */
     bool isDAG() const;
-
     /**
      * @brief Initializes a single source for the graph.
      *
@@ -141,7 +137,6 @@ public:
      * @return A pointer to the origin vertex.
      */
     Vertex<T> * initSingleSource(const T &origin);
-
     /**
      * @brief Relaxes an edge between two vertices.
      *
@@ -151,14 +146,15 @@ public:
      * @return true if the relaxation was successful, false otherwise.
      */
     inline bool relax(Vertex<T> *v, Vertex<T> *w, double weight);
-
     /**
      * @brief Computes the shortest path in an unweighted graph.
      *
      * @param orig The origin vertex.
      */
     void unweightedShortestPath(const T &orig);
-    void notUnweightedShortestPath(const T &orig, const T &dest);
+
+
+    int maxNumberTrain(const T &orig, const T &dest);
     /**
      * Returns a vector with the path from the source vertex to the destination vertex.
     * @param dest The destination vertex.
@@ -166,14 +162,12 @@ public:
      * If no path exists, returns an empty vector.
      */
     vector<T> getPath(const T &dest) const;
-
     /**
      * @brief Computes the shortest path in a weighted graph using Dijkstra's algorithm.
      *
      * @param origin The origin vertex.
      */
     void dijkstraShortestPath(const T &origin);
-
     /**
      * @brief Computes the shortest path in a weighted graph using Dijkstra's algorithm and returns the path.
      *
@@ -181,7 +175,6 @@ public:
      * @param dest The destination vertex.
      */
     void dijkstraShortestPath2(const T &origin,const T &dest);
-
     /**
      * @brief Computes the shortest path in a weighted graph using Dijkstra's algorithm and returns the path distance.
      *
@@ -190,22 +183,35 @@ public:
      * @return The path distance.
      */
     int dijkstraShortestPath3(const T &origin,const T &dest);
-
     /**
      * @brief Gets a vector containing all vertices in the graph.
      *
      * @return A vector containing all vertices in the graph.
      */
     std::vector<Vertex<T> *> getVertexSet() const;
+    std::unordered_map<T, std::unordered_map<T, double>> adjacencyList;
+    unordered_map<T, std::vector<Edge<T>>> getEdges() const;
+
 };
 
+template<class T>
+unordered_map<T, vector<Edge<T>>> Graph<T>::getEdges() const {
+    std::unordered_map<T, std::vector<Edge<T>>> edges;
+    for (const auto& [vertex, neighbors] : adjacencyList) {
+        std::vector<Edge<T>> edgeList;
+        for (const auto& neighbor : neighbors) {
+            edgeList.push_back(Edge<T>(vertex, neighbor.first, neighbor.second));
+        }
+        edges.emplace(vertex, edgeList);
+    }
+    return edges;
+}
 
 
 template <class T>
 int Graph<T>::getNumVertex() const {
     return vertexSet.size();
 }
-
 
 /*
  * Auxiliary function to find a vertex with a given content.
@@ -514,18 +520,32 @@ void Graph<T>::unweightedShortestPath(const T &orig) {
 }
 
 template<class T>
-void Graph<T>::notUnweightedShortestPath(const T &orig, const T &dest) {
+int Graph<T>::maxNumberTrain(const T &orig, const T &dest) {
+    unweightedShortestPath(orig);
+    vector<Station*> v = getPath(dest);
+    if (v.size() == 0) {
+        return NULL;
+    }
     auto s = initSingleSource(orig);
     queue< Vertex<T>* > q;
     q.push(s);
+    int w = 255;
     while( ! q.empty() ) {
         auto v = q.front();
         q.pop();
         for (auto e: v->adj) {
+            if (e.weight < w){
+                w = e.weight;
+            }
+            if (e.dest == findVertex(dest))
+                break;
             if (relax(v, e.dest, 1))
                 q.push(e.dest);
         }
     }
+    if (w == 255)
+        return NULL;
+    return w;
 }
 
 
@@ -594,7 +614,6 @@ void Graph<T>::dijkstraShortestPath2(const T &origin,const T &dest) {
 
 template<class T>
 int Graph<T>::dijkstraShortestPath3(const T &origin,const T &dest) {
-    this->dijkstraShortestPath(origin);
     auto s = initSingleSource(origin);
     MutablePriorityQueue<Vertex<T>> q;
     q.insert(s);
@@ -617,7 +636,6 @@ int Graph<T>::dijkstraShortestPath3(const T &origin,const T &dest) {
         }
     }
     return w;
-
 }
 
 /*
