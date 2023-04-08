@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['network_0',['Network',['../classNetwork.html',1,'']]]
+  ['generichash_0',['GenericHash',['../structGenericHash.html',1,'']]]
 ];
