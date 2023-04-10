@@ -5,7 +5,7 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Network_8h}{Network.h}}"{}}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}fstream"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Graph/Graph.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Graph_8h}{Graph/Graph.h}}"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstring>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <utility>}}
@@ -13,16 +13,15 @@
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sstream>}}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ Graph<Station*>\ \mbox{\hyperlink{readFiles_8h_a50b0af3e384fbb7a60473b7a1c49a685}{g}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classGraph}{Graph<Station*>}}\ \mbox{\hyperlink{readFiles_8h_a50b0af3e384fbb7a60473b7a1c49a685}{g}};}
 \DoxyCodeLine{00021\ vector<Network*>\ \mbox{\hyperlink{readFiles_8h_a65bfa9b659d78b3257708bb8f08e6687}{readNetworks}}(vector<Station*>\ stations);}
 \DoxyCodeLine{00022\ }
 \DoxyCodeLine{00028\ vector<Station*>\ \mbox{\hyperlink{readFiles_8h_a2b25f482fc71ab73abafffd7946dbb29}{readStations}}();}
 \DoxyCodeLine{00029\ }
 \DoxyCodeLine{00038\ \mbox{\hyperlink{classStation}{Station}}*\ \mbox{\hyperlink{readFiles_8h_a5be72627e35139dd00b71c238f03c37d}{findStation}}(\textcolor{keywordtype}{string}\ name,\ vector<Station*>\ stations);}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \mbox{\hyperlink{classNetwork}{Network}}*\ \mbox{\hyperlink{readFiles_8h_a4562ff8753900d82707cee7f9803b000}{findNetwork}}(\mbox{\hyperlink{classStation}{Station}}\ name,\ vector<Network*>\ network);}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00052\ vector<string>\ \mbox{\hyperlink{readFiles_8h_affd02467aceed1ddf5c583bf9ba0b591}{split}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&str,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ del);}
+\DoxyCodeLine{00047\ \mbox{\hyperlink{classNetwork}{Network}}*\ \mbox{\hyperlink{readFiles_8h_a3137183c347131c07ae4c94f36f5330d}{findNetwork}}(\mbox{\hyperlink{classStation}{Station}}*\ name,\ vector<Network*>\ network);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00058\ vector<string>\ \mbox{\hyperlink{readFiles_8h_affd02467aceed1ddf5c583bf9ba0b591}{split}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&str,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ del);}
 
 \end{DoxyCode}

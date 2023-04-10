@@ -1,14 +1,3 @@
-/**
- * Implementation for a network with code A, code B, capacity, and service.
- *
- * @param codeA An integer representing the code of the first node in the network.
- * @param codeB Aan integer variable that represents the code of the second node in a network connection.
- * @param capacity The capacity parameter represents the maximum amount of data that can be transmitted through the network
- * connection. It is usually measured in bits per second (bps) or bytes per second (Bps).
- * @param service The service parameter is a string that represents the type of network service being provided, such as
- * "internet", "phone", or "cable TV".
- */
-
 #include <list>
 #include <stack>
 #include "fstream"
@@ -22,18 +11,36 @@
 
 
 using namespace std;
-
+/**
+ * @brief The Network class represents a network of railway stations and trains that connect them.
+ */
 class Network {
 public:
     Station codeA;
     Station codeB;
 
+    /**
+     * @brief Getter for the first station code.
+     * @return The first station code.
+     */
     const Station &getCodeA() const;
 
+    /**
+     * @brief Getter for the second station code.
+     * @return The second station code.
+     */
     const Station &getCodeB() const;
 
+    /**
+     * @brief Setter for the first station code.
+     * @param codeA The new code for the first station.
+     */
     void setCodeA1(const Station &codeA);
 
+    /**
+     * @brief Setter for the second station code.
+     * @param codeB The new code for the second station.
+     */
     void setCodeB1(const Station &codeB);
 
     int capacity;

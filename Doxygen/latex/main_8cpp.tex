@@ -4,13 +4,7 @@
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include \char`\"{}istream\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}read\+Files.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
-{\ttfamily \#include $<$set$>$}\newline
-\doxysubsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{structGenericHash}{Generic\+Hash$<$ T $>$}}
-\end{DoxyCompactItemize}
+{\ttfamily \#include \char`\"{}utils.\+cpp\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,51 +19,16 @@ void \mbox{\hyperlink{main_8cpp_a6ec0c110deee2479419b25274db9ec4e}{option4}} (ve
 void \mbox{\hyperlink{main_8cpp_a99ca77b656cd4cc37c446d37fcf2133d}{option5}} (vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ stations, vector$<$ \mbox{\hyperlink{classNetwork}{Network}} $\ast$ $>$ networks)
 \begin{DoxyCompactList}\small\item\em Select option 5. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_aa50971d4451b2d095a40ad383523b580}{option6}} (vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ stations)
+\begin{DoxyCompactList}\small\item\em Select option 6. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a2a0e843767aeea4f433a28b9c54f573a}{menu}} ()
 \item 
 void \mbox{\hyperlink{main_8cpp_a83f8adca24e250bfb5c9a90a35503ae9}{check}} ()
 \begin{DoxyCompactList}\small\item\em Ask user whether to continue or exit the program. \end{DoxyCompactList}\item 
-Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \mbox{\hyperlink{main_8cpp_ad8ae0a513be2fd9aa85436934201741f}{subgraph}} (vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ stations, \mbox{\hyperlink{classStation}{Station}} $\ast$origem, \mbox{\hyperlink{classStation}{Station}} $\ast$destino)
-\begin{DoxyCompactList}\small\item\em Subgraph of a graph. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8cpp_a2a0e843767aeea4f433a28b9c54f573a}{menu}} ()
-\item 
-void \mbox{\hyperlink{main_8cpp_aca928c14cab473cd51f63d031567cdd9}{shortest\+Path}} (Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ $\ast$\mbox{\hyperlink{readFiles_8cpp_a50b0af3e384fbb7a60473b7a1c49a685}{g}}, \mbox{\hyperlink{classStation}{Station}} $\ast$origem, \mbox{\hyperlink{classStation}{Station}} $\ast$destino)
-\item 
-void \mbox{\hyperlink{main_8cpp_a2eed155d17ee43e01eb37776fe381c9e}{max\+Number\+Trains}} (Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ $\ast$\mbox{\hyperlink{readFiles_8cpp_a50b0af3e384fbb7a60473b7a1c49a685}{g}}, \mbox{\hyperlink{classStation}{Station}} $\ast$origem, \mbox{\hyperlink{classStation}{Station}} $\ast$destino)
-\item 
-void \mbox{\hyperlink{main_8cpp_a4643c71b7da4b6db4772ccf4e270689f}{max\+Number\+Trains\+All\+Stations}} (Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ $\ast$\mbox{\hyperlink{readFiles_8cpp_a50b0af3e384fbb7a60473b7a1c49a685}{g}}, \mbox{\hyperlink{classStation}{Station}} $\ast$destino, vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ stations)
-\item 
-void \mbox{\hyperlink{main_8cpp_ad360f2a500cb91414ffed9efa00e1bb2}{most\+Amount}} (Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ $\ast$\mbox{\hyperlink{readFiles_8cpp_a50b0af3e384fbb7a60473b7a1c49a685}{g}}, vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ stations)
-\item 
-{\footnotesize template$<$typename T $>$ }\\vector$<$ vector$<$ T $>$ $>$ \mbox{\hyperlink{main_8cpp_ae9c9f15745bbbf43c967e941dc3a4c11}{get\+All\+Paths}} (T source, T destination, Graph$<$ T $>$ graph)
-\begin{DoxyCompactList}\small\item\em All paths between two stations. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{main_8cpp_a443b01344f1b034c7b4bcd51ef2f3f38}{recursive}} (T current, T destination, vector$<$ vector$<$ T $>$ $>$ \&paths, std\+::unordered\+\_\+set$<$ T, \mbox{\hyperlink{structGenericHash}{Generic\+Hash}}$<$ T $>$ $>$ path, Graph$<$ T $>$ $\ast$graph)
-\begin{DoxyCompactList}\small\item\em Recursive function that finds all paths from a source vertex to a destination vertex in a graph. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8cpp_adcad88844e20d5659fda81a08fd55676}{all\+Path}} (\mbox{\hyperlink{classStation}{Station}} $\ast$source, \mbox{\hyperlink{classStation}{Station}} $\ast$destination, Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ $\ast$graph)
-\begin{DoxyCompactList}\small\item\em Finds all the paths between two stations in a graph and prints them to the console. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Main function of the program The main function of the program. Creates two graphs -\/ station and network, reads all stations and networks, presents a menu of options for the user to choose from. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{main_8cpp_adcad88844e20d5659fda81a08fd55676}\label{main_8cpp_adcad88844e20d5659fda81a08fd55676} 
-\index{main.cpp@{main.cpp}!allPath@{allPath}}
-\index{allPath@{allPath}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{allPath()}{allPath()}}
-{\footnotesize\ttfamily void all\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destination,  }\item[{Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ $\ast$}]{graph }\end{DoxyParamCaption})}
-
-
-
-Finds all the paths between two stations in a graph and prints them to the console. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em source} & The starting station. \\
-\hline
-{\em destination} & The destination station. \\
-\hline
-{\em graph} & The graph that contains the stations. \\
-\hline
-\end{DoxyParams}
 \Hypertarget{main_8cpp_a83f8adca24e250bfb5c9a90a35503ae9}\label{main_8cpp_a83f8adca24e250bfb5c9a90a35503ae9} 
 \index{main.cpp@{main.cpp}!check@{check}}
 \index{check@{check}!main.cpp@{main.cpp}}
@@ -80,37 +39,7 @@ Finds all the paths between two stations in a graph and prints them to the conso
 
 Ask user whether to continue or exit the program. 
 
-Prints a prompt to the console asking the user whether to continue running the program or exit. If user enters 0, the function will print a message indicating that the program is exiting and exit the program. \Hypertarget{main_8cpp_ae9c9f15745bbbf43c967e941dc3a4c11}\label{main_8cpp_ae9c9f15745bbbf43c967e941dc3a4c11} 
-\index{main.cpp@{main.cpp}!getAllPaths@{getAllPaths}}
-\index{getAllPaths@{getAllPaths}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{getAllPaths()}{getAllPaths()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-vector$<$ vector$<$ T $>$ $>$ get\+All\+Paths (\begin{DoxyParamCaption}\item[{T}]{source,  }\item[{T}]{destination,  }\item[{Graph$<$ T $>$}]{graph }\end{DoxyParamCaption})}
-
-
-
-All paths between two stations. 
-
-Finds all possible paths between two vertices in a given graph.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Type of the vertices in the graph \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em source} & Starting vertex \\
-\hline
-{\em destination} & Ending vertex \\
-\hline
-{\em graph} & Graph where to search for paths\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A vector of all possible paths, each path represented as a vector of vertices in order 
-\end{DoxyReturn}
-\Hypertarget{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089} 
+Prints a prompt to the console asking the user whether to continue running the program or exit. If user enters 0, the function will print a message indicating that the program is exiting and exit the program. \Hypertarget{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089} 
 \index{main.cpp@{main.cpp}!main@{main}}
 \index{main@{main}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
@@ -120,62 +49,13 @@ A vector of all possible paths, each path represented as a vector of vertices in
 
 Main function of the program The main function of the program. Creates two graphs -\/ station and network, reads all stations and networks, presents a menu of options for the user to choose from. 
 
-\Hypertarget{main_8cpp_a2eed155d17ee43e01eb37776fe381c9e}\label{main_8cpp_a2eed155d17ee43e01eb37776fe381c9e} 
-\index{main.cpp@{main.cpp}!maxNumberTrains@{maxNumberTrains}}
-\index{maxNumberTrains@{maxNumberTrains}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{maxNumberTrains()}{maxNumberTrains()}}
-{\footnotesize\ttfamily void max\+Number\+Trains (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ $\ast$}]{g,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{origem,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destino }\end{DoxyParamCaption})}
-
-The max\+Number\+Trains function calculates the max number of trains that can pass together between two given stations using Dijkstra\textquotesingle{}s shortest path algorithm.
-
-
-\begin{DoxyParams}{Parameters}
-{\em g} & A pointer to a graph object of type {\ttfamily Graph\texorpdfstring{$<$}{<}\doxylink{classStation}{Station}\texorpdfstring{$>$}{>}}. This graph represents a network of train stations, where each station is a vertex in the graph and each train route between stations is an edge in the graph. \\
-\hline
-{\em origem} & The parameter \char`\"{}origem\char`\"{} is a pointer to an object of the class \char`\"{}\+Station\char`\"{}, which represents the starting point of a train journey. \\
-\hline
-{\em destino} & The \char`\"{}destino\char`\"{} parameter is a pointer to the destination station in a graph of train stations. It is used in the function \char`\"{}max\+Number\+Trains\char`\"{} to calculate the maximum number of trains that can pass together between the origin station and the destination station using Dijkstra\textquotesingle{}s shortest path algorithm. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{main_8cpp_a4643c71b7da4b6db4772ccf4e270689f}\label{main_8cpp_a4643c71b7da4b6db4772ccf4e270689f} 
-\index{main.cpp@{main.cpp}!maxNumberTrainsAllStations@{maxNumberTrainsAllStations}}
-\index{maxNumberTrainsAllStations@{maxNumberTrainsAllStations}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{maxNumberTrainsAllStations()}{maxNumberTrainsAllStations()}}
-{\footnotesize\ttfamily void max\+Number\+Trains\+All\+Stations (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ $\ast$}]{g,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destino,  }\item[{vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$}]{stations }\end{DoxyParamCaption})}
-
-This function calculates the maximum number of trains that can travel from a set of stations to a destination station using Dijkstra\textquotesingle{}s shortest path algorithm.
-
-
-\begin{DoxyParams}{Parameters}
-{\em g} & A pointer to a graph object of type {\ttfamily Graph\texorpdfstring{$<$}{<}\doxylink{classStation}{Station}\texorpdfstring{$>$}{>}}. This graph represents the train stations and their connections. \\
-\hline
-{\em destino} & The \char`\"{}destino\char`\"{} parameter is a pointer to a \doxylink{classStation}{Station} object that represents the destination station. \\
-\hline
-{\em stations} & The \char`\"{}stations\char`\"{} parameter is a vector of pointers to \doxylink{classStation}{Station} objects. It is a list of all stations \\
-\hline
-\end{DoxyParams}
 \Hypertarget{main_8cpp_a2a0e843767aeea4f433a28b9c54f573a}\label{main_8cpp_a2a0e843767aeea4f433a28b9c54f573a} 
 \index{main.cpp@{main.cpp}!menu@{menu}}
 \index{menu@{menu}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{menu()}{menu()}}
 {\footnotesize\ttfamily void menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Displays the main menu on the console \Hypertarget{main_8cpp_ad360f2a500cb91414ffed9efa00e1bb2}\label{main_8cpp_ad360f2a500cb91414ffed9efa00e1bb2} 
-\index{main.cpp@{main.cpp}!mostAmount@{mostAmount}}
-\index{mostAmount@{mostAmount}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{mostAmount()}{mostAmount()}}
-{\footnotesize\ttfamily void most\+Amount (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ $\ast$}]{g,  }\item[{vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$}]{stations }\end{DoxyParamCaption})}
-
-This function finds the pair of stations with the highest capacity of trains between them using Dijkstra\textquotesingle{}s shortest path algorithm.
-
-
-\begin{DoxyParams}{Parameters}
-{\em g} & A pointer to a graph object of type Graph$<$\+Station$>$, which represents a network of train stations and their connections. \\
-\hline
-{\em stations} & A vector containing pointers to all the stations in the graph. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{main_8cpp_ad668bb4200d6499da8d9afd1143f230b}\label{main_8cpp_ad668bb4200d6499da8d9afd1143f230b} 
+Displays the main menu on the console \Hypertarget{main_8cpp_ad668bb4200d6499da8d9afd1143f230b}\label{main_8cpp_ad668bb4200d6499da8d9afd1143f230b} 
 \index{main.cpp@{main.cpp}!option1@{option1}}
 \index{option1@{option1}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{option1()}{option1()}}
@@ -257,9 +137,9 @@ Allows the user to alculate the max number of trains that can simultaneously tra
 
 
 \begin{DoxyParams}{Parameters}
-{\em stations} & \\
+{\em stations} & Vector of pointers to \doxylink{classStation}{Station} objects \\
 \hline
-{\em networks} & \\
+{\em networks} & Vector of pointers to \doxylink{classNetwork}{Network} objects \\
 \hline
 \end{DoxyParams}
 \Hypertarget{main_8cpp_aa50971d4451b2d095a40ad383523b580}\label{main_8cpp_aa50971d4451b2d095a40ad383523b580} 
@@ -268,73 +148,14 @@ Allows the user to alculate the max number of trains that can simultaneously tra
 \doxysubsubsection{\texorpdfstring{option6()}{option6()}}
 {\footnotesize\ttfamily void option6 (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$}]{stations }\end{DoxyParamCaption})}
 
-\Hypertarget{main_8cpp_a443b01344f1b034c7b4bcd51ef2f3f38}\label{main_8cpp_a443b01344f1b034c7b4bcd51ef2f3f38} 
-\index{main.cpp@{main.cpp}!recursive@{recursive}}
-\index{recursive@{recursive}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{recursive()}{recursive()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-void recursive (\begin{DoxyParamCaption}\item[{T}]{current,  }\item[{T}]{destination,  }\item[{vector$<$ vector$<$ T $>$ $>$ \&}]{paths,  }\item[{std\+::unordered\+\_\+set$<$ T, \mbox{\hyperlink{structGenericHash}{Generic\+Hash}}$<$ T $>$ $>$}]{path,  }\item[{Graph$<$ T $>$ $\ast$}]{graph }\end{DoxyParamCaption})}
 
 
+Select option 6. 
 
-Recursive function that finds all paths from a source vertex to a destination vertex in a graph. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Type of vertex in the graph \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em current} & Current vertex being visited \\
-\hline
-{\em destination} & Destination vertex being searched for \\
-\hline
-{\em paths} & Vector of vectors that will hold all the paths found \\
-\hline
-{\em path} & Unordered set containing the vertices visited so far \\
-\hline
-{\em graph} & Pointer to the graph being searched \\
-\hline
-\end{DoxyParams}
-\Hypertarget{main_8cpp_aca928c14cab473cd51f63d031567cdd9}\label{main_8cpp_aca928c14cab473cd51f63d031567cdd9} 
-\index{main.cpp@{main.cpp}!shortestPath@{shortestPath}}
-\index{shortestPath@{shortestPath}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{shortestPath()}{shortestPath()}}
-{\footnotesize\ttfamily void shortest\+Path (\begin{DoxyParamCaption}\item[{Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ $\ast$}]{g,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{origem,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destino }\end{DoxyParamCaption})}
-
-The shortest\+Path function calculates the shortest path between two stations in a graph and prints that path.
+Allows the user to calculate the max number of trains that can simultaneously travel between two stations in a network of reduced connectivity.
 
 
 \begin{DoxyParams}{Parameters}
-{\em g} & A pointer to a Graph object that contains a network of stations and their connections. \\
-\hline
-{\em origem} & The \char`\"{}origem\char`\"{} parameter is a pointer to the starting station of the shortest path that we want to find. \\
-\hline
-{\em destino} & The \char`\"{}destino\char`\"{} parameter is a pointer to the destination station in a graph of stations. It is used in the \char`\"{}shortest\+Path\char`\"{} function to find the shortest path from the \char`\"{}origem\char`\"{} (source) station to the \char`\"{}destino\char`\"{} station using an unweighted shortest path algorithm. \\
+{\em stations} & Vector of pointers to \doxylink{classStation}{Station} objects \\
 \hline
 \end{DoxyParams}
-\Hypertarget{main_8cpp_ad8ae0a513be2fd9aa85436934201741f}\label{main_8cpp_ad8ae0a513be2fd9aa85436934201741f} 
-\index{main.cpp@{main.cpp}!subgraph@{subgraph}}
-\index{subgraph@{subgraph}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{subgraph()}{subgraph()}}
-{\footnotesize\ttfamily Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ subgraph (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$}]{stations,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{origem,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destino }\end{DoxyParamCaption})}
-
-
-
-Subgraph of a graph. 
-
-Generates a subgraph of a given graph based on a set of stations, an origin station and a destination station.
-
-
-\begin{DoxyParams}{Parameters}
-{\em stations} & Vector containing pointers to the stations that should be included in the subgraph. \\
-\hline
-{\em origem} & Pointer to the origin station. \\
-\hline
-{\em destino} & Pointer to the destination station. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The subgraph generated from the given graph. 
-\end{DoxyReturn}

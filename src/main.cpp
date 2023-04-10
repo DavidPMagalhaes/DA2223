@@ -15,11 +15,6 @@ void option4(vector<Station *> stations);
 void option5(vector<Station *> stations, vector <Network*> networks);
 void option6(vector<Station *> stations);
 
-void check();
-
-
-
-
 /**
  * Displays the main menu on the console
  */
@@ -42,6 +37,25 @@ void menu() {
     cout << "(6) Calculate the max number of trains that can simultaneously travel between two stations at reduced connectivity" << endl;
     cout << "(0) Exit" << endl;
     cout << "->";
+}
+
+/**
+ * @brief Ask user whether to continue or exit the program
+ *
+ * Prints a prompt to the console asking the user whether to continue
+ * running the program or exit. If user enters 0, the function will
+ * print a message indicating that the program is exiting and exit the program.
+ */
+void check() {
+    cout << "Continue?";
+    cout << "(1) Yes" << endl;
+    cout << "(0) No" << endl;
+    int input;
+    cin >> input;
+    if (input==0) {
+        std::cout << "Exiting program..." << std::endl;
+        exit(0);
+    }
 }
 
 /**
@@ -105,27 +119,6 @@ int main(int argc, char const *argv[])
             default:
                 std::cout << "Number not found" << std::endl;
         }
-    }
-}
-
-
-
-/**
- * @brief Ask user whether to continue or exit the program
- *
- * Prints a prompt to the console asking the user whether to continue
- * running the program or exit. If user enters 0, the function will
- * print a message indicating that the program is exiting and exit the program.
- */
-void check() {
-    cout << "Continue?";
-    cout << "(1) Yes" << endl;
-    cout << "(0) No" << endl;
-    int input;
-    cin >> input;
-    if (input==0) {
-        std::cout << "Exiting program..." << std::endl;
-        exit(0);
     }
 }
 
@@ -221,15 +214,14 @@ void option4(vector<Station *> stations) {
  * Allows the user to alculate the max number of trains that can simultaneously travel
  * between two stations at minimum cost to the company.
  *
- * @param stations
- * @param networks
+ * @param stations Vector of pointers to Station objects
+ * @param networks Vector of pointers to Network objects
  */
 void option5(vector<Station *> stations, vector <Network*> networks) {
     cout << "Selected sixth option" << endl;
     cout << "Calculate the max amount of trains that can simultaneously travel between two specific "
             "stations with minimum cost for the company. Note that your system should also take any valid "
             "source and destination stations as input;" << endl;
-    cout << "Input destination station: " << endl;
     cout << "Input starting station" << endl;
     cout << "->";
     string start;
@@ -244,7 +236,14 @@ void option5(vector<Station *> stations, vector <Network*> networks) {
     Station *dest = findStation(end, stations);
     calculatePrice(src, dest, &g, &networks);
 }
-
+/**
+ * @brief Select option 6
+ *
+ * Allows the user to calculate the max number of trains that can simultaneously travel
+ * between two stations in a network of reduced connectivity.
+ *
+ * @param stations Vector of pointers to Station objects
+ */
 void option6(vector<Station *> stations) {
     cout << "Selected sixth option" << endl;
     cout << "Calculate the max number of trains that can simultaneously travel between two stations at reduced connectivity" << endl;

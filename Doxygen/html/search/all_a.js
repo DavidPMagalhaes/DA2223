@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['service_0',['service',['../classNetwork.html#a91cccf74f567504721f82b71baf50ae3',1,'Network']]],
-  ['setcapacity_1',['setCapacity',['../classNetwork.html#a1f3b3e414824ec8d151b576e4dc73c3b',1,'Network']]],
-  ['setcode_2',['setCode',['../classStation.html#a11776eba707563a2a0832eea02bdf5c7',1,'Station']]],
-  ['setcodea1_3',['setCodeA1',['../classNetwork.html#a36aae931296ea553fb47b8e52a7dce0e',1,'Network']]],
-  ['setcodeb1_4',['setCodeB1',['../classNetwork.html#a5de14673519da0a9c645cd838a338289',1,'Network']]],
-  ['setservice_5',['setService',['../classNetwork.html#a6b115c29b8a4e9044e70cb2130664000',1,'Network']]],
-  ['shortestpath_6',['shortestPath',['../main_8cpp.html#aca928c14cab473cd51f63d031567cdd9',1,'main.cpp']]],
-  ['split_7',['split',['../readFiles_8cpp.html#affd02467aceed1ddf5c583bf9ba0b591',1,'split(const string &amp;str, const char del):&#160;readFiles.cpp'],['../readFiles_8h.html#affd02467aceed1ddf5c583bf9ba0b591',1,'split(const string &amp;str, const char del):&#160;readFiles.cpp']]],
-  ['station_8',['Station',['../classStation.html',1,'Station'],['../classStation.html#a73d335726aad1d844d81cda6d9fd74e6',1,'Station::Station()'],['../classStation.html#ae18a5b482d686949e898f3206ed0ffdf',1,'Station::Station(int code, string name, string district, string municipality, string township, string line)']]],
-  ['station_2ecpp_9',['Station.cpp',['../Station_8cpp.html',1,'']]],
-  ['station_2eh_10',['Station.h',['../Station_8h.html',1,'']]],
-  ['subgraph_11',['subgraph',['../main_8cpp.html#ad8ae0a513be2fd9aa85436934201741f',1,'main.cpp']]]
+  ['main_0',['main',['../main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main.cpp']]],
+  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['maxnewchildren_2',['maxNewChildren',['../classGraph.html#a3dbf946fc46257f2d799077ffba5980f',1,'Graph']]],
+  ['maxnumbertrain_3',['maxNumberTrain',['../classGraph.html#a79ec9ec273953cd199d9e9f558a6731a',1,'Graph']]],
+  ['maxnumbertrains_4',['maxNumberTrains',['../utils_8cpp.html#a2eed155d17ee43e01eb37776fe381c9e',1,'utils.cpp']]],
+  ['maxnumbertrainsallstations_5',['maxNumberTrainsAllStations',['../utils_8cpp.html#a4643c71b7da4b6db4772ccf4e270689f',1,'utils.cpp']]],
+  ['menu_6',['menu',['../main_8cpp.html#a2a0e843767aeea4f433a28b9c54f573a',1,'main.cpp']]],
+  ['mostamount_7',['mostAmount',['../utils_8cpp.html#ad360f2a500cb91414ffed9efa00e1bb2',1,'utils.cpp']]],
+  ['municipality_8',['municipality',['../classStation.html#a2a4bb78d0acf07ffce910f750c68892a',1,'Station']]],
+  ['mutablepriorityqueue_9',['MutablePriorityQueue',['../classMutablePriorityQueue.html',1,'MutablePriorityQueue&lt; T &gt;'],['../classMutablePriorityQueue.html#aba8ebedcbe659f2680bac229cfaca526',1,'MutablePriorityQueue::MutablePriorityQueue()']]],
+  ['mutablepriorityqueue_2eh_10',['MutablePriorityQueue.h',['../MutablePriorityQueue_8h.html',1,'']]],
+  ['mutablepriorityqueue_3c_20vertex_3c_20t_20_3e_20_3e_11',['MutablePriorityQueue&lt; Vertex&lt; T &gt; &gt;',['../classVertex.html#ae53e0b4fec14b9f1eaa8a4f8cd426e9e',1,'Vertex']]]
 ];

@@ -14,9 +14,9 @@
 
 
 /**
- * class T must have: (i) accessible field int queueIndex; (ii) operator< defined.
+ * @brief Implements a mutable priority queue using a binary heap.
+ * @tparam T
  */
-
 template <class T>
 class MutablePriorityQueue {
     void heapifyUp(unsigned i);

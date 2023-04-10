@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['station_2ecpp_0',['Station.cpp',['../Station_8cpp.html',1,'']]],
-  ['station_2eh_1',['Station.h',['../Station_8h.html',1,'']]]
+  ['network_2ecpp_0',['Network.cpp',['../Network_8cpp.html',1,'']]],
+  ['network_2eh_1',['Network.h',['../Network_8h.html',1,'']]]
 ];

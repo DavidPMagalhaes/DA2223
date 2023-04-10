@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['generichash_0',['GenericHash',['../structGenericHash.html',1,'']]]
+  ['edge_0',['Edge',['../classEdge.html',1,'']]]
 ];

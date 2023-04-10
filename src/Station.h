@@ -4,7 +4,9 @@
 #include "fstream"
 
 using namespace std;
-
+/**
+ * @brief The Station class represents a train station in a rail network.
+ */
 class Station : public error_code {
 public:
 

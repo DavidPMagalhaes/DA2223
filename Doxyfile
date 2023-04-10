@@ -1,4 +1,5 @@
 PROJECT_NAME = "DA2223"
-INPUT = ./src/
+INPUT = src \
+        src/Graph
 OUTPUT_DIRECTORY = ./Doxygen
 EXTRACT_ALL = YES

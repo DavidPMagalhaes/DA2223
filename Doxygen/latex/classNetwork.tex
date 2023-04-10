@@ -2,19 +2,24 @@
 \label{classNetwork}\index{Network@{Network}}
 
 
+The \doxylink{classNetwork}{Network} class represents a network of railway stations and trains that connect them.  
+
+
+
+
 {\ttfamily \#include $<$Network.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 const \mbox{\hyperlink{classStation}{Station}} \& \mbox{\hyperlink{classNetwork_a0e51471eea25b50a7c784b291632a8cb}{get\+CodeA}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Getter for the first station code. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classStation}{Station}} \& \mbox{\hyperlink{classNetwork_aecadd8df1a225cb48c0c71f336ffea75}{get\+CodeB}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Getter for the second station code. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNetwork_a36aae931296ea553fb47b8e52a7dce0e}{set\+Code\+A1}} (const \mbox{\hyperlink{classStation}{Station}} \&\mbox{\hyperlink{classNetwork_a1bd56339b2b3a6c39b2bd87bae300d49}{codeA}})
-\item 
+\begin{DoxyCompactList}\small\item\em Setter for the first station code. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNetwork_a5de14673519da0a9c645cd838a338289}{set\+Code\+B1}} (const \mbox{\hyperlink{classStation}{Station}} \&\mbox{\hyperlink{classNetwork_a929998e51bb5ebdf92778a20caf2209a}{codeB}})
-\item 
+\begin{DoxyCompactList}\small\item\em Setter for the second station code. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classNetwork_a297113ee08ee10a4f327aef7d45afdb7}{operator==}} (const \mbox{\hyperlink{classNetwork}{Network}} \&other) const
 \item 
 void \mbox{\hyperlink{classNetwork_a1f3b3e414824ec8d151b576e4dc73c3b}{set\+Capacity}} (const int \&\mbox{\hyperlink{classNetwork_a3b8f75c31bd97fac40fd9360cda8a829}{capacity}})
@@ -40,6 +45,9 @@ string \mbox{\hyperlink{classNetwork_a91cccf74f567504721f82b71baf50ae3}{service}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+The \doxylink{classNetwork}{Network} class represents a network of railway stations and trains that connect them. 
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classNetwork_a18d8a822bd1a347f0f69b1bd54dd2749}\label{classNetwork_a18d8a822bd1a347f0f69b1bd54dd2749} 
 \index{Network@{Network}!Network@{Network}}
@@ -62,12 +70,26 @@ string \mbox{\hyperlink{classNetwork_a91cccf74f567504721f82b71baf50ae3}{service}
 \doxysubsubsection{\texorpdfstring{getCodeA()}{getCodeA()}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classStation}{Station}} \& Network\+::get\+CodeA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Getter for the first station code. 
+
+\begin{DoxyReturn}{Returns}
+The first station code. 
+\end{DoxyReturn}
 \Hypertarget{classNetwork_aecadd8df1a225cb48c0c71f336ffea75}\label{classNetwork_aecadd8df1a225cb48c0c71f336ffea75} 
 \index{Network@{Network}!getCodeB@{getCodeB}}
 \index{getCodeB@{getCodeB}!Network@{Network}}
 \doxysubsubsection{\texorpdfstring{getCodeB()}{getCodeB()}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classStation}{Station}} \& Network\+::get\+CodeB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Getter for the second station code. 
+
+\begin{DoxyReturn}{Returns}
+The second station code. 
+\end{DoxyReturn}
 \Hypertarget{classNetwork_a2d73a5a89f13b5f242f0b204631ad517}\label{classNetwork_a2d73a5a89f13b5f242f0b204631ad517} 
 \index{Network@{Network}!getService@{getService}}
 \index{getService@{getService}!Network@{Network}}
@@ -92,12 +114,30 @@ string \mbox{\hyperlink{classNetwork_a91cccf74f567504721f82b71baf50ae3}{service}
 \doxysubsubsection{\texorpdfstring{setCodeA1()}{setCodeA1()}}
 {\footnotesize\ttfamily void Network\+::set\+Code\+A1 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStation}{Station}} \&}]{codeA }\end{DoxyParamCaption})}
 
+
+
+Setter for the first station code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em codeA} & The new code for the first station. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classNetwork_a5de14673519da0a9c645cd838a338289}\label{classNetwork_a5de14673519da0a9c645cd838a338289} 
 \index{Network@{Network}!setCodeB1@{setCodeB1}}
 \index{setCodeB1@{setCodeB1}!Network@{Network}}
 \doxysubsubsection{\texorpdfstring{setCodeB1()}{setCodeB1()}}
 {\footnotesize\ttfamily void Network\+::set\+Code\+B1 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStation}{Station}} \&}]{codeB }\end{DoxyParamCaption})}
 
+
+
+Setter for the second station code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em codeB} & The new code for the second station. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classNetwork_a6b115c29b8a4e9044e70cb2130664000}\label{classNetwork_a6b115c29b8a4e9044e70cb2130664000} 
 \index{Network@{Network}!setService@{setService}}
 \index{setService@{setService}!Network@{Network}}

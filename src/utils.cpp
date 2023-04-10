@@ -2,8 +2,6 @@
 #include <unordered_set>
 #include <set>
 
-Graph<Station*> subgraph(vector<Station *> vector1, Station *origem, Station *destino);
-
 /**
  * The shortestPath function calculates the shortest path between two stations in a graph and prints that path.
  *
@@ -171,6 +169,17 @@ std::vector<std::vector<T>> getAllPaths(const T& source, const T& destination, G
     return paths;
 }
 
+/**
+ * @brief Validates source and destination nodes in a graph.
+ *
+ * @tparam T Type of data stored in the graph.
+ * @param source The source node.
+ * @param destination The destination node.
+ * @param g The graph to be validated.
+ * @throws std::out_of_range If the source or destination node does not exist in the graph.
+ * @throws std::invalid_argument If the source and destination are the same.
+ */
+
 template<class T>
 void validate(const T& source, const T& destination, Graph<T> g)  {
     if (g.findVertex(source) == *g.vertexSet.end()) {
@@ -213,31 +222,13 @@ void recursive(const T& current, const T& destination, std::vector<std::vector<T
 }
 
 /**
- * @brief Finds all the paths between two stations in a graph and prints them to the console.
+ * @brief Calculates the price of all the possible paths between two stations.
  *
- * @param source The starting station.
- * @param destination The destination station.
- * @param graph The graph that contains the stations.
+ * @param source A pointer to the source station.
+ * @param destination A pointer to the destination station.
+ * @param graph A pointer to the graph containing all the stations.
+ * @param network A pointer to the vector of networks containing the information about the stations.
  */
-void allPath(Station* source, Station* destination, Graph<Station*> *graph){
-    vector<vector<Station*>> v = getAllPaths(source, destination, *graph);
-    int i = 0;
-    cout << "size" << v.size() << endl << endl;
-    cout << " " << endl;
-    sort( v.begin(), v.end() );
-    v.erase( unique( v.begin(), v.end() ), v.end() );
-    for (auto s : v){
-        i++;
-        cout << endl;
-        cout << "Caminho: " << i << " (size=" << s.size() << ")" << endl;
-        for (auto x : s){
-            cout << x->getStationName() << endl;
-        }
-
-
-    }
-}
-
 void calculatePrice(Station* source, Station* destination, Graph<Station*> *graph, vector<Network*> *network){
     vector<vector<Station*>> v = getAllPaths(source, destination, *graph);
     int i = 0;

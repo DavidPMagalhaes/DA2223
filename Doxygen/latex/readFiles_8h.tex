@@ -18,24 +18,38 @@ vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \mbox{\hyperlink{r
 \item 
 \mbox{\hyperlink{classStation}{Station}} $\ast$ \mbox{\hyperlink{readFiles_8h_a5be72627e35139dd00b71c238f03c37d}{find\+Station}} (string name, vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ stations)
 \item 
-\mbox{\hyperlink{classNetwork}{Network}} $\ast$ \mbox{\hyperlink{readFiles_8h_a4562ff8753900d82707cee7f9803b000}{find\+Network}} (\mbox{\hyperlink{classStation}{Station}} name, vector$<$ \mbox{\hyperlink{classNetwork}{Network}} $\ast$ $>$ network)
-\item 
+\mbox{\hyperlink{classNetwork}{Network}} $\ast$ \mbox{\hyperlink{readFiles_8h_a3137183c347131c07ae4c94f36f5330d}{find\+Network}} (\mbox{\hyperlink{classStation}{Station}} $\ast$name, vector$<$ \mbox{\hyperlink{classNetwork}{Network}} $\ast$ $>$ network)
+\begin{DoxyCompactList}\small\item\em Finds a network that has a station with a given name. \end{DoxyCompactList}\item 
 vector$<$ string $>$ \mbox{\hyperlink{readFiles_8h_affd02467aceed1ddf5c583bf9ba0b591}{split}} (const string \&str, const char del)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-Graph$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \mbox{\hyperlink{readFiles_8h_a50b0af3e384fbb7a60473b7a1c49a685}{g}}
+\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \mbox{\hyperlink{readFiles_8h_a50b0af3e384fbb7a60473b7a1c49a685}{g}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{readFiles_8h_a4562ff8753900d82707cee7f9803b000}\label{readFiles_8h_a4562ff8753900d82707cee7f9803b000} 
+\Hypertarget{readFiles_8h_a3137183c347131c07ae4c94f36f5330d}\label{readFiles_8h_a3137183c347131c07ae4c94f36f5330d} 
 \index{readFiles.h@{readFiles.h}!findNetwork@{findNetwork}}
 \index{findNetwork@{findNetwork}!readFiles.h@{readFiles.h}}
 \doxysubsubsection{\texorpdfstring{findNetwork()}{findNetwork()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classNetwork}{Network}} $\ast$ find\+Network (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}}}]{name,  }\item[{vector$<$ \mbox{\hyperlink{classNetwork}{Network}} $\ast$ $>$}]{network }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNetwork}{Network}} $\ast$ find\+Network (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{name,  }\item[{vector$<$ \mbox{\hyperlink{classNetwork}{Network}} $\ast$ $>$}]{network }\end{DoxyParamCaption})}
 
+
+
+Finds a network that has a station with a given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the station to search for \\
+\hline
+{\em networks} & A vector containing all the networks to search through \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the network that contains a station with the given name, or NULL if not found 
+\end{DoxyReturn}
 \Hypertarget{readFiles_8h_a5be72627e35139dd00b71c238f03c37d}\label{readFiles_8h_a5be72627e35139dd00b71c238f03c37d} 
 \index{readFiles.h@{readFiles.h}!findStation@{findStation}}
 \index{findStation@{findStation}!readFiles.h@{readFiles.h}}
@@ -104,5 +118,5 @@ a vector of strings that contains the substrings of the input string that were s
 \index{readFiles.h@{readFiles.h}!g@{g}}
 \index{g@{g}!readFiles.h@{readFiles.h}}
 \doxysubsubsection{\texorpdfstring{g}{g}}
-{\footnotesize\ttfamily Graph$<$\mbox{\hyperlink{classStation}{Station}}$\ast$$>$ g\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{Graph}}$<$\mbox{\hyperlink{classStation}{Station}}$\ast$$>$ g\hspace{0.3cm}{\ttfamily [extern]}}
 

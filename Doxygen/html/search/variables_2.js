@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['g_0',['g',['../readFiles_8cpp.html#a50b0af3e384fbb7a60473b7a1c49a685',1,'g:&#160;readFiles.cpp'],['../readFiles_8h.html#a50b0af3e384fbb7a60473b7a1c49a685',1,'g:&#160;readFiles.cpp']]]
+  ['dest_0',['dest',['../classEdge.html#ae4d65678b91bd9d814af4720ad87cd0c',1,'Edge']]],
+  ['district_1',['district',['../classStation.html#ae8e1a0279a8879ca2f8d6fa2127930cc',1,'Station']]]
 ];

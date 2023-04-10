@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_0',['name',['../classStation.html#a87111da4cfca52c6083ad8ddc636cd5d',1,'Station']]]
+  ['line_0',['line',['../classStation.html#a49c6e75f4e4d46f2ad01bad229ee0d71',1,'Station']]]
 ];

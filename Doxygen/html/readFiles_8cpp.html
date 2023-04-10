@@ -87,8 +87,9 @@ Functions</h2></td></tr>
 <tr class="separator:a2b25f482fc71ab73abafffd7946dbb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5be72627e35139dd00b71c238f03c37d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStation.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readFiles_8cpp.html#a5be72627e35139dd00b71c238f03c37d">findStation</a> (string name, vector&lt; <a class="el" href="classStation.html">Station</a> * &gt; stations)</td></tr>
 <tr class="separator:a5be72627e35139dd00b71c238f03c37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4af88fd46d875ef98648e75b345b603"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNetwork.html">Network</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readFiles_8cpp.html#ae4af88fd46d875ef98648e75b345b603">findNetwork</a> (<a class="el" href="classStation.html">Station</a> name, vector&lt; <a class="el" href="classNetwork.html">Network</a> * &gt; networks)</td></tr>
-<tr class="separator:ae4af88fd46d875ef98648e75b345b603"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ac6c1eff940d5b99c1abf92d819c275"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNetwork.html">Network</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readFiles_8cpp.html#a8ac6c1eff940d5b99c1abf92d819c275">findNetwork</a> (<a class="el" href="classStation.html">Station</a> *name, vector&lt; <a class="el" href="classNetwork.html">Network</a> * &gt; networks)</td></tr>
+<tr class="memdesc:a8ac6c1eff940d5b99c1abf92d819c275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a network that has a station with a given name.  <br /></td></tr>
+<tr class="separator:a8ac6c1eff940d5b99c1abf92d819c275"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affd02467aceed1ddf5c583bf9ba0b591"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readFiles_8cpp.html#affd02467aceed1ddf5c583bf9ba0b591">split</a> (const string &amp;str, const char del)</td></tr>
 <tr class="separator:affd02467aceed1ddf5c583bf9ba0b591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65bfa9b659d78b3257708bb8f08e6687"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classNetwork.html">Network</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readFiles_8cpp.html#a65bfa9b659d78b3257708bb8f08e6687">readNetworks</a> (vector&lt; <a class="el" href="classStation.html">Station</a> * &gt; stations)</td></tr>
@@ -96,12 +97,12 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a50b0af3e384fbb7a60473b7a1c49a685"><td class="memItemLeft" align="right" valign="top">Graph&lt; <a class="el" href="classStation.html">Station</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readFiles_8cpp.html#a50b0af3e384fbb7a60473b7a1c49a685">g</a></td></tr>
+<tr class="memitem:a50b0af3e384fbb7a60473b7a1c49a685"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGraph.html">Graph</a>&lt; <a class="el" href="classStation.html">Station</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="readFiles_8cpp.html#a50b0af3e384fbb7a60473b7a1c49a685">g</a></td></tr>
 <tr class="separator:a50b0af3e384fbb7a60473b7a1c49a685"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ae4af88fd46d875ef98648e75b345b603" name="ae4af88fd46d875ef98648e75b345b603"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4af88fd46d875ef98648e75b345b603">&#9670;&#160;</a></span>findNetwork()</h2>
+<a id="a8ac6c1eff940d5b99c1abf92d819c275" name="a8ac6c1eff940d5b99c1abf92d819c275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ac6c1eff940d5b99c1abf92d819c275">&#9670;&#160;</a></span>findNetwork()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -109,14 +110,14 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classNetwork.html">Network</a> * findNetwork </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classStation.html">Station</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classStation.html">Station</a> *&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">vector&lt; <a class="el" href="classNetwork.html">Network</a> * &gt;&#160;</td>
-          <td class="paramname"><em>networks</em>&#160;</td>
+          <td class="paramname"><em>network</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -125,6 +126,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Finds a network that has a station with a given name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the station to search for </td></tr>
+    <tr><td class="paramname">networks</td><td>A vector containing all the networks to search through </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the network that contains a station with the given name, or NULL if not found </dd></dl>
 
 </div>
 </div>
@@ -156,11 +167,11 @@ Variables</h2></td></tr>
 <p>Finds a station object with a given name in a vector of station objects. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>The name of the station that we are searching for. </td></tr>
-    <tr><td class="paramname">stations</td><td>A vector of pointers to <a class="el" href="classStation.html">Station</a> objects.</td></tr>
+    <tr><td class="paramname">stations</td><td>A vector of pointers to <a class="el" href="classStation.html" title="The Station class represents a train station in a rail network.">Station</a> objects.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a pointer to a <a class="el" href="classStation.html">Station</a> object. If the station with the given name is found in the vector of stations, a pointer to that station is returned. If not, the function returns a null pointer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>a pointer to a <a class="el" href="classStation.html" title="The Station class represents a train station in a rail network.">Station</a> object. If the station with the given name is found in the vector of stations, a pointer to that station is returned. If not, the function returns a null pointer. </dd></dl>
 
 </div>
 </div>
@@ -179,14 +190,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reads network data from a CSV file and creates <a class="el" href="classNetwork.html">Network</a> objects based on the data, while also adding edges to a graph and returning a vector of <a class="el" href="classNetwork.html">Network</a> pointers.</p>
+<p>Reads network data from a CSV file and creates <a class="el" href="classNetwork.html" title="The Network class represents a network of railway stations and trains that connect them.">Network</a> objects based on the data, while also adding edges to a graph and returning a vector of <a class="el" href="classNetwork.html" title="The Network class represents a network of railway stations and trains that connect them.">Network</a> pointers.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stations</td><td>A vector of pointers to <a class="el" href="classStation.html">Station</a> objects.</td></tr>
+    <tr><td class="paramname">stations</td><td>A vector of pointers to <a class="el" href="classStation.html" title="The Station class represents a train station in a rail network.">Station</a> objects.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The function <code>readNetworks</code> returns a vector of pointers to <code><a class="el" href="classNetwork.html">Network</a></code> objects. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The function <code>readNetworks</code> returns a vector of pointers to <code><a class="el" href="classNetwork.html" title="The Network class represents a network of railway stations and trains that connect them.">Network</a></code> objects. </dd></dl>
 
 </div>
 </div>
@@ -204,8 +215,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reads station data from CSV file and creates <a class="el" href="classStation.html">Station</a> objects, which are added to a vector and returned.</p>
-<dl class="section return"><dt>Returns</dt><dd>The function <code>readStations</code> returns a vector of pointers to <code><a class="el" href="classStation.html">Station</a></code> objects. </dd></dl>
+<p>Reads station data from CSV file and creates <a class="el" href="classStation.html" title="The Station class represents a train station in a rail network.">Station</a> objects, which are added to a vector and returned.</p>
+<dl class="section return"><dt>Returns</dt><dd>The function <code>readStations</code> returns a vector of pointers to <code><a class="el" href="classStation.html" title="The Station class represents a train station in a rail network.">Station</a></code> objects. </dd></dl>
 
 </div>
 </div>
@@ -254,7 +265,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Graph&lt;<a class="el" href="classStation.html">Station</a>*&gt; g</td>
+          <td class="memname"><a class="el" href="classGraph.html">Graph</a>&lt;<a class="el" href="classStation.html">Station</a>*&gt; g</td>
         </tr>
       </table>
 </div><div class="memdoc">

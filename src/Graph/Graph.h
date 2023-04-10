@@ -30,6 +30,10 @@ template <class T> class Vertex;
 
 #define INF std::numeric_limits<double>::max()
 
+/**
+ * @brief A template class Graph which represents a graph of vertices connected by weighted edges.
+ * @tparam T
+ */
 template <class T>
 class Graph {
     // vertex set
@@ -154,8 +158,19 @@ public:
      */
     void unweightedShortestPath(const T &orig);
 
-
+    /**
+    * @brief Calculates the maximum number of trains that can travel from a source station to a destination station in a weighted graph.
+    *
+    * The function first performs an unweighted shortest path search from the source station to the destination station, and then, for each vertex
+    * in the shortest path, finds the minimum weight of its adjacent edges. The minimum weight is returned as the maximum number of trains that can
+    * travel from the source station to the destination station.
+    *
+    * @param orig The source station.
+    * @param dest The destination station.
+    * @return The maximum number of trains that can travel from the source station to the destination station, or NULL if there is no path between them.
+    */
     int maxNumberTrain(const T &orig, const T &dest);
+
     /**
      * Returns a vector with the path from the source vertex to the destination vertex.
     * @param dest The destination vertex.

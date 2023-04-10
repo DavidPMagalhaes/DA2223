@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main.cpp']]],
-  ['maxnumbertrains_1',['maxNumberTrains',['../main_8cpp.html#a2eed155d17ee43e01eb37776fe381c9e',1,'main.cpp']]],
-  ['maxnumbertrainsallstations_2',['maxNumberTrainsAllStations',['../main_8cpp.html#a4643c71b7da4b6db4772ccf4e270689f',1,'main.cpp']]],
-  ['menu_3',['menu',['../main_8cpp.html#a2a0e843767aeea4f433a28b9c54f573a',1,'main.cpp']]],
-  ['mostamount_4',['mostAmount',['../main_8cpp.html#ad360f2a500cb91414ffed9efa00e1bb2',1,'main.cpp']]]
+  ['edge_0',['Edge',['../classEdge.html#a9da861a03f920c89984be33515a5d870',1,'Edge']]],
+  ['empty_1',['empty',['../classMutablePriorityQueue.html#a2edbb1f4a6fa3ff735700dfcebebe8d4',1,'MutablePriorityQueue']]],
+  ['extractmin_2',['extractMin',['../classMutablePriorityQueue.html#a3880874d7364279ac0d6d31302b28853',1,'MutablePriorityQueue']]]
 ];

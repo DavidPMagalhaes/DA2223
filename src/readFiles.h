@@ -37,7 +37,13 @@ vector<Station*> readStations();
  */
 Station* findStation(string name, vector<Station*> stations);
 
-
+/**
+ * @brief Finds a network that has a station with a given name
+ *
+ * @param name The name of the station to search for
+ * @param networks A vector containing all the networks to search through
+ * @return A pointer to the network that contains a station with the given name, or NULL if not found
+ */
 Network* findNetwork(Station* name, vector<Network*> network);
 
 /**
