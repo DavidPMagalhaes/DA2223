@@ -51,11 +51,11 @@ Station* findStation(string name, vector<Station*> stations){
     return NULL;
 }
 
-Network* findNetwork(Station name, vector<Network*> networks){
+Network* findNetwork(Station* name, vector<Network*> networks){
     for (int i = 0; i < networks.size(); i++) {
         Network net = *networks[i];
         string s = networks[i]->getCodeA().getStationName();
-        if (s == name.getStationName())
+        if (s == name->getStationName())
             return networks[i];
     }
     return NULL;

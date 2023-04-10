@@ -32,13 +32,14 @@ template <class T> class Vertex;
 
 template <class T>
 class Graph {
-    std::vector<Vertex<T> *> vertexSet;    // vertex set
+    // vertex set
     vector<Edge<T>*> edgeSet;
 public:
     const vector<Edge<T> *> &getEdgeSet() const {
         return edgeSet;
     }
 
+    std::vector<Vertex<T> *> vertexSet;
 private:
 
     void dfsVisit(Vertex<T> *v,  std::vector<T> & res) const;
@@ -674,8 +675,4 @@ void deleteMatrix(T **m, int n) {
         delete [] m;
     }
 }
-
-
-
-
 #endif //CAL_PROJ_GRAPH_H

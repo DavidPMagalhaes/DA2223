@@ -107,42 +107,6 @@ void maxNumberTrainsAllStations(Graph<Station*> *g, Station *destino, vector<Sta
     cout << sum << endl;
 }
 
-/*
-void allPaths(Graph<Station> *g, Station *origem, Station *destino, vector<Network*> networks){
-    g->unweightedShortestPath(*origem);
-    vector<Station> s = g->getPath(*destino);
-    g->notUnweightedShortestPath(*origem, *destino);
-    vector<Station> s2 = g->getPath(*destino);
-
-    int sum = 0;
-    for (auto a : s){if (findNetwork(g->findVertex(a)->getInfo(), networks)->getService() == "STANDARD")
-            sum +=2;
-        else
-            sum +=4;
-    }
-    int sum2 = 0;
-    for (auto a : s2){
-        if (findNetwork(g->findVertex(a)->getInfo(), networks)->getService() == "STANDARD")
-            sum2 += 2;
-        else
-            sum2 += 4;
-    }
-    cout << "sum " << sum << endl;
-    cout << "sum2 " << sum2 << endl;
-    if (sum >= sum2){
-        cout << "entrou" << endl;
-        for (int i = 0; i < s.size(); i++){
-            cout << s[i].getStationName() << endl;
-        }
-    }
-    else{
-        cout << "entrou2" << endl;
-        for (int i = 0; i < s2.size(); i++){
-            cout << s2[i].getStationName() << endl;
-        }
-    }
-}*/
-
 /**
  * This function finds the pair of stations with the highest capacity of trains between them using Dijkstra's shortest path
  * algorithm.
@@ -179,33 +143,7 @@ void mostAmount(Graph<Station*> *g, vector<Station*> stations) {
     cout << "Capacity of pair:" << maxW << endl;
 }
 
-template<typename T>
-struct GenericHash {
-    size_t operator()(const T& station) const {
-        // use the hash function for std::string as the basis for the hash
-        return std::hash<std::string>()(station->getStationName());
-    }
-};
 
-/**
- * @brief All paths between two stations
- *
- * Finds all possible paths between two vertices in a given graph.
- *
- * @tparam T Type of the vertices in the graph
- * @param source Starting vertex
- * @param destination Ending vertex
- * @param graph Graph where to search for paths
- *
- * @return A vector of all possible paths, each path represented as a vector of vertices in order
- */
-template<typename T>
-vector<vector<T>> getAllPaths(T source, T destination, Graph<T> graph) {
-
-    vector<vector<T>> paths;
-    recursive(source, destination, paths, std::unordered_set<T,GenericHash<T>>(), &graph);
-    return paths;
-}
 /**
  * @brief Subgraph of a graph.
  *
@@ -252,6 +190,42 @@ Graph<Station*> subgraph(vector<Station*> stations, Station* origem, Station* de
 }
 
 
+
+ /**
+ * @brief All paths between two stations
+ *
+ * Finds all possible paths between two vertices in a given graph.
+ *
+ * @tparam T Type of the vertices in the graph
+ * @param source Starting vertex
+ * @param destination Ending vertex
+ * @param graph Graph where to search for paths
+ *
+ * @return A vector of all possible paths, each path represented as a vector of vertices in order
+*/
+template<class T>
+std::vector<std::vector<T>> getAllPaths(const T& source, const T& destination, Graph<T> g)  {
+    validate(source, destination, g);
+    std::vector<std::vector<T>> paths;
+    std::unordered_set<T> visited;
+    std::vector<T> path;
+    recursive(source, destination, paths, visited, path, g);
+    return paths;
+}
+
+template<class T>
+void validate(const T& source, const T& destination, Graph<T> g)  {
+    if (g.findVertex(source) == *g.vertexSet.end()) {
+        throw std::out_of_range("The source node does not exist.");
+    }
+    if (g.findVertex(destination) == *g.vertexSet.end()) {
+        throw std::out_of_range("The destination node does not exist.");
+    }
+    if (source == destination) {
+        throw std::invalid_argument("The source and destination cannot be the same.");
+    }
+}
+
 /**
 * @brief Recursive function that finds all paths from a source vertex to a destination vertex in a graph
 *
@@ -262,20 +236,24 @@ Graph<Station*> subgraph(vector<Station*> stations, Station* origem, Station* de
 * @param path Unordered set containing the vertices visited so far
 * @param graph Pointer to the graph being searched
 */
-template<typename T>
-void recursive(T current, T destination, vector<vector<T>>& paths, std::unordered_set<T,GenericHash<T>>  path, Graph<T> *graph) {
-    path.insert(current);
+template<class T>
+void recursive(const T& current, const T& destination, std::vector<std::vector<T>>& paths,
+               std::unordered_set<T>& visited, std::vector<T>& path, Graph<T> g)  {
+    //visited.insert(current);
+    path.push_back(current);
     if (current == destination) {
-        paths.push_back(vector<T>(path.begin(), path.end()));
-        path.erase(current);
-        return;
-    }
-    for (Edge<T> e : g.findVertex(current)->adj) {
-        if (path.count(e.dest->getInfo()) == 0) {
-            recursive(e.dest->getInfo(), destination, paths, path, graph);
+        paths.push_back(path);
+    } else {
+        for (const auto& edge : g.findVertex(current)->adj) {
+            const auto& nextNode = edge.dest;
+
+            if (find(path.begin(),path.end(),nextNode->getInfo()) == path.end()) {
+                recursive(nextNode->getInfo(), destination, paths, visited, path, g);
+            }
         }
     }
-    path.erase(current);
+    //visited.erase(current);
+    path.pop_back();
 }
 
 /**
@@ -290,13 +268,39 @@ void allPath(Station* source, Station* destination, Graph<Station*> *graph){
     int i = 0;
     cout << "size" << v.size() << endl << endl;
     cout << " " << endl;
+    sort( v.begin(), v.end() );
+    v.erase( unique( v.begin(), v.end() ), v.end() );
     for (auto s : v){
         i++;
         cout << endl;
-        cout << "Caminho: " << i << endl;
+        cout << "Caminho: " << i << " (size=" << s.size() << ")" << endl;
         for (auto x : s){
             cout << x->getStationName() << endl;
         }
+
+
+    }
+}
+
+void calculatePrice(Station* source, Station* destination, Graph<Station*> *graph, vector<Network*> *network){
+    vector<vector<Station*>> v = getAllPaths(source, destination, *graph);
+    int i = 0;
+    int sum = 0;
+    sort( v.begin(), v.end() );
+    v.erase( unique( v.begin(), v.end() ), v.end() );
+    for (auto s : v){
+        i++;
+        cout << endl;
+        cout << "Caminho: " << i << " (size=" << s.size() << ")" << endl;
+        for (auto x : s){
+            if (findNetwork(x, *network)->getService() == "STANDARD")
+                sum += 2;
+            else
+                sum += 4;
+            cout << x->getStationName() << endl;
+        }
+        cout << "Price: " << sum << endl;
+        sum = 0;
     }
 }
 
@@ -500,7 +504,7 @@ void option5(vector<Station *> stations, vector <Network*> networks) {
     cout << "Destination station: " << end << std::endl;
     Station *src = findStation(start, stations);
     Station *dest = findStation(end, stations);
-    allPath(src, dest, &g);
+    calculatePrice(src, dest, &g, &networks);
 }
 
 void option6(vector<Station *> stations) {

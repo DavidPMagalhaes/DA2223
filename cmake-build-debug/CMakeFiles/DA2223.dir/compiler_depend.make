@@ -642,7 +642,11 @@ CMakeFiles/DA2223.dir/src/main.cpp.o: /home/bianca/Documents/DA/DA2223/src/main.
   /home/bianca/Documents/DA/DA2223/src/Graph/Edge.h \
   /home/bianca/Documents/DA/DA2223/src/Graph/Graph.h \
   /home/bianca/Documents/DA/DA2223/src/Graph/Vertex.h \
-  /home/bianca/Documents/DA/DA2223/src/Graph/MutablePriorityQueue.h
+  /home/bianca/Documents/DA/DA2223/src/Graph/MutablePriorityQueue.h \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h
 
 CMakeFiles/DA2223.dir/src/readFiles.cpp.o: /home/bianca/Documents/DA/DA2223/src/readFiles.cpp \
   /usr/include/stdc-predef.h \
@@ -891,6 +895,10 @@ CMakeFiles/DA2223.dir/src/readFiles.cpp.o: /home/bianca/Documents/DA/DA2223/src/
 
 
 /home/bianca/Documents/DA/DA2223/src/readFiles.cpp:
+
+/usr/include/c++/11/bits/stl_multiset.h:
+
+/usr/include/c++/11/bits/stl_tree.h:
 
 /home/bianca/Documents/DA/DA2223/src/Graph/MutablePriorityQueue.h:
 
@@ -1310,6 +1318,8 @@ CMakeFiles/DA2223.dir/src/readFiles.cpp.o: /home/bianca/Documents/DA/DA2223/src/
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
+/usr/include/c++/11/bits/stl_set.h:
+
 /usr/include/alloca.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
@@ -1357,6 +1367,8 @@ CMakeFiles/DA2223.dir/src/readFiles.cpp.o: /home/bianca/Documents/DA/DA2223/src/
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 /usr/include/c++/11/bits/ostream_insert.h:
+
+/usr/include/c++/11/set:
 
 /usr/include/c++/11/system_error:
 
